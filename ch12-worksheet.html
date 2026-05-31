@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter 12: The Business Planning Process — Worksheet</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f4f8; color: #1a202c; font-size: 15px; line-height: 1.65; }
+
+  .page-header { background: #003146; color: white; padding: 26px 40px 20px; border-bottom: 5px solid #ffc20e; }
+  .page-header h1 { font-size: 24px; font-weight: 700; font-family: Georgia, serif; margin-bottom: 6px; }
+  .page-header .meta { font-size: 13px; color: #8ac5cf; }
+
+  .instructions { background: #54acb9; color: white; padding: 13px 40px; font-size: 13.5px; }
+  .instructions strong { color: #ffc20e; }
+
+  .main { max-width: 960px; margin: 0 auto; padding: 28px 20px 80px; }
+
+  .section-header {
+    background: #003146; color: white; padding: 10px 18px;
+    border-radius: 6px 6px 0 0; font-size: 15px; font-weight: 700;
+    margin-top: 32px; display: flex; align-items: center; gap: 10px;
+  }
+  .section-body { background: white; border: 1px solid #c9dde2; border-top: none; border-radius: 0 0 6px 6px; padding: 22px; }
+
+  .question { margin-bottom: 26px; padding-bottom: 26px; border-bottom: 1px solid #e8f0f2; }
+  .question:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .q-label { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+  .q-num { background: #54acb9; color: white; font-size: 12px; font-weight: 700; min-width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+  .q-text { font-size: 14.5px; color: #1a202c; flex: 1; }
+
+  /* Page + slide refs */
+  .ref { display: inline-block; background: #eaf6f8; border: 1px solid #8ac5cf; border-radius: 4px; font-size: 11.5px; color: #003146; padding: 1px 7px; margin-top: 5px; font-style: italic; }
+  .ref-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+
+  /* Rubric callout */
+  .rubric-callout { background: #fff8e1; border-left: 4px solid #ffc20e; padding: 8px 12px; font-size: 12.5px; color: #5a3e00; margin-top: 10px; border-radius: 0 5px 5px 0; }
+  .rubric-callout strong { color: #b8720a; }
+
+  textarea { width: 100%; border: 1.5px solid #b8d8de; border-radius: 6px; padding: 10px 12px; font-family: inherit; font-size: 14px; color: #1a202c; resize: vertical; background: #f9fdfd; transition: border-color 0.2s; line-height: 1.6; }
+  textarea:focus { outline: none; border-color: #54acb9; background: white; box-shadow: 0 0 0 3px rgba(84,172,185,0.15); }
+  input[type="text"] { border: 1.5px solid #b8d8de; border-radius: 5px; padding: 6px 10px; font-family: inherit; font-size: 14px; color: #1a202c; background: #f9fdfd; }
+  input[type="text"]:focus { outline: none; border-color: #54acb9; background: white; }
+
+  .mc-options { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
+  .mc-option { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border: 1.5px solid #c9dde2; border-radius: 6px; cursor: pointer; transition: all 0.15s; background: white; }
+  .mc-option:hover { background: #eaf6f8; border-color: #54acb9; }
+  .mc-option input[type="radio"] { accent-color: #54acb9; width: 17px; height: 17px; }
+  .mc-option label { cursor: pointer; font-size: 14px; }
+  .mc-option.selected { background: #eaf6f8; border-color: #54acb9; }
+
+  .fill-table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 13.5px; }
+  .fill-table th { background: #003146; color: white; padding: 9px 12px; text-align: left; font-size: 13px; }
+  .fill-table td { padding: 7px 10px; border: 1px solid #c9dde2; vertical-align: middle; }
+  .fill-table tr:nth-child(even) td { background: #f0f8fa; }
+  .fill-table input[type="text"] { width: 100%; }
+
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
+  .swot-box { border-radius: 6px; overflow: hidden; border: 1.5px solid transparent; }
+  .swot-box.s { border-color: #003146; } .swot-box.w { border-color: #005250; }
+  .swot-box.o { border-color: #028090; } .swot-box.t { border-color: #6aa69b; }
+  .swot-label { padding: 8px 14px; font-size: 13px; font-weight: 700; color: white; letter-spacing: 1px; }
+  .swot-box.s .swot-label { background: #003146; } .swot-box.w .swot-label { background: #005250; }
+  .swot-box.o .swot-label { background: #028090; } .swot-box.t .swot-label { background: #6aa69b; }
+  .swot-textarea { width: 100%; border: none; border-top: 1px solid #c9dde2; padding: 10px; font-size: 13.5px; resize: vertical; background: white; font-family: inherit; min-height: 100px; }
+  .swot-textarea:focus { outline: none; background: #f9fdfd; }
+
+  .hint { background: #f7eee9; border-left: 4px solid #ffc20e; padding: 10px 14px; border-radius: 0 6px 6px 0; font-size: 13px; color: #4a3010; margin-top: 10px; }
+  .hint strong { color: #c07000; }
+
+  .wagoll { background: #eaf6f8; border: 1.5px solid #54acb9; border-radius: 6px; padding: 14px 16px; margin: 10px 0 12px; }
+  .wagoll-title { font-size: 12px; font-weight: 700; color: #003146; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .wagoll-title::before { content: "★  "; color: #ffc20e; }
+  .wagoll p { font-size: 13.5px; color: #1a3540; line-height: 1.65; font-style: italic; }
+  .wagoll .source { font-size: 11.5px; color: #54acb9; margin-top: 6px; font-style: normal; }
+
+  .keyword-bank { background: #eaf6f8; border: 1px solid #8ac5cf; border-radius: 6px; padding: 12px 16px; margin: 10px 0 14px; font-size: 13px; }
+  .keyword-bank strong { color: #003146; display: block; margin-bottom: 6px; }
+  .keyword-bank .words { display: flex; flex-wrap: wrap; gap: 8px; }
+  .keyword-bank .word { background: #003146; color: white; padding: 3px 10px; border-radius: 12px; font-size: 12.5px; }
+
+  .calc-box { background: #f8fdfe; border: 1.5px solid #8ac5cf; border-radius: 6px; padding: 14px 18px; margin: 10px 0; font-size: 14px; color: #003146; }
+  .calc-box .formula { font-weight: bold; font-size: 15px; margin-bottom: 6px; color: #028090; }
+
+  /* Assessment task box */
+  .task-box { background: #003146; color: white; border-radius: 8px; padding: 18px 22px; margin-bottom: 22px; }
+  .task-box h3 { color: #ffc20e; font-size: 15px; margin-bottom: 10px; }
+  .task-box ul { list-style: none; padding: 0; }
+  .task-box ul li { padding: 4px 0; font-size: 13.5px; color: #e2f4f7; padding-left: 18px; position: relative; }
+  .task-box ul li::before { content: "→"; position: absolute; left: 0; color: #54acb9; }
+
+  .submit-bar { position: sticky; bottom: 0; background: #003146; padding: 13px 40px; display: flex; align-items: center; justify-content: space-between; gap: 20px; z-index: 100; border-top: 3px solid #ffc20e; }
+  .submit-bar .student-fields { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .submit-bar label { color: #8ac5cf; font-size: 13px; margin-right: 4px; }
+  .submit-bar input { border: 1px solid #54acb9; background: rgba(255,255,255,0.1); color: white; padding: 6px 12px; border-radius: 5px; font-size: 13px; width: 160px; }
+  .btn-submit { background: #ffc20e; color: #003146; font-weight: 700; font-size: 14px; padding: 10px 28px; border: none; border-radius: 6px; cursor: pointer; white-space: nowrap; }
+  .btn-submit:hover { background: #eca223; }
+
+  @media print { .submit-bar { display: none; } body { background: white; } .main { padding: 10px; } }
+  @media (max-width: 600px) { .page-header { padding: 20px; } .swot-grid { grid-template-columns: 1fr; } .submit-bar { padding: 12px 16px; flex-direction: column; } }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Chapter 12: The Business Planning Process</h1>
+  <div class="meta">Stage 6 Preliminary Business Studies &nbsp;|&nbsp; St Philip's Christian College Gosford</div>
+</div>
+
+<div class="instructions">
+  <strong>How to use this worksheet:</strong> Work through each section using your slides and textbook. Every question shows you which slide and which textbook pages to look at. Your answers save automatically — use the same device the whole way through. When finished: Ctrl+P → Save as PDF → submit on iLearn.
+</div>
+
+<div class="main">
+
+  <!-- ─── ASSESSMENT REMINDER ─── -->
+  <div class="task-box" style="margin-top:24px;">
+    <h3>📋  Your Assessment Task — keep this in mind as you work</h3>
+    <ul>
+      <li>Task 2: Business Plan — 35% — due Thursday 25 June, Week 10, 9pm on iLearn</li>
+      <li>Your plan must be 1,500–3,000 words and cover: business name, product/service, location, legal structure, mission statement, operations, HR, marketing, financial plan, future prospects</li>
+      <li>Marking criteria: Operations /5 · Marketing /5 · Finance /10 · Human Resources /5 · Use of Business Plan /5 · References & Appendices /5</li>
+      <li>Read your full Task 2 notification on iLearn for all requirements and the complete marking rubric</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════
+       PART A — Multiple Choice
+  ══════════════════════════════════ -->
+  <div class="section-header">Part A — Multiple Choice</div>
+  <div class="section-body">
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 3</span><span class="ref">📖 Textbook pp. 499–504</span></div>
+      <div class="q-label">
+        <span class="q-num">1</span>
+        <span class="q-text">What is the correct formula for calculating total revenue?</span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc1" id="mc1a"><label for="mc1a">A. Price × fixed costs</label></div>
+        <div class="mc-option"><input type="radio" name="mc1" id="mc1b"><label for="mc1b">B. Price × quantity sold</label></div>
+        <div class="mc-option"><input type="radio" name="mc1" id="mc1c"><label for="mc1c">C. Fixed costs + variable costs</label></div>
+        <div class="mc-option"><input type="radio" name="mc1" id="mc1d"><label for="mc1d">D. Total costs ÷ quantity sold</label></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 5</span><span class="ref">📖 Textbook pp. 507–508</span></div>
+      <div class="q-label">
+        <span class="q-num">2</span>
+        <span class="q-text">The manager of a surf shop notices that the shop's equipment is outdated and their online reviews have declined. In a SWOT analysis, these would be classified as:</span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc2" id="mc2a"><label for="mc2a">A. External threats</label></div>
+        <div class="mc-option"><input type="radio" name="mc2" id="mc2b"><label for="mc2b">B. External opportunities</label></div>
+        <div class="mc-option"><input type="radio" name="mc2" id="mc2c"><label for="mc2c">C. Internal weaknesses</label></div>
+        <div class="mc-option"><input type="radio" name="mc2" id="mc2d"><label for="mc2d">D. Internal strengths</label></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 6</span><span class="ref">📖 Textbook pp. 509–515</span></div>
+      <div class="q-label">
+        <span class="q-num">3</span>
+        <span class="q-text">The CEO of a food delivery business sets a goal to expand into three new cities within two years. What type of goal is this?</span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc3" id="mc3a"><label for="mc3a">A. Operational objective</label></div>
+        <div class="mc-option"><input type="radio" name="mc3" id="mc3b"><label for="mc3b">B. Tactical objective</label></div>
+        <div class="mc-option"><input type="radio" name="mc3" id="mc3c"><label for="mc3c">C. Strategic goal</label></div>
+        <div class="mc-option"><input type="radio" name="mc3" id="mc3d"><label for="mc3d">D. Vision statement</label></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 8</span><span class="ref">📖 Textbook pp. 521–522</span></div>
+      <div class="q-label">
+        <span class="q-num">4</span>
+        <span class="q-text">A bakery has fixed costs of $40,000, variable costs of $4 per unit and sells each item for $12. What is the break-even quantity?</span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc4" id="mc4a"><label for="mc4a">A. 3,333 units</label></div>
+        <div class="mc-option"><input type="radio" name="mc4" id="mc4b"><label for="mc4b">B. 5,000 units</label></div>
+        <div class="mc-option"><input type="radio" name="mc4" id="mc4c"><label for="mc4c">C. 10,000 units</label></div>
+        <div class="mc-option"><input type="radio" name="mc4" id="mc4d"><label for="mc4d">D. 2,500 units</label></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 8</span><span class="ref">📖 Textbook p. 520</span></div>
+      <div class="q-label">
+        <span class="q-num">5</span>
+        <span class="q-text">Which of the following is an example of a fixed cost?</span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc5" id="mc5a"><label for="mc5a">A. Raw materials used in production</label></div>
+        <div class="mc-option"><input type="radio" name="mc5" id="mc5b"><label for="mc5b">B. Commission paid to sales staff</label></div>
+        <div class="mc-option"><input type="radio" name="mc5" id="mc5c"><label for="mc5c">C. Delivery costs per order</label></div>
+        <div class="mc-option"><input type="radio" name="mc5" id="mc5d"><label for="mc5d">D. Insurance premium</label></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 9</span><span class="ref">📖 Textbook pp. 527–528</span></div>
+      <div class="q-label">
+        <span class="q-num">6</span>
+        <span class="q-text">The process of measuring actual performance against planned performance is known as:</span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc6" id="mc6a"><label for="mc6a">A. Modification</label></div>
+        <div class="mc-option"><input type="radio" name="mc6" id="mc6b"><label for="mc6b">B. Forecasting</label></div>
+        <div class="mc-option"><input type="radio" name="mc6" id="mc6c"><label for="mc6c">C. Monitoring</label></div>
+        <div class="mc-option"><input type="radio" name="mc6" id="mc6d"><label for="mc6d">D. Budgeting</label></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 8</span><span class="ref">📖 Textbook pp. 523–524</span></div>
+      <div class="q-label">
+        <span class="q-num">7</span>
+        <span class="q-text">Use the cash flow table. What is the closing balance for March?
+          <table class="fill-table" style="margin-top:10px;max-width:480px;">
+            <thead><tr><th></th><th>January</th><th>February</th><th>March</th></tr></thead>
+            <tbody>
+              <tr><td>Opening balance ($)</td><td>10,000</td><td>22,000</td><td>?</td></tr>
+              <tr><td>Cash in ($)</td><td>25,000</td><td>35,000</td><td>40,000</td></tr>
+              <tr><td>Cash out ($)</td><td>13,000</td><td>35,000</td><td>45,000</td></tr>
+              <tr><td>Closing balance ($)</td><td>22,000</td><td>?</td><td>?</td></tr>
+            </tbody>
+          </table>
+        </span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc7" id="mc7a"><label for="mc7a">A. $17,000</label></div>
+        <div class="mc-option"><input type="radio" name="mc7" id="mc7b"><label for="mc7b">B. $22,000</label></div>
+        <div class="mc-option"><input type="radio" name="mc7" id="mc7c"><label for="mc7c">C. $0</label></div>
+        <div class="mc-option"><input type="radio" name="mc7" id="mc7d"><label for="mc7d">D. $40,000</label></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 3</span><span class="ref">📖 Textbook p. 499</span></div>
+      <div class="q-label">
+        <span class="q-num">8</span>
+        <span class="q-text">A business plan is best described as:</span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc8" id="mc8a"><label for="mc8a">A. A strict set of rules that cannot be changed once written</label></div>
+        <div class="mc-option"><input type="radio" name="mc8" id="mc8b"><label for="mc8b">B. A written summary and evaluation of the business idea, setting out goals, direction and how to maintain focus</label></div>
+        <div class="mc-option"><input type="radio" name="mc8" id="mc8c"><label for="mc8c">C. A financial document required only by banks when applying for loans</label></div>
+        <div class="mc-option"><input type="radio" name="mc8" id="mc8d"><label for="mc8d">D. A marketing strategy document prepared by the marketing department</label></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 10</span><span class="ref">📖 Textbook pp. 535–536</span></div>
+      <div class="q-label">
+        <span class="q-num">9</span>
+        <span class="q-text">During COVID-19 lockdowns, many restaurants began offering takeaway for the first time. This is an example of:</span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc9" id="mc9a"><label for="mc9a">A. Forecasting</label></div>
+        <div class="mc-option"><input type="radio" name="mc9" id="mc9b"><label for="mc9b">B. Monitoring</label></div>
+        <div class="mc-option"><input type="radio" name="mc9" id="mc9c"><label for="mc9c">C. Corrective action — modification</label></div>
+        <div class="mc-option"><input type="radio" name="mc9" id="mc9d"><label for="mc9d">D. SWOT analysis</label></div>
+      </div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 3</span><span class="ref">📖 Textbook p. 499</span></div>
+      <div class="q-label">
+        <span class="q-num">10</span>
+        <span class="q-text">Which statement best explains why a business plan must remain flexible?</span>
+      </div>
+      <div class="mc-options">
+        <div class="mc-option"><input type="radio" name="mc10" id="mc10a"><label for="mc10a">A. Banks will only approve a loan if the plan changes regularly</label></div>
+        <div class="mc-option"><input type="radio" name="mc10" id="mc10b"><label for="mc10b">B. The internal and external business environment changes, making some performance standards unattainable</label></div>
+        <div class="mc-option"><input type="radio" name="mc10" id="mc10c"><label for="mc10c">C. Employees prefer working without a fixed plan to follow</label></div>
+        <div class="mc-option"><input type="radio" name="mc10" id="mc10d"><label for="mc10d">D. Strategic goals are set by front-line managers who change frequently</label></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       PART B — Short Answer
+  ══════════════════════════════════ -->
+  <div class="section-header" style="margin-top:36px;">Part B — Short Answer</div>
+  <div class="section-body">
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 3</span><span class="ref">📖 Textbook pp. 499–500</span></div>
+      <div class="q-label">
+        <span class="q-num">B1</span>
+        <span class="q-text">Define the term <strong>business plan</strong> in your own words. Then explain one reason why a business owner might fail to prepare one.</span>
+      </div>
+      <textarea id="b1" rows="4" placeholder="A business plan is...&#10;&#10;One reason some owners do not prepare a plan is..."></textarea>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 6</span><span class="ref">📖 Textbook pp. 509–511</span></div>
+      <div class="q-label">
+        <span class="q-num">B2</span>
+        <span class="q-text">Distinguish between a <strong>vision statement</strong>, a <strong>goal</strong> and an <strong>objective</strong>. Include one example of each.</span>
+      </div>
+      <div class="wagoll">
+        <div class="wagoll-title">WAGOLL — What a good answer looks like</div>
+        <p>A vision statement is a broad statement of what the business aspires to become in the future. For example, IKEA's vision is "to create a better everyday life for the many people." A goal is a more specific statement of what the business intends to achieve — for example, to become the market leader in affordable flat-pack furniture in Australia within five years. An objective is the very specific, measurable action needed to achieve that goal — for example, to open three new Australian stores by June next year.</p>
+        <div class="source">Source: Jacaranda Business Studies in Action Preliminary, Ch. 12, pp. 509–511</div>
+      </div>
+      <textarea id="b2" rows="6" placeholder="Vision statement: &#10;&#10;Goal: &#10;&#10;Objective: "></textarea>
+      <div class="rubric-callout"><strong>📋 Rubric link:</strong> Your Task 2 requires a mission statement — this is your vision. Your goals and objectives should run through every section of your plan.</div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 7</span><span class="ref">📖 Textbook pp. 517–518</span></div>
+      <div class="q-label">
+        <span class="q-num">B3</span>
+        <span class="q-text">Outline what an SME owner needs to consider when organising <strong>financial resources</strong> for a new business.</span>
+      </div>
+      <textarea id="b3" rows="5" placeholder="When organising financial resources, the SME owner must consider..."></textarea>
+      <div class="hint"><strong>Hint:</strong> Think about source of funds (personal savings, loans, family), debt vs equity, and government grants. See Textbook p. 518.</div>
+      <div class="rubric-callout"><strong>📋 Rubric link:</strong> Finance /10 — your task requires a list of start-up costs and how they will be funded.</div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 8</span><span class="ref">📖 Textbook pp. 521–522</span></div>
+      <div class="q-label">
+        <span class="q-num">B4</span>
+        <span class="q-text">A smoothie business has fixed costs of $80,000 per year. Each smoothie sells for $10 and costs $4 to produce. <strong>Calculate the break-even quantity</strong> and explain what it means for the owner.</span>
+      </div>
+      <div class="calc-box">
+        <div class="formula">Formula: Q = Total Fixed Costs ÷ (Unit Price − Variable Cost per Unit)</div>
+        Q = $80,000 ÷ ($10 − $4) = $80,000 ÷ $______ = ______ smoothies
+      </div>
+      <textarea id="b4" rows="4" placeholder="Working: &#10;Break-even quantity: &#10;What this means for the owner: "></textarea>
+      <div class="rubric-callout"><strong>📋 Rubric link:</strong> Finance /10 — your plan needs a 12-month sales forecast and a monthly cash flow budget. Break-even figures belong in your financial plan.</div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 8</span><span class="ref">📖 Textbook pp. 523–524</span></div>
+      <div class="q-label">
+        <span class="q-num">B5</span>
+        <span class="q-text">Explain the difference between a <strong>cash flow projection</strong> and a <strong>cash flow statement</strong>. Why is a cash flow projection important for a new SME?</span>
+      </div>
+      <textarea id="b5" rows="5" placeholder="A cash flow projection...&#10;&#10;A cash flow statement...&#10;&#10;It is important for a new SME because..."></textarea>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 9</span><span class="ref">📖 Textbook pp. 527–532</span></div>
+      <div class="q-label">
+        <span class="q-num">B6</span>
+        <span class="q-text">Identify <strong>three areas</strong> a business owner should monitor and evaluate. For each one, explain what they are looking for.</span>
+      </div>
+      <textarea id="b6" rows="6" placeholder="1. Sales — looking for...&#10;&#10;2. Budgets — looking for...&#10;&#10;3. Profit — looking for..."></textarea>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       PART C — Extended Response
+  ══════════════════════════════════ -->
+  <div class="section-header" style="margin-top:36px;">Part C — Extended Response (exam style)</div>
+  <div class="section-body">
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slides 9–10</span><span class="ref">📖 Textbook pp. 529–533</span></div>
+      <div class="q-label">
+        <span class="q-num">C1</span>
+        <span class="q-text"><strong>Discuss</strong> the importance of budgets in the business planning process.<br><br><em>A Discuss question expects you to explain the significance of something and consider more than one point of view.</em></span>
+      </div>
+      <div class="keyword-bank">
+        <strong>Key terms to use:</strong>
+        <div class="words">
+          <span class="word">planning</span><span class="word">monitoring</span><span class="word">actual vs forecast</span>
+          <span class="word">discrepancies</span><span class="word">corrective action</span><span class="word">performance standard</span>
+          <span class="word">profit budget</span><span class="word">cash flow budget</span>
+        </div>
+      </div>
+      <textarea id="c1" rows="10" placeholder="Write your response here. Aim for at least two well-developed points."></textarea>
+      <div class="hint"><strong>Structure:</strong> Point → Explain → Example → Link back to planning.</div>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slides 3–4</span><span class="ref">📖 Textbook pp. 499–504</span></div>
+      <div class="q-label">
+        <span class="q-num">C2</span>
+        <span class="q-text"><strong>Explain</strong> how a small-to-medium enterprise can use a business plan to achieve its goals. Use a real business example in your response.<br><br><em>An Explain question requires you to make something clear by describing how or why.</em></span>
+      </div>
+      <div class="wagoll">
+        <div class="wagoll-title">WAGOLL — Paragraph structure</div>
+        <p>James Eling, owner of Marketing4Restaurants, demonstrates how a business plan can help an SME achieve its goals. Eling uses his business plan as a "road map," drawing up five-year, one-year and 90-day goals which then reveal the missing pieces in his strategy. For example, his plan's analysis of industry, customers and competitors revealed that distribution channels were his biggest hurdle — allowing him to focus effort there and improve performance. Without his plan, Eling admits his company lost focus and went "backwards" for five wasted years, illustrating that a business plan is not merely a document but an active management tool that keeps the owner accountable to their goals.</p>
+        <div class="source">Source: Jacaranda Business Studies in Action Preliminary, Ch. 12, p. 502</div>
+      </div>
+      <textarea id="c2" rows="11" placeholder="Write your response here. Include: what a business plan is, how it helps achieve goals, a real business example, and what happens without one."></textarea>
+    </div>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 8</span><span class="ref">📖 Textbook pp. 520–525</span></div>
+      <div class="q-label">
+        <span class="q-num">C3</span>
+        <span class="q-text"><strong>Analyse</strong> one forecasting tool that an SME owner could use when preparing a business plan.<br><br><em>An Analyse question requires you to identify the parts of something, explain how they work and show the relationships between them — including any limitations.</em></span>
+      </div>
+      <div class="keyword-bank">
+        <strong>Choose one: Break-Even Analysis OR Cash Flow Projection</strong>
+        <div class="words">
+          <span class="word">fixed costs</span><span class="word">variable costs</span><span class="word">total revenue</span>
+          <span class="word">total cost</span><span class="word">profit / loss</span><span class="word">cash inflows</span>
+          <span class="word">cash outflows</span><span class="word">planning tool</span><span class="word">limitations</span>
+        </div>
+      </div>
+      <textarea id="c3" rows="12" placeholder="Forecasting tool chosen: &#10;&#10;Definition: &#10;&#10;How it works (include formula or example): &#10;&#10;How it helps the SME owner plan: &#10;&#10;Limitations or things to be aware of: "></textarea>
+      <div class="rubric-callout"><strong>📋 Rubric link:</strong> Finance /10 — this is the content knowledge behind your financial plan. If you can analyse break-even here, you can calculate it for your own business.</div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════
+       PART D — Apply to Your Business Plan
+  ══════════════════════════════════ -->
+  <div class="section-header" style="margin-top:36px;">Part D — Apply It to Your Business Plan</div>
+  <div class="section-body">
+
+    <p style="margin-bottom:20px;color:#2d5a6b;font-size:14px;">Use your own business idea throughout this section. This work feeds directly into Task 2. The more specific and realistic you are here, the easier the assessment will be.</p>
+
+    <div class="question">
+      <div class="ref-row"><span class="ref">📊 Slide 5</span><span class="ref">📖 Textbook pp. 507–508</span><span class="ref">📋 Task 2 — Business Description section</span></div>
+      <div class="q-label">
+        <span class="q-num">D1</span>
+        <span class="q-text">My business idea: <input type="text" id="bizidea" style="width:300px;" placeholder="e.g. Mobile dog grooming service"><br><br>
+        Complete a <strong>SWOT analysis</strong> for your business idea. Aim for at least three points in each quadrant.</span>
+      </div>
+      <div class="swot-grid">
+        <div class="swot-box s">
+          <div class="swot-label">STRENGTHS — Internal</div>
+          <textarea class="swot-textarea" id="swot_s" placeholder="What does your business do well? What unique resources or skills do you have?"></textarea>
+        </div>
+        <div class="swot-box w">
+          <div class="swot-label">WEAKNESSES — Internal</div>
+          <textarea class="swot-textarea" id="swot_w" placeholder="What gaps or limitations does your business have? What might competitors do better?"></textarea>
+        </div>
+        <div class="swot-box o">
+          <div class="swot-label">OPPORTUNITIES — External</div>
+          <textarea class="swot-textarea" id="swot_o" placeholder="What market trends could you take advantage of? Are there gaps in the local market?"></textarea>
+        </div>
+        <div class="swot-box t">
+          <div class="swot-label">THREATS — External</div>
+          <textarea class="swot-textarea" id="swot_t" placeholder="Who are your competitors? Are there regulations, economic factors or trends that could harm you?"></textarea>
+        </div>
+      </div>
+      <div class="rubric-callout"><strong>📋 Rubric link:</strong> Use of Business Plan /5 · Selection of relevant information /5 — your SWOT should appear in the business description section of your plan.</div>
+    </div>
+
+    <div class="question" style="margin-top:24px;">
+      <div class="ref-row"><span class="ref">📊 Slide 6</span><span class="ref">📖 Textbook pp. 509–510</span><span class="ref">📋 Task 2 — Mission Statement</span></div>
+      <div class="q-label">
+        <span class="q-num">D2</span>
+        <span class="q-text">Write a <strong>mission statement</strong> (vision) for your business. Keep it to one or two sentences — concise, specific and inspiring.</span>
+      </div>
+      <div class="hint"><strong>WAGOLL examples:</strong> "To create a better everyday life for the many people" (IKEA) &nbsp;|&nbsp; "To be one of the world's great service companies, helping our customers, communities and people to prosper and grow" (Westpac)</div>
+      <textarea id="d2" rows="2" placeholder="My business mission: "></textarea>
+    </div>
+
+    <div class="question" style="margin-top:24px;">
+      <div class="ref-row"><span class="ref">📊 Slide 6</span><span class="ref">📖 Textbook pp. 510–511</span><span class="ref">📋 Task 2 — Goals and Objectives</span></div>
+      <div class="q-label">
+        <span class="q-num">D3</span>
+        <span class="q-text">Complete the table for your own business. Write one goal and two objectives that would help achieve it.</span>
+      </div>
+      <table class="fill-table">
+        <thead><tr><th style="width:22%">Level</th><th style="width:42%">Statement for your business</th><th>Who sets it / Timeframe</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Vision</strong></td><td><input type="text" id="t_vision" placeholder="Paste your mission from D2"></td><td><input type="text" placeholder="All stakeholders / Long-term"></td></tr>
+          <tr><td><strong>Strategic Goal</strong></td><td><input type="text" id="t_goal" placeholder="e.g. To become the leading mobile groomer on the Central Coast by 2028"></td><td><input type="text" placeholder="Senior management / 2+ years"></td></tr>
+          <tr><td><strong>Tactical Objective</strong></td><td><input type="text" id="t_tac" placeholder="e.g. To research competitor pricing and services by March"></td><td><input type="text" placeholder="Middle management / months"></td></tr>
+          <tr><td><strong>Operational Objective</strong></td><td><input type="text" id="t_ops" placeholder="e.g. To contact 10 potential clients per week in Month 1"></td><td><input type="text" placeholder="Front-line / days or weeks"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="question" style="margin-top:24px;">
+      <div class="ref-row"><span class="ref">📊 Slide 8</span><span class="ref">📖 Textbook pp. 521–522</span><span class="ref">📋 Task 2 — Financial Plan</span></div>
+      <div class="q-label">
+        <span class="q-num">D4</span>
+        <span class="q-text">Estimate a simple <strong>break-even analysis</strong> for your business. If you are unsure of exact figures, use realistic estimates and explain your reasoning below the table.</span>
+      </div>
+      <table class="fill-table" style="max-width:500px;margin-bottom:12px;">
+        <thead><tr><th>Item</th><th>Your estimate</th></tr></thead>
+        <tbody>
+          <tr><td>Fixed costs (yearly total)</td><td><input type="text" id="be_fc" placeholder="e.g. $12,000"></td></tr>
+          <tr><td>Price per unit / service</td><td><input type="text" id="be_price" placeholder="e.g. $60"></td></tr>
+          <tr><td>Variable cost per unit / service</td><td><input type="text" id="be_vc" placeholder="e.g. $15"></td></tr>
+          <tr><td><strong>Break-even quantity</strong> (calculate: FC ÷ (Price − VC))</td><td><input type="text" id="be_q" placeholder="= ?"></td></tr>
+        </tbody>
+      </table>
+      <textarea id="d4" rows="4" placeholder="Explain what your break-even quantity means. Is it achievable? How many customers per week would this require?"></textarea>
+      <div class="rubric-callout"><strong>📋 Rubric link:</strong> Finance /10 — this calculation should appear in your financial plan alongside your cash flow budget.</div>
+    </div>
+
+    <div class="question" style="margin-top:24px;">
+      <div class="ref-row"><span class="ref">📊 Slide 9</span><span class="ref">📖 Textbook pp. 526–533</span><span class="ref">📋 Task 2 — Future Prospects section</span></div>
+      <div class="q-label">
+        <span class="q-num">D5</span>
+        <span class="q-text">How will you <strong>monitor and evaluate</strong> the success of your business once it opens? Identify two specific performance indicators and explain how you will track them.</span>
+      </div>
+      <textarea id="d5" rows="6" placeholder="Performance indicator 1: &#10;How I will track it: &#10;&#10;Performance indicator 2: &#10;How I will track it: "></textarea>
+    </div>
+
+  </div>
+
+</div><!-- end main -->
+
+<div class="submit-bar">
+  <div class="student-fields">
+    <div><label>Name:</label><input type="text" id="student-name" placeholder="Your full name"></div>
+    <div><label>Class:</label><input type="text" id="student-class" placeholder="e.g. 11BS2" style="width:100px;"></div>
+  </div>
+  <button class="btn-submit" onclick="submitWork()">Save / Print to PDF</button>
+</div>
+
+<script>
+function saveAll() {
+  const ids = ['b1','b2','b3','b4','b5','b6','c1','c2','c3','d2','d4','d5','swot_s','swot_w','swot_o','swot_t','bizidea','t_vision','t_goal','t_tac','t_ops','be_fc','be_price','be_vc','be_q','student-name','student-class'];
+  ids.forEach(id => { const el = document.getElementById(id); if (el) localStorage.setItem('ch12_'+id, el.value); });
+  ['mc1','mc2','mc3','mc4','mc5','mc6','mc7','mc8','mc9','mc10'].forEach(name => {
+    const sel = document.querySelector('input[name="'+name+'"]:checked');
+    if (sel) localStorage.setItem('ch12_'+name, sel.id);
+  });
+}
+function loadAll() {
+  const ids = ['b1','b2','b3','b4','b5','b6','c1','c2','c3','d2','d4','d5','swot_s','swot_w','swot_o','swot_t','bizidea','t_vision','t_goal','t_tac','t_ops','be_fc','be_price','be_vc','be_q','student-name','student-class'];
+  ids.forEach(id => { const val = localStorage.getItem('ch12_'+id); const el = document.getElementById(id); if (val && el) el.value = val; });
+  ['mc1','mc2','mc3','mc4','mc5','mc6','mc7','mc8','mc9','mc10'].forEach(name => {
+    const savedId = localStorage.getItem('ch12_'+name);
+    if (savedId) { const radio = document.getElementById(savedId); if (radio) { radio.checked = true; radio.closest('.mc-option').classList.add('selected'); } }
+  });
+}
+document.querySelectorAll('textarea, input').forEach(el => { el.addEventListener('input', saveAll); el.addEventListener('change', saveAll); });
+document.querySelectorAll('.mc-option').forEach(opt => {
+  opt.addEventListener('click', function() {
+    const name = this.querySelector('input').name;
+    document.querySelectorAll('input[name="'+name+'"]').forEach(r => r.closest('.mc-option').classList.remove('selected'));
+    this.classList.add('selected'); saveAll();
+  });
+});
+function submitWork() {
+  saveAll();
+  const name = document.getElementById('student-name').value || 'Student';
+  alert('Work saved for '+name+'. Use Ctrl+P (or Cmd+P on Mac) → Save as PDF → submit on iLearn.');
+  window.print();
+}
+loadAll();
+</script>
+</body>
+</html>
