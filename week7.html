@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Week 7 — Business Planning Process | Mrs Perkins Business Studies</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#1a3a52;--amber:#f0c060;--yellow:#f5c842;--orange:#e8832a;--teal:#2a9d8f;
+  --lteal:#8ac5cf;--white:#ffffff;--dark:#1a202c;--grey:#64748b;
+}
+body{font-family:'Source Sans 3',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;}
+
+/* ── Nav ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,58,82,0.97);border-bottom:1px solid rgba(255,255,255,0.1);}
+.nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px;}
+.nav-brand{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:var(--amber);text-decoration:none;white-space:nowrap;}
+.nav-links{display:flex;list-style:none;gap:4px;}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;font-weight:600;padding:6px 10px;border-radius:5px;transition:all 0.2s;}
+.nav-links a:hover{color:white;background:rgba(255,255,255,0.1);}
+.nav-accent{height:2px;background:linear-gradient(90deg,var(--yellow),var(--orange),var(--teal));}
+.nav-hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
+.nav-mobile{display:none;flex-direction:column;background:rgba(26,58,82,0.99);border-top:1px solid rgba(255,255,255,0.1);padding:12px 1.5rem 20px;}
+.nav-mobile.open{display:flex;}
+.nav-mobile a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
+.nav-mobile a:last-child{border-bottom:none;}
+
+/* ── Page ── */
+.page{max-width:900px;margin:0 auto;padding:90px 1.5rem 60px;}
+
+.breadcrumb{font-size:12px;color:rgba(255,255,255,0.45);margin-bottom:24px;}
+.breadcrumb a{color:rgba(255,255,255,0.45);text-decoration:none;}
+.breadcrumb a:hover{color:var(--amber);}
+.breadcrumb span{margin:0 6px;}
+
+.week-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--amber);margin-bottom:10px;}
+.week-title{font-family:'Playfair Display',Georgia,serif;font-size:clamp(26px,5vw,42px);font-weight:700;color:var(--white);margin-bottom:8px;}
+.week-sub{font-size:15px;color:rgba(255,255,255,0.6);margin-bottom:36px;line-height:1.6;}
+
+/* ── Info strip ── */
+.info-strip{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.info-pill{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:20px;padding:5px 14px;font-size:12px;color:rgba(255,255,255,0.75);}
+
+/* ── Resource cards ── */
+.resources{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:40px;}
+.resource-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:14px;overflow:hidden;transition:transform 0.2s,background 0.2s;}
+.resource-card:hover{transform:translateY(-3px);background:rgba(255,255,255,0.14);}
+.resource-card-top{padding:5px 20px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+.resource-card-top.slides{background:var(--teal);color:white;}
+.resource-card-top.worksheet{background:var(--navy);border-bottom:2px solid var(--amber);color:var(--amber);}
+.resource-card-body{padding:22px 20px 24px;}
+.resource-icon{font-size:32px;margin-bottom:12px;display:block;}
+.resource-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;margin-bottom:8px;}
+.resource-desc{font-size:13px;color:rgba(255,255,255,0.6);line-height:1.6;margin-bottom:20px;}
+.resource-btn{display:inline-block;padding:10px 22px;border-radius:7px;font-size:13px;font-weight:700;text-decoration:none;transition:all 0.2s;}
+.resource-btn.slides{background:var(--teal);color:white;}
+.resource-btn.slides:hover{background:#239488;}
+.resource-btn.worksheet{background:var(--amber);color:#1a2a00;}
+.resource-btn.worksheet:hover{background:#e8b040;}
+
+/* ── Instructions ── */
+.how-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:22px 24px;margin-bottom:40px;}
+.how-title{font-size:13px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;}
+.how-steps{display:flex;flex-direction:column;gap:10px;}
+.how-step{display:flex;gap:14px;align-items:flex-start;}
+.step-num{background:var(--teal);color:white;font-size:11px;font-weight:700;width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
+.step-text{font-size:13.5px;color:rgba(255,255,255,0.8);line-height:1.55;}
+
+/* ── Assessment reminder ── */
+.assessment-box{background:rgba(240,192,96,0.1);border:1px solid rgba(240,192,96,0.35);border-radius:12px;padding:18px 22px;}
+.assessment-box h3{font-size:13px;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px;}
+.assessment-box p{font-size:13px;color:rgba(255,255,255,0.75);line-height:1.6;}
+
+footer{text-align:center;padding:2rem;font-size:11px;color:rgba(255,255,255,0.25);}
+
+@media(max-width:600px){
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  .resources{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-brand" href="https://mrsperkinsteacher.github.io/business/">Mrs Perkins Business Studies</a>
+    <ul class="nav-links">
+      <li><a href="https://mrsperkinsteacher.github.io/business/">Home</a></li>
+      <li><a href="https://mrsperkinsteacher.github.io/">All Subjects</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-accent"></div>
+  <div class="nav-mobile" id="mobileNav">
+    <a href="https://mrsperkinsteacher.github.io/business/">Home</a>
+    <a href="https://mrsperkinsteacher.github.io/">All Subjects ↗</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="breadcrumb">
+    <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a>
+    <span>›</span> Term 2
+    <span>›</span> Week 7
+  </div>
+
+  <p class="week-label">Term 2 · Week 7</p>
+  <h1 class="week-title">Chapter 12: The Business Planning Process</h1>
+  <p class="week-sub">Work through the slides first, then complete the worksheet. Both connect directly to your Business Plan assessment task due Week 10.</p>
+
+  <div class="info-strip">
+    <span class="info-pill">📖 Jacaranda Ch. 12 pp. 498–540</span>
+    <span class="info-pill">📋 Task 2 due Thursday 25 June</span>
+    <span class="info-pill">💾 Worksheet auto-saves in your browser</span>
+  </div>
+
+  <div class="resources">
+
+    <div class="resource-card">
+      <div class="resource-card-top slides">Slides — start here</div>
+      <div class="resource-card-body">
+        <span class="resource-icon">📊</span>
+        <div class="resource-title">Chapter 12 Slides</div>
+        <p class="resource-desc">11 slides covering the full business planning process. Every slide shows the textbook page reference and connects to your assessment rubric. Opens in PowerPoint Online — no download needed.</p>
+        <a class="resource-btn slides" href="https://studentspccnswedu-my.sharepoint.com/:p:/g/personal/michelle_perkins_spcc_nsw_edu_au/IQCu4e_v2IrGRryuecWS6KEqAQOg_5xbL9sMnkea22crioQ?e=hnNSwl" target="_blank">Open Slides ↗</a>
+      </div>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-card-top worksheet">Worksheet — do this second</div>
+      <div class="resource-card-body">
+        <span class="resource-icon">📝</span>
+        <div class="resource-title">Chapter 12 Worksheet</div>
+        <p class="resource-desc">Four parts: multiple choice, short answer, extended response and your own business plan practice. Answers auto-save. When finished: Ctrl+P → Save as PDF → submit on iLearn.</p>
+        <a class="resource-btn worksheet" href="https://mrsperkinsteacher.github.io/business/ch12-worksheet.html" target="_blank">Open Worksheet ↗</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="how-box">
+    <div class="how-title">How to complete this week's work</div>
+    <div class="how-steps">
+      <div class="how-step"><span class="step-num">1</span><span class="step-text">Click <strong>Open Slides</strong> above. Sign in with your SPCC account if prompted. Work through all 11 slides — use your textbook alongside them.</span></div>
+      <div class="how-step"><span class="step-num">2</span><span class="step-text">Click <strong>Open Worksheet</strong>. Complete all four parts. Use the same device the whole way through — your answers save automatically.</span></div>
+      <div class="how-step"><span class="step-num">3</span><span class="step-text">When finished: press <strong>Ctrl+P</strong> (Windows) or <strong>Cmd+P</strong> (Mac) → choose <strong>Save as PDF</strong> → submit your PDF on iLearn.</span></div>
+    </div>
+  </div>
+
+  <div class="assessment-box">
+    <h3>📋 Assessment Task Reminder</h3>
+    <p>Task 2 — Business Plan — 35% — is due <strong>Thursday 25 June, Week 10, by 9pm on iLearn.</strong> Everything in this week's work feeds directly into your plan. The slides and worksheet both show you exactly which rubric criteria each section connects to.</p>
+  </div>
+
+</div>
+
+<footer>Mrs Perkins · Educational use only</footer>
+
+</body>
+</html>
