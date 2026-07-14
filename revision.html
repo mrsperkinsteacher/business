@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 11 Revision Programme - Mrs Perkins</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lora:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --grad-start: #e8d5c4;
+    --grad-mid: #ddd0e0;
+    --grad-end: #c9cce8;
+    --text-dark: #2d2535;
+    --text-mid: #5a5268;
+    --text-light: #8a849a;
+    --card-bg: rgba(255,255,255,0.82);
+    --card-border: rgba(255,255,255,0.6);
+    --pill-bg: rgba(255,255,255,0.5);
+    --check-color: #9b8bb4;
+    --accent-warm: #c9a98a;
+    --accent-cool: #8f8fc4;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-mid) 50%, var(--grad-end) 100%);
+    background-attachment: fixed;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+  }
+  nav a {
+    color: var(--text-mid);
+    text-decoration: none;
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+    transition: color 0.15s;
+  }
+  nav a:hover { color: var(--text-dark); }
+  nav .sep { color: var(--text-light); font-size: 0.75rem; }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 4rem 1.5rem 3rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+  }
+  .hero-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--text-light);
+    margin: 0 auto 1.5rem;
+    opacity: 0.5;
+  }
+  .hero p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* STICKY PROGRESS */
+  .progress-bar-outer {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.7);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .prog-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-mid);
+    white-space: nowrap;
+  }
+  .prog-track {
+    flex: 1;
+    min-width: 120px;
+    height: 6px;
+    background: rgba(0,0,0,0.08);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+  .prog-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-warm), var(--accent-cool));
+    border-radius: 99px;
+    width: 0%;
+    transition: width 0.4s ease;
+  }
+  .prog-count {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    white-space: nowrap;
+  }
+  .reset-btn {
+    font-size: 0.72rem;
+    color: var(--text-light);
+    background: none;
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 20px;
+    padding: 0.2rem 0.6rem;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .reset-btn:hover { color: var(--text-mid); border-color: var(--text-light); }
+
+  /* WEEK PILLS NAV */
+  .week-pills {
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 1.5rem 1.5rem 0;
+    justify-content: center;
+  }
+  .wpill {
+    background: var(--pill-bg);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.6);
+    color: var(--text-mid);
+    border-radius: 99px;
+    padding: 0.28rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+  }
+  .wpill:hover {
+    background: rgba(255,255,255,0.7);
+    color: var(--text-dark);
+  }
+  .wpill.done {
+    background: rgba(155,139,180,0.2);
+    border-color: rgba(155,139,180,0.4);
+    color: var(--check-color);
+    font-weight: 600;
+  }
+
+  /* TOPIC LABEL */
+  .topic-section {
+    max-width: 860px;
+    margin: 2.5rem auto 0.75rem;
+    padding: 0 1.5rem;
+  }
+  .topic-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+  }
+  .topic-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+  }
+
+  /* WEEK CARD */
+  .week-card {
+    max-width: 860px;
+    margin: 0 auto 1rem;
+    padding: 0 1.5rem;
+  }
+  .week-inner {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(45,37,53,0.06);
+  }
+  .week-header {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1.1rem 1.4rem;
+    cursor: pointer;
+    user-select: none;
+  }
+  .week-chip {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    background: rgba(0,0,0,0.05);
+    border-radius: 6px;
+    padding: 0.2rem 0.55rem;
+    white-space: nowrap;
+  }
+  .week-title-text {
+    flex: 1;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  .week-mini-prog {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    white-space: nowrap;
+  }
+  .week-chevron {
+    color: var(--text-light);
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+  }
+  .week-card.collapsed .week-chevron { transform: rotate(-90deg); }
+  .week-card.collapsed .week-body { display: none; }
+
+  .week-body {
+    padding: 0 1.4rem 1.4rem;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
+
+  /* DAY LABEL */
+  .day-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin: 1.1rem 0 0.4rem;
+  }
+
+  /* TASK ROW */
+  .task-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+  .task-row:last-of-type { border-bottom: none; }
+
+  .task-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 19px;
+    height: 19px;
+    min-width: 19px;
+    border: 1.5px solid rgba(155,139,180,0.5);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 3px;
+    background: rgba(255,255,255,0.6);
+    position: relative;
+    transition: all 0.15s;
+  }
+  .task-check:checked {
+    background: var(--check-color);
+    border-color: var(--check-color);
+  }
+  .task-check:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 7px;
+    height: 11px;
+    border: 2px solid white;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .task-content { flex: 1; }
+  .task-badge {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    padding: 0.1rem 0.45rem;
+    border-radius: 4px;
+    margin-bottom: 0.2rem;
+    background: rgba(0,0,0,0.05);
+    color: var(--text-light);
+  }
+  .task-text {
+    font-size: 0.88rem;
+    color: var(--text-dark);
+    line-height: 1.55;
+  }
+  .task-text.struck {
+    text-decoration: line-through;
+    color: var(--text-light);
+  }
+  .task-time {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    margin-top: 0.1rem;
+  }
+
+  /* ACCOUNTABILITY */
+  .tell-section {
+    margin-top: 1.1rem;
+    background: rgba(255,255,255,0.45);
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+  .tell-heading {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.5rem;
+  }
+  .tell-para {
+    font-size: 0.8rem;
+    color: var(--text-mid);
+    margin-bottom: 0.65rem;
+  }
+  .name-row {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.7rem;
+    flex-wrap: wrap;
+  }
+  .name-row label {
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .name-input {
+    border: 1px solid rgba(0,0,0,0.15);
+    border-radius: 7px;
+    padding: 0.32rem 0.65rem;
+    font-size: 0.82rem;
+    color: var(--text-dark);
+    background: rgba(255,255,255,0.7);
+    width: 190px;
+    font-family: inherit;
+  }
+  .name-input:focus {
+    outline: 2px solid rgba(155,139,180,0.4);
+    border-color: transparent;
+  }
+  .tell-btns {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .tell-btn {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.42rem 0.9rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,0.12);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.15s;
+    font-family: inherit;
+    background: rgba(255,255,255,0.7);
+    color: var(--text-dark);
+  }
+  .tell-btn.primary {
+    background: var(--text-dark);
+    color: white;
+    border-color: transparent;
+  }
+  .tell-btn:hover { opacity: 0.8; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 1rem;
+  }
+  footer a { color: var(--text-mid); text-decoration: none; }
+  footer a:hover { color: var(--text-dark); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0.75rem 1rem; }
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .week-card { padding: 0 0.75rem; }
+    .week-pills { padding: 1rem 0.75rem 0; }
+    .topic-section { padding: 0 0.75rem; }
+    .tell-btns { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/">All Subjects</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Year 11 Preliminary</div>
+  <h1>Revision Programme</h1>
+  <div class="hero-sub">Eight weeks to your exam</div>
+  <div class="hero-rule"></div>
+  <p>Tick each task as you complete it. Your progress saves automatically on this device.</p>
+</div>
+
+<div class="progress-bar-outer">
+  <span class="prog-label">Progress</span>
+  <div class="prog-track"><div class="prog-fill" id="mainFill"></div></div>
+  <span class="prog-count" id="mainCount">0 / 40 tasks</span>
+  <button class="reset-btn" onclick="resetAll()">Clear all</button>
+</div>
+
+<div class="week-pills" id="pillsRow">
+  <a class="wpill" href="#week1">Week 1</a>
+  <a class="wpill" href="#week2">Week 2</a>
+  <a class="wpill" href="#week3">Week 3</a>
+  <a class="wpill" href="#week4">Week 4</a>
+  <a class="wpill" href="#week5">Week 5</a>
+  <a class="wpill" href="#week6">Week 6</a>
+  <a class="wpill" href="#week7">Week 7</a>
+  <a class="wpill" href="#week8">Week 8</a>
+</div>
+
+<!-- ===== TOPIC 1 ===== -->
+<div class="topic-section">
+  <div class="topic-eyebrow">Topic 1 &middot; Weeks 1 to 3</div>
+  <div class="topic-name">Nature of Business</div>
+</div>
+
+<!-- WEEK 1 -->
+<div class="week-card" id="week1">
+ <div class="week-inner">
+  <div class="week-header" onclick="toggleWeek('week1')">
+    <span class="week-chip">Week 1</span>
+    <span class="week-title-text">Role of Business and Types of Business</span>
+    <span class="week-mini-prog" id="week1-prog">0/5</span>
+    <span class="week-chevron">&#9660;</span>
+  </div>
+  <div class="week-body">
+    <div class="day-label">Monday &middot; approx. 15 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="1" data-task="1" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Definitions</span>
+        <div class="task-text">Define in your own words: good, service, profit, entrepreneurship, quality of life.</div>
+        <div class="task-time">About 15 min</div>
+      </div>
+    </div>
+    <div class="day-label">Tuesday &middot; approx. 15 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="1" data-task="2" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Short Answer</span>
+        <div class="task-text">Outline three roles a business plays in society. One clear sentence each.</div>
+        <div class="task-time">About 15 min</div>
+      </div>
+    </div>
+    <div class="day-label">Wednesday &middot; approx. 15 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="1" data-task="3" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Fill the Gap</span>
+        <div class="task-text">Complete: Businesses transform _____ into _____. The reward an owner receives for taking on risk is _____. A business with fewer than 20 employees is classified as a _____ business. A business operating in more than one country is a _____ business.</div>
+        <div class="task-time">About 15 min</div>
+      </div>
+    </div>
+    <div class="day-label">Thursday &middot; approx. 15 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="1" data-task="4" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">True / False</span>
+        <div class="task-text">True or false - give a reason for each: (1) All businesses aim only to make a profit. (2) A local business operates within one suburb, town or region. (3) Innovation means copying a competitor's product.</div>
+        <div class="task-time">About 15 min</div>
+      </div>
+    </div>
+    <div class="day-label">Weekend &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="1" data-task="5" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Case Study</span>
+        <div class="task-text">Read: Maya runs a mobile coffee van at weekend markets in her town. She employs two casual staff and made a small profit last year. Answer: (a) Is Maya's business small or large? Justify. (b) Classify by geographical spread. (c) Explain one way Maya's business contributes to quality of life.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="tell-section">
+      <div class="tell-heading">Tell Mrs Perkins - Week 1</div>
+      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="name-row">
+        <label for="n1">Your name:</label>
+        <input type="text" class="name-input" id="n1" placeholder="First and last name">
+      </div>
+      <div class="tell-btns">
+        <a class="tell-btn primary" href="#" onclick="sendEmail(1,'show',event)">I can show you my work in class</a>
+        <a class="tell-btn" href="#" onclick="sendEmail(1,'head',event)">I completed this in my head / no written work</a>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- WEEK 2 -->
+<div class="week-card collapsed" id="week2">
+ <div class="week-inner">
+  <div class="week-header" onclick="toggleWeek('week2')">
+    <span class="week-chip">Week 2</span>
+    <span class="week-title-text">Industry, Legal Structure and Influences</span>
+    <span class="week-mini-prog" id="week2-prog">0/5</span>
+    <span class="week-chevron">&#9660;</span>
+  </div>
+  <div class="week-body">
+    <div class="day-label">Monday &middot; approx. 15 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="2" data-task="1" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Definitions</span>
+        <div class="task-text">Define the five industry sectors and give one example each: primary, secondary, tertiary, quaternary, quinary.</div>
+        <div class="task-time">About 15 min</div>
+      </div>
+    </div>
+    <div class="day-label">Tuesday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="2" data-task="2" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Short Answer</span>
+        <div class="task-text">Distinguish between a sole trader and a private company in terms of ownership and liability. Use business terminology.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Wednesday &middot; approx. 15 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="2" data-task="3" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Fill the Gap</span>
+        <div class="task-text">Complete: The three main factors influencing choice of legal structure are _____, _____ and _____. Economic, legal and technological factors are examples of _____ influences. Products, location, resources and business culture are examples of _____ influences.</div>
+        <div class="task-time">About 15 min</div>
+      </div>
+    </div>
+    <div class="day-label">Thursday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="2" data-task="4" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">True / False</span>
+        <div class="task-text">True or false - give a reason: (1) A public company can sell its shares to the general public on the ASX. (2) Stakeholders are only the owners of a business. (3) Technological change is an internal influence on a business.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Weekend &middot; approx. 25 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="2" data-task="5" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Case Study</span>
+        <div class="task-text">Read: Nguyen Family Bakery is a partnership run by three siblings. A new supermarket has opened nearby, interest rates have risen, and the council has changed footpath trading rules. Staff morale is high and the shop has a strong local reputation. Answer: (a) Identify two external influences and classify each. (b) Identify one internal influence. (c) Explain how one external influence could affect the bakery's performance.</div>
+        <div class="task-time">About 25 min</div>
+      </div>
+    </div>
+    <div class="tell-section">
+      <div class="tell-heading">Tell Mrs Perkins - Week 2</div>
+      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="name-row">
+        <label for="n2">Your name:</label>
+        <input type="text" class="name-input" id="n2" placeholder="First and last name">
+      </div>
+      <div class="tell-btns">
+        <a class="tell-btn primary" href="#" onclick="sendEmail(2,'show',event)">I can show you my work in class</a>
+        <a class="tell-btn" href="#" onclick="sendEmail(2,'head',event)">I completed this in my head / no written work</a>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- WEEK 3 -->
+<div class="week-card collapsed" id="week3">
+ <div class="week-inner">
+  <div class="week-header" onclick="toggleWeek('week3')">
+    <span class="week-chip">Week 3</span>
+    <span class="week-title-text">Business Growth and Decline</span>
+    <span class="week-mini-prog" id="week3-prog">0/5</span>
+    <span class="week-chevron">&#9660;</span>
+  </div>
+  <div class="week-body">
+    <div class="day-label">Monday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="3" data-task="1" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Definitions</span>
+        <div class="task-text">Define each stage of the business life cycle and place them in the correct order: growth, establishment, post-maturity, maturity.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Tuesday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="3" data-task="2" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Short Answer</span>
+        <div class="task-text">Outline the three possible outcomes at the post-maturity stage of the business life cycle.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Wednesday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="3" data-task="3" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Fill the Gap</span>
+        <div class="task-text">Complete: The four stages of the business life cycle are _____, _____, _____ and _____. When a business voluntarily closes it is _____ cessation. When forced to close by creditors or a court it is _____ cessation. The process of selling a company's assets to pay its debts is called _____.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Thursday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="3" data-task="4" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">True / False</span>
+        <div class="task-text">True or false - give a reason: (1) Decline is always permanent and cannot be reversed. (2) Voluntary cessation may occur when an owner decides to retire. (3) Poor cash flow management can contribute to business decline.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Weekend &middot; approx. 25 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="3" data-task="5" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Exam Style (6 marks)</span>
+        <div class="task-text">Describe the challenges a business faces at the establishment stage and outline one strategy to respond to them. Write in full sentences using business terminology.</div>
+        <div class="task-time">About 25 min</div>
+      </div>
+    </div>
+    <div class="tell-section">
+      <div class="tell-heading">Tell Mrs Perkins - Week 3</div>
+      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="name-row">
+        <label for="n3">Your name:</label>
+        <input type="text" class="name-input" id="n3" placeholder="First and last name">
+      </div>
+      <div class="tell-btns">
+        <a class="tell-btn primary" href="#" onclick="sendEmail(3,'show',event)">I can show you my work in class</a>
+        <a class="tell-btn" href="#" onclick="sendEmail(3,'head',event)">I completed this in my head / no written work</a>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- ===== TOPIC 2 ===== -->
+<div class="topic-section">
+  <div class="topic-eyebrow">Topic 2 &middot; Weeks 4 to 6</div>
+  <div class="topic-name">Business Planning</div>
+</div>
+
+<!-- WEEK 4 -->
+<div class="week-card collapsed" id="week4">
+ <div class="week-inner">
+  <div class="week-header" onclick="toggleWeek('week4')">
+    <span class="week-chip">Week 4</span>
+    <span class="week-title-text">SMEs and Establishing a Business</span>
+    <span class="week-mini-prog" id="week4-prog">0/5</span>
+    <span class="week-chevron">&#9660;</span>
+  </div>
+  <div class="week-body">
+    <div class="day-label">Monday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="4" data-task="1" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Definitions</span>
+        <div class="task-text">Define: SME, franchise, goodwill, competitive advantage.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Tuesday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="4" data-task="2" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Short Answer</span>
+        <div class="task-text">Outline the economic contribution of SMEs in Australia. Include their share of businesses, employment figures and contribution to GDP.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Wednesday &middot; approx. 25 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="4" data-task="3" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Case Study</span>
+        <div class="task-text">Read: Priya has 12 years experience as a chef and wants to open her own restaurant. She is deciding between starting from scratch, buying an existing restaurant, or joining a franchise. Answer: (a) Identify the three establishment options. (b) Explain one advantage and one disadvantage of buying a franchise. (c) Identify one personal quality that suits Priya to running a business.</div>
+        <div class="task-time">About 25 min</div>
+      </div>
+    </div>
+    <div class="day-label">Thursday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="4" data-task="4" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">True / False</span>
+        <div class="task-text">True or false - give a reason: (1) Buying an existing business means you must build a customer base from nothing. (2) Personal qualities such as motivation and entrepreneurship influence the success of a new SME. (3) Professional advisers such as accountants and solicitors are useful sources of information when establishing a business.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Weekend &middot; approx. 25 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="4" data-task="5" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Exam Style (5 marks)</span>
+        <div class="task-text">Explain how personal qualities and sources of information influence the establishment of a small business. Write in full sentences using business terminology.</div>
+        <div class="task-time">About 25 min</div>
+      </div>
+    </div>
+    <div class="tell-section">
+      <div class="tell-heading">Tell Mrs Perkins - Week 4</div>
+      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="name-row">
+        <label for="n4">Your name:</label>
+        <input type="text" class="name-input" id="n4" placeholder="First and last name">
+      </div>
+      <div class="tell-btns">
+        <a class="tell-btn primary" href="#" onclick="sendEmail(4,'show',event)">I can show you my work in class</a>
+        <a class="tell-btn" href="#" onclick="sendEmail(4,'head',event)">I completed this in my head / no written work</a>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- WEEK 5 -->
+<div class="week-card collapsed" id="week5">
+ <div class="week-inner">
+  <div class="week-header" onclick="toggleWeek('week5')">
+    <span class="week-chip">Week 5</span>
+    <span class="week-title-text">Influences on Establishing a Business and Planning Process</span>
+    <span class="week-mini-prog" id="week5-prog">0/5</span>
+    <span class="week-chevron">&#9660;</span>
+  </div>
+  <div class="week-body">
+    <div class="day-label">Monday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="5" data-task="1" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Definitions</span>
+        <div class="task-text">Define: situational analysis, SWOT analysis, vision, business goal.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Tuesday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="5" data-task="2" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Fill the Gap</span>
+        <div class="task-text">Complete: A SWOT analysis examines internal _____ and _____ and external _____ and _____. Two examples of federal taxes a business may pay are _____ and _____. Wage costs are a _____ cost of employing staff, while superannuation and training are _____ costs.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Wednesday &middot; approx. 25 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="5" data-task="3" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Case Study</span>
+        <div class="task-text">Read: Sam plans to open a gym. SWOT: strong local demand (opportunity), limited savings (weakness), new competitor opening soon (threat), fitness qualifications (strength). He must also register a business name, choose a location and meet health and safety regulations. Answer: (a) Categorise each SWOT item. (b) Identify two legal requirements. (c) Outline one source of finance for the fit-out.</div>
+        <div class="task-time">About 25 min</div>
+      </div>
+    </div>
+    <div class="day-label">Thursday &middot; approx. 20 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="5" data-task="4" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Short Answer</span>
+        <div class="task-text">Distinguish between a vision and a business goal. Give an example of each for an imaginary business of your choice.</div>
+        <div class="task-time">About 20 min</div>
+      </div>
+    </div>
+    <div class="day-label">Weekend &middot; approx. 30 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="5" data-task="5" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Exam Style (6 marks)</span>
+        <div class="task-text">Explain why a situational analysis, including a SWOT analysis, is an important first step in the business planning process. Write in full sentences using business terminology.</div>
+        <div class="task-time">About 30 min</div>
+      </div>
+    </div>
+    <div class="tell-section">
+      <div class="tell-heading">Tell Mrs Perkins - Week 5</div>
+      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="name-row">
+        <label for="n5">Your name:</label>
+        <input type="text" class="name-input" id="n5" placeholder="First and last name">
+      </div>
+      <div class="tell-btns">
+        <a class="tell-btn primary" href="#" onclick="sendEmail(5,'show',event)">I can show you my work in class</a>
+        <a class="tell-btn" href="#" onclick="sendEmail(5,'head',event)">I completed this in my head / no written work</a>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- WEEK 6 -->
+<div class="week-card collapsed" id="week6">
+ <div class="week-inner">
+  <div class="week-header" onclick="toggleWeek('week6')">
+    <span class="week-chip">Week 6</span>
+    <span class="week-title-text">Business Planning Process and Success and Failure</span>
+    <span class="week-mini-prog" id="week6-prog">0/5</span>
+    <span class="week-chevron">&#9660;</span>
+  </div>
+  <div class="week-body">
+    <div class="day-label">Monday &middot; approx. 25 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="6" data-task="1" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Definition and Calculation</span>
+        <div class="task-text">Define break-even point. Then calculate: A business has fixed costs of $12,000, sells its product for $50 and has variable costs of $30 per unit. How many units must it sell to break even? Show your working.</div>
+        <div class="task-time">About 25 min</div>
+      </div>
+    </div>
+    <div class="day-label">Tuesday &middot; approx. 25 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="6" data-task="2" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Short Answer</span>
+        <div class="task-text">Outline the four types of resources a business must organise when planning. Give one example of each: operations, marketing, finance, human resources.</div>
+        <div class="task-time">About 25 min</div>
+      </div>
+    </div>
+    <div class="day-label">Wednesday &middot; approx. 25 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="6" data-task="3" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Fill the Gap</span>
+        <div class="task-text">Complete: Forecasting includes estimating total _____ and total _____, and performing a _____ analysis. Monitoring and evaluation checks actual _____, _____ and _____ against the plan. When results are off track, management takes _____ action.</div>
+        <div class="task-time">About 25 min</div>
+      </div>
+    </div>
+    <div class="day-label">Thursday &middot; approx. 25 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="6" data-task="4" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">True / False</span>
+        <div class="task-text">True or false - give a reason: (1) A business plan is only useful when applying for finance. (2) Over-extending finance and other resources can cause a business to fail. (3) Trend analysis involves looking at data over time to identify patterns.</div>
+        <div class="task-time">About 25 min</div>
+      </div>
+    </div>
+    <div class="day-label">Weekend &middot; approx. 30 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="6" data-task="5" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Exam Style (8 marks)</span>
+        <div class="task-text">Discuss the critical issues that contribute to the success or failure of a small business. Include a range of issues and link each clearly to success or failure.</div>
+        <div class="task-time">About 30 min</div>
+      </div>
+    </div>
+    <div class="tell-section">
+      <div class="tell-heading">Tell Mrs Perkins - Week 6</div>
+      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="name-row">
+        <label for="n6">Your name:</label>
+        <input type="text" class="name-input" id="n6" placeholder="First and last name">
+      </div>
+      <div class="tell-btns">
+        <a class="tell-btn primary" href="#" onclick="sendEmail(6,'show',event)">I can show you my work in class</a>
+        <a class="tell-btn" href="#" onclick="sendEmail(6,'head',event)">I completed this in my head / no written work</a>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- ===== TOPIC 3 ===== -->
+<div class="topic-section">
+  <div class="topic-eyebrow">Topic 3 &middot; Weeks 7 to 8</div>
+  <div class="topic-name">Business Management</div>
+</div>
+
+<!-- WEEK 7 -->
+<div class="week-card collapsed" id="week7">
+ <div class="week-inner">
+  <div class="week-header" onclick="toggleWeek('week7')">
+    <span class="week-chip">Week 7</span>
+    <span class="week-title-text">Nature of Management and Management Approaches</span>
+    <span class="week-mini-prog" id="week7-prog">0/5</span>
+    <span class="week-chevron">&#9660;</span>
+  </div>
+  <div class="week-body">
+    <div class="day-label">Monday &middot; approx. 30 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="7" data-task="1" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Definitions</span>
+        <div class="task-text">Define: management, interpersonal skills, strategic thinking, market share.</div>
+        <div class="task-time">About 30 min</div>
+      </div>
+    </div>
+    <div class="day-label">Tuesday &middot; approx. 30 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="7" data-task="2" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Short Answer</span>
+        <div class="task-text">Outline four skills of an effective manager and explain why each is useful. Choose from: interpersonal, communication, strategic thinking, vision, problem-solving, decision-making, flexibility, adaptability to change.</div>
+        <div class="task-time">About 30 min</div>
+      </div>
+    </div>
+    <div class="day-label">Wednesday &middot; approx. 30 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="7" data-task="3" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Case Study</span>
+        <div class="task-text">Read: At Delta Print, the owner makes all decisions and closely supervises staff. At rival Vero Design, managers work in teams and encourage new ideas. Answer: (a) Identify the leadership style and management approach at Delta Print. (b) Identify the leadership style and approach at Vero Design. (c) Explain one benefit of Vero's approach.</div>
+        <div class="task-time">About 30 min</div>
+      </div>
+    </div>
+    <div class="day-label">Thursday &middot; approx. 30 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="7" data-task="4" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Fill the Gap and True / False</span>
+        <div class="task-text">Fill the gap: The three management approaches are the _____ approach, the _____ approach and the _____ approach. The contingency approach means management _____ its style to suit changing _____. Then true or false with justification: Business goals can include social and environmental goals as well as profit.</div>
+        <div class="task-time">About 30 min</div>
+      </div>
+    </div>
+    <div class="day-label">Weekend &middot; approx. 35 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="7" data-task="5" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Exam Style (8 marks)</span>
+        <div class="task-text">Compare the classical and behavioural approaches to management. Cover: view of management, structure, leadership style, view of employees. Include a brief comment on when each is most useful.</div>
+        <div class="task-time">About 35 min</div>
+      </div>
+    </div>
+    <div class="tell-section">
+      <div class="tell-heading">Tell Mrs Perkins - Week 7</div>
+      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="name-row">
+        <label for="n7">Your name:</label>
+        <input type="text" class="name-input" id="n7" placeholder="First and last name">
+      </div>
+      <div class="tell-btns">
+        <a class="tell-btn primary" href="#" onclick="sendEmail(7,'show',event)">I can show you my work in class</a>
+        <a class="tell-btn" href="#" onclick="sendEmail(7,'head',event)">I completed this in my head / no written work</a>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<!-- WEEK 8 -->
+<div class="week-card collapsed" id="week8">
+ <div class="week-inner">
+  <div class="week-header" onclick="toggleWeek('week8')">
+    <span class="week-chip">Week 8</span>
+    <span class="week-title-text">Key Business Functions and Managing Change</span>
+    <span class="week-mini-prog" id="week8-prog">0/5</span>
+    <span class="week-chevron">&#9660;</span>
+  </div>
+  <div class="week-body">
+    <div class="day-label">Monday &middot; approx. 30 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="8" data-task="1" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Definitions</span>
+        <div class="task-text">Define: cash flow statement, income statement, balance sheet, recruitment.</div>
+        <div class="task-time">About 30 min</div>
+      </div>
+    </div>
+    <div class="day-label">Tuesday &middot; approx. 35 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="8" data-task="2" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Short Answer</span>
+        <div class="task-text">Distinguish between the income statement and the balance sheet. What does each show? What time period does each cover?</div>
+        <div class="task-time">About 35 min</div>
+      </div>
+    </div>
+    <div class="day-label">Wednesday &middot; approx. 35 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="8" data-task="3" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Case Study</span>
+        <div class="task-text">Read: TechFix wants to introduce new booking software. Some staff are anxious and resistant. The manager holds meetings, provides training, sets realistic targets and brings in a consultant. Answer: (a) Identify two strategies the manager used to manage change. (b) Explain why staff might resist. (c) Outline the role of a management consultant here.</div>
+        <div class="task-time">About 35 min</div>
+      </div>
+    </div>
+    <div class="day-label">Thursday &middot; approx. 35 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="8" data-task="4" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">True / False</span>
+        <div class="task-text">True or false - give a reason: (1) The marketing mix refers only to advertising. (2) Ethical business behaviour means acting honestly and responsibly beyond simply obeying the law. (3) Setting achievable goals helps a business manage change effectively.</div>
+        <div class="task-time">About 35 min</div>
+      </div>
+    </div>
+    <div class="day-label">Weekend &middot; approx. 40 min</div>
+    <div class="task-row">
+      <input type="checkbox" class="task-check" data-week="8" data-task="5" onchange="handleCheck(this)">
+      <div class="task-content">
+        <span class="task-badge">Exam Style (10 marks)</span>
+        <div class="task-text">Explain how a business can manage change effectively in response to internal and external influences. Refer to: identifying the need for change, setting achievable goals, and overcoming resistance to change. Use business terminology and include a brief example.</div>
+        <div class="task-time">About 40 min</div>
+      </div>
+    </div>
+    <div class="tell-section">
+      <div class="tell-heading">Tell Mrs Perkins - Week 8</div>
+      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="name-row">
+        <label for="n8">Your name:</label>
+        <input type="text" class="name-input" id="n8" placeholder="First and last name">
+      </div>
+      <div class="tell-btns">
+        <a class="tell-btn primary" href="#" onclick="sendEmail(8,'show',event)">I can show you my work in class</a>
+        <a class="tell-btn" href="#" onclick="sendEmail(8,'head',event)">I completed this in my head / no written work</a>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+
+<footer>
+  Year 11 Preliminary Business Studies &middot; Educational use only<br>
+  <a href="https://mrsperkinsteacher.github.io/business/">Mrs Perkins Business Studies</a> &middot; <a href="https://mrsperkinsteacher.github.io/">All subjects</a>
+</footer>
+
+<script>
+  const STORE = 'yr11biz_v2';
+
+  function getState() {
+    try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch(e) { return {}; }
+  }
+  function saveState(s) {
+    try { localStorage.setItem(STORE, JSON.stringify(s)); } catch(e) {}
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const s = getState();
+    document.querySelectorAll('.task-check').forEach(cb => {
+      const k = `w${cb.dataset.week}_t${cb.dataset.task}`;
+      if (s[k]) { cb.checked = true; strikeText(cb, true); }
+    });
+    updateProgress();
+  });
+
+  function handleCheck(cb) {
+    const s = getState();
+    s[`w${cb.dataset.week}_t${cb.dataset.task}`] = cb.checked;
+    saveState(s);
+    strikeText(cb, cb.checked);
+    updateProgress();
+  }
+
+  function strikeText(cb, on) {
+    const t = cb.closest('.task-row').querySelector('.task-text');
+    t.classList.toggle('struck', on);
+  }
+
+  function updateProgress() {
+    const s = getState();
+    let total = 0, done = 0;
+    const pills = document.querySelectorAll('.wpill');
+    for (let w = 1; w <= 8; w++) {
+      let wd = 0;
+      for (let t = 1; t <= 5; t++) { total++; if (s[`w${w}_t${t}`]) { done++; wd++; } }
+      const p = document.getElementById(`week${w}-prog`);
+      if (p) p.textContent = `${wd}/5`;
+      if (pills[w-1]) pills[w-1].classList.toggle('done', wd === 5);
+    }
+    const pct = Math.round(done/total*100);
+    document.getElementById('mainFill').style.width = pct + '%';
+    document.getElementById('mainCount').textContent = `${done} / ${total} tasks`;
+  }
+
+  function toggleWeek(id) {
+    document.getElementById(id).classList.toggle('collapsed');
+  }
+
+  function sendEmail(week, type, e) {
+    e.preventDefault();
+    const inp = document.getElementById(`n${week}`);
+    const name = inp ? inp.value.trim() : '';
+    if (!name) {
+      inp.style.outline = '2px solid #c9a98a';
+      inp.focus();
+      setTimeout(() => inp.style.outline = '', 2000);
+      return;
+    }
+    const to = 'michelle.perkins@spcc.nsw.edu.au';
+    const sub = encodeURIComponent(`Year 11 Revision - Week ${week} - ${name}`);
+    const bod = type === 'show'
+      ? encodeURIComponent(`Hi Mrs Perkins,\n\nI have completed Week ${week} of the revision programme.\n\nI can show you my written work in class.\n\nFrom ${name}`)
+      : encodeURIComponent(`Hi Mrs Perkins,\n\nI have completed Week ${week} of the revision programme.\n\nI did the work in my head and do not have written work to show you.\n\nFrom ${name}`);
+    window.location.href = `mailto:${to}?subject=${sub}&body=${bod}`;
+  }
+
+  function resetAll() {
+    if (!confirm('Clear all ticked tasks? This cannot be undone.')) return;
+    localStorage.removeItem(STORE);
+    document.querySelectorAll('.task-check').forEach(cb => { cb.checked = false; strikeText(cb, false); });
+    updateProgress();
+  }
+</script>
+</body>
+</html>
