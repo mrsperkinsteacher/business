@@ -21,6 +21,7 @@
     --accent-cool: #8f8fc4;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { overflow-x: hidden; }
   body {
     font-family: 'Inter', system-ui, sans-serif;
     min-height: 100vh;
@@ -66,8 +67,8 @@
   .topic-section { max-width: 860px; margin: 2.5rem auto 0.75rem; padding: 0 1.5rem; }
   .topic-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.25rem; }
   .topic-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--text-dark); }
-  .week-card { max-width: 860px; margin: 0 auto 1rem; padding: 0 1.5rem; }
-  .week-inner { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 20px rgba(45,37,53,0.06); }
+  .week-card { max-width: 860px; margin: 0 auto 1rem; padding: 0 1.5rem; box-sizing: border-box; }
+  .week-inner { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 20px rgba(45,37,53,0.06); width: 100%; }
   .week-header { display: flex; align-items: center; gap: 0.85rem; padding: 1.1rem 1.4rem; cursor: pointer; user-select: none; }
   .week-chip { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); background: rgba(0,0,0,0.05); border-radius: 6px; padding: 0.2rem 0.55rem; white-space: nowrap; }
   .week-title-text { flex: 1; font-size: 0.95rem; font-weight: 600; color: var(--text-dark); }
@@ -75,9 +76,9 @@
   .week-chevron { color: var(--text-light); font-size: 0.8rem; transition: transform 0.2s; }
   .week-card.collapsed .week-chevron { transform: rotate(-90deg); }
   .week-card.collapsed .week-body { display: none; }
-  .week-body { padding: 0.25rem 1.4rem 1.4rem; border-top: 1px solid rgba(0,0,0,0.05); }
-  .day-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin: 1.25rem 0 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
-  .task-row { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .week-body { padding: 0 1.4rem 1.4rem; border-top: 1px solid rgba(0,0,0,0.05); }
+  .day-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin: 1.25rem 0 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(0,0,0,0.05); display: block; width: 100%; }
+  .task-row { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); width: 100%; }
   .task-row:last-of-type { border-bottom: none; }
   .task-check { appearance: none; -webkit-appearance: none; width: 19px; height: 19px; min-width: 19px; border: 1.5px solid rgba(155,139,180,0.5); border-radius: 5px; cursor: pointer; margin-top: 3px; background: rgba(255,255,255,0.6); position: relative; transition: all 0.15s; }
   .task-check:checked { background: var(--check-color); border-color: var(--check-color); }
