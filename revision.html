@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Year 11 Revision Programme - Mrs Perkins</title>
+<title>Year 11 Revision Program - Mrs Perkins</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lora:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -75,9 +75,9 @@
   .week-chevron { color: var(--text-light); font-size: 0.8rem; transition: transform 0.2s; }
   .week-card.collapsed .week-chevron { transform: rotate(-90deg); }
   .week-card.collapsed .week-body { display: none; }
-  .week-body { padding: 0 1.4rem 1.4rem; border-top: 1px solid rgba(0,0,0,0.05); }
-  .day-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin: 1.1rem 0 0.4rem; }
-  .task-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.55rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
+  .week-body { padding: 0.25rem 1.4rem 1.4rem; border-top: 1px solid rgba(0,0,0,0.05); }
+  .day-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin: 1.25rem 0 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(0,0,0,0.05); }
+  .task-row { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
   .task-row:last-of-type { border-bottom: none; }
   .task-check { appearance: none; -webkit-appearance: none; width: 19px; height: 19px; min-width: 19px; border: 1.5px solid rgba(155,139,180,0.5); border-radius: 5px; cursor: pointer; margin-top: 3px; background: rgba(255,255,255,0.6); position: relative; transition: all 0.15s; }
   .task-check:checked { background: var(--check-color); border-color: var(--check-color); }
@@ -131,8 +131,11 @@
     nav { padding: 0.75rem 1rem; }
     .hero { padding: 2.5rem 1rem 2rem; }
     .week-card { padding: 0 0.75rem; }
+    .week-body { padding: 0.25rem 1rem 1.25rem; }
+    .week-header { padding: 1rem; }
     .week-pills { padding: 1rem 0.75rem 0; }
     .topic-section { padding: 0 0.75rem; }
+    .tell-section { padding: 0.85rem 0.85rem; }
   }
 </style>
 </head>
@@ -150,7 +153,7 @@
 
 <div class="hero">
   <div class="hero-eyebrow">Year 11 Preliminary</div>
-  <h1>Revision Programme</h1>
+  <h1>Revision Program</h1>
   <div class="hero-sub">Eight weeks to your exam</div>
   <div class="hero-rule"></div>
   <p>Tick each task as you complete it. Your progress saves automatically on this device.</p>
@@ -181,7 +184,7 @@
 </div>
 
 <!-- WEEK 1 -->
-<div class="week-card" id="week1">
+<div class="week-card collapsed" id="week1">
  <div class="week-inner">
   <div class="week-header" onclick="toggleWeek('week1')">
     <span class="week-chip">Week 1</span>
@@ -193,7 +196,7 @@
 
     <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
       <strong style="color:var(--text-dark);">How this week works</strong><br>
-      Each task tells you whether to work <strong>on screen</strong> or <strong>in your revision book</strong>. Where you see a model answer button — write your answer in your book first, then check. Opening the model before you write defeats the purpose.
+      Each task tells you whether to work <strong>on screen</strong> or <strong>in your revision book</strong>. Where you see a model answer button - write your answer in your book first, then check. Opening the model before you write defeats the purpose.
     </div>
 
     <div class="day-label">Monday &middot; 15 min &middot; Quick-fire classification</div>
@@ -264,11 +267,11 @@
       <div class="task-content">
         <span class="task-badge">HSC Style</span>
         <div class="task-text">
-          <strong>Book only — read the questions here, then close the laptop and write in your revision book as if it is an exam</strong><br><br>
+          <strong>Book only - read the questions here, then close the laptop and write in your revision book as if it is an exam</strong><br><br>
           Pay close attention to the command verb before you start writing.<br><br>
-          <strong>Question 1 (3 marks) — Outline</strong><br>
+          <strong>Question 1 (3 marks) - Outline</strong><br>
           Outline the difference between a <strong>local</strong> business and a <strong>national</strong> business. Use one example of each in your answer.<br><br>
-          <strong>Question 2 (3 marks) — Explain</strong><br>
+          <strong>Question 2 (3 marks) - Explain</strong><br>
           Explain how a business can contribute to <strong>wealth creation</strong> in an economy.<br><br>
           <em>Outline = sketch the main features clearly and concisely. Explain = give reasons and show cause and effect. An outline is shorter and broader; an explain goes deeper into the why and how.</em>
         </div>
@@ -284,11 +287,11 @@
       <div class="task-content">
         <span class="task-badge">Exam Practice</span>
         <div class="task-text">
-          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
-          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book. This is as close to your real exam as homework gets.<br><br>
+          <strong>Exam simulation - set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs - just this page and your revision book. Write all answers in your book. This is as close to your real exam as homework gets.<br><br>
           <em>Zara worked for ten years as a pastry chef in a large hotel chain before deciding to open her own patisserie in a beachside suburb of Sydney. She invested $80,000 of her savings and took out a $40,000 small business loan. In the first year she employed two casual staff and made a small loss. By year two, her products were being stocked by three local cafes and a small specialty grocer. She now employs five full-time staff and has just launched an online delivery service, sending orders across New South Wales and the ACT. She is considering opening a second store in Melbourne.</em><br><br>
           (a) Identify the current <strong>size classification</strong> of Zara's business. Justify using ABS criteria. (2 marks)<br><br>
-          (b) Classify Zara's business by <strong>geographical spread</strong> at TWO different points in time — when it first opened, and now. (2 marks)<br><br>
+          (b) Classify Zara's business by <strong>geographical spread</strong> at TWO different points in time - when it first opened, and now. (2 marks)<br><br>
           (c) Outline the <strong>risks</strong> Zara took when establishing her business. (3 marks)<br><br>
           (d) Explain how Zara's patisserie contributes to <strong>TWO</strong> different roles of business. Use evidence from the stimulus. (6 marks)<br><br>
           <em>Suggested split: 5 min reading the stimulus, 5 min on (a) and (b), 8 min on (c), 15 min on (d), 7 min re-reading and improving. Timer starts now.</em>
@@ -300,7 +303,7 @@
     </div>
 
     <div class="tell-section">
-      <div class="tell-heading">Week 1 — Let Mrs Perkins know</div>
+      <div class="tell-heading">Week 1 - Let Mrs Perkins know</div>
       <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
         <label for="n1">First name:</label>
@@ -327,14 +330,14 @@
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
-      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error - send a quick note and it will be fixed.</div>
       <div class="name-row">
         <label for="note1-name">First name:</label>
         <input type="text" class="name-input" id="note1-name" placeholder="Your first name">
       </div>
       <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
         <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
-        <textarea id="note1-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+        <textarea id="note1-text" rows="2" placeholder="e.g. Monday task - the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
       </div>
       <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(1)">Send note</button>
     </div>
@@ -355,16 +358,16 @@
   <div class="week-body">
 
     <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
-      <strong style="color:var(--text-dark);">This week</strong> — Industry sectors, legal structures, internal and external influences, and stakeholders. Where you see a model answer button, write in your book first, then check.
+      <strong style="color:var(--text-dark);">This week</strong> - Industry sectors, legal structures, internal and external influences, and stakeholders. Where you see a model answer button, write in your book first, then check.
     </div>
 
-    <div class="day-label">Monday &middot; 15 min &middot; Industry sectors — sort and draw</div>
+    <div class="day-label">Monday &middot; 15 min &middot; Industry sectors - sort and draw</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="2" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Recall and Classify</span>
         <div class="task-text">
-          <strong>Book only — draw a table in your revision book with five columns, one for each industry sector. Then sort the following businesses into the correct column.</strong><br><br>
+          <strong>Book only - draw a table in your revision book with five columns, one for each industry sector. Then sort the following businesses into the correct column.</strong><br><br>
           BHP iron ore mine &middot; Toyota car factory &middot; Woolworths supermarket &middot; Google Australia &middot; A nanny service &middot; A wheat farm &middot; A Netflix subscription &middot; A construction company &middot; A university &middot; A childcare centre<br><br>
           Under each business, write one sentence explaining why it belongs in that sector. Use the words: <em>extracts, manufactures, provides, processes, knowledge-based, personal care</em> where relevant.<br><br>
           <em>Sectors: Primary / Secondary / Tertiary / Quaternary / Quinary</em>
@@ -375,13 +378,13 @@
       </div>
     </div>
 
-    <div class="day-label">Tuesday &middot; 20 min &middot; Legal structures — comparison table</div>
+    <div class="day-label">Tuesday &middot; 20 min &middot; Legal structures - comparison table</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="2" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Organise and Apply</span>
         <div class="task-text">
-          <strong>Book only — draw a comparison table in your revision book.</strong><br><br>
+          <strong>Book only - draw a comparison table in your revision book.</strong><br><br>
           Set up four columns: Legal Structure / Ownership / Liability / One advantage.<br>
           Complete a row for each of the following: sole trader, partnership, private company (Pty Ltd), public company (Ltd), government enterprise.<br><br>
           Then answer this question in two sentences below the table:<br>
@@ -393,17 +396,17 @@
       </div>
     </div>
 
-    <div class="day-label">Wednesday &middot; 25 min &middot; Influences — mind map then apply</div>
+    <div class="day-label">Wednesday &middot; 25 min &middot; Influences - mind map then apply</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="2" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Mind Map and Short Answer</span>
         <div class="task-text">
-          <strong>Book only — two tasks.</strong><br><br>
-          <strong>Part A (10 min) — Mind map:</strong> In the centre of a page, write "Influences on Business." Branch outward into two main arms: Internal Influences and External Influences. Under each arm, add at least four sub-branches with specific examples. Try to do this from memory before checking your notes.<br><br>
-          <strong>Part B (15 min) — Apply:</strong> Read the following, then answer the question in full sentences in your book.<br><br>
+          <strong>Book only - two tasks.</strong><br><br>
+          <strong>Part A (10 min) - Mind map:</strong> In the centre of a page, write "Influences on Business." Branch outward into two main arms: Internal Influences and External Influences. Under each arm, add at least four sub-branches with specific examples. Try to do this from memory before checking your notes.<br><br>
+          <strong>Part B (15 min) - Apply:</strong> Read the following, then answer the question in full sentences in your book.<br><br>
           <em>A small café in Sydney's CBD has noticed that fewer customers are coming in since interest rates rose. The owner is also struggling to find experienced baristas. At the same time, the NSW government has introduced new food safety regulations that require additional staff training.</em><br><br>
-          Identify and classify THREE influences on this café — one economic, one legal, and one human resources influence. For each, explain how it affects the business. (6 marks)
+          Identify and classify THREE influences on this café - one economic, one legal, and one human resources influence. For each, explain how it affects the business. (6 marks)
         </div>
         <div class="task-time">About 25 min</div>
         <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
@@ -411,16 +414,16 @@
       </div>
     </div>
 
-    <div class="day-label">Thursday &middot; 30 min &middot; Stakeholders — HSC-style questions</div>
+    <div class="day-label">Thursday &middot; 30 min &middot; Stakeholders - HSC-style questions</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="2" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">HSC Style</span>
         <div class="task-text">
           <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
-          <strong>Question 1 (3 marks) — Outline</strong><br>
+          <strong>Question 1 (3 marks) - Outline</strong><br>
           Outline the interests of THREE different stakeholders in a large public company such as a supermarket chain.<br><br>
-          <strong>Question 2 (4 marks) — Explain</strong><br>
+          <strong>Question 2 (4 marks) - Explain</strong><br>
           A supermarket chain announces it will close three regional stores to cut costs. Explain how this decision could create a conflict between TWO stakeholders, and suggest how this conflict might be reconciled.<br><br>
           <em>Stakeholders to choose from: owners/shareholders, employees, customers, suppliers, government, local community, creditors.</em>
         </div>
@@ -436,8 +439,8 @@
       <div class="task-content">
         <span class="task-badge">Exam Practice</span>
         <div class="task-text">
-          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
-          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book. This is as close to your real exam as homework gets.<br><br>
+          <strong>Exam simulation - set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs - just this page and your revision book. Write all answers in your book. This is as close to your real exam as homework gets.<br><br>
           <em>SunRise Organics Pty Ltd is a private company that grows and packages organic fruit and vegetables in regional Queensland. It was founded five years ago by two sisters who invested their savings and took on a silent business partner who provided additional capital. The company employs 18 full-time staff and 40 seasonal workers during harvest. Recently, drought conditions have reduced crop yields, supermarket chains have demanded lower wholesale prices, and a new state government regulation requires organic producers to obtain additional certification at significant cost. Despite these pressures, the sisters are committed to maintaining their workplace culture and staff wages.</em><br><br>
           (a) Identify the legal structure of SunRise Organics and outline TWO features of this structure. (3 marks)<br><br>
           (b) Classify SunRise Organics by size. Justify your answer. (2 marks)<br><br>
@@ -453,7 +456,7 @@
     </div>
 
     <div class="tell-section">
-      <div class="tell-heading">Week 2 — Let Mrs Perkins know</div>
+      <div class="tell-heading">Week 2 - Let Mrs Perkins know</div>
       <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
         <label for="n2">First name:</label>
@@ -480,14 +483,14 @@
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
-      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error - send a quick note and it will be fixed.</div>
       <div class="name-row">
         <label for="note2-name">First name:</label>
         <input type="text" class="name-input" id="note2-name" placeholder="Your first name">
       </div>
       <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
         <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
-        <textarea id="note2-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+        <textarea id="note2-text" rows="2" placeholder="e.g. Monday task - the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
       </div>
       <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(2)">Send note</button>
     </div>
@@ -508,16 +511,16 @@
   <div class="week-body">
 
     <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
-      <strong style="color:var(--text-dark);">This week</strong> — The business life cycle, responses to each stage, and voluntary and involuntary cessation including liquidation. Last week of Topic 1. Where you see a model answer button, write in your book first, then check.
+      <strong style="color:var(--text-dark);">This week</strong> - The business life cycle, responses to each stage, and voluntary and involuntary cessation including liquidation. Last week of Topic 1. Where you see a model answer button, write in your book first, then check.
     </div>
 
-    <div class="day-label">Monday &middot; 15 min &middot; Life cycle — annotated diagram</div>
+    <div class="day-label">Monday &middot; 15 min &middot; Life cycle - annotated diagram</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="3" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Draw and Annotate</span>
         <div class="task-text">
-          <strong>Book only — draw the business life cycle diagram from memory.</strong><br><br>
+          <strong>Book only - draw the business life cycle diagram from memory.</strong><br><br>
           Draw a curved line across a full page showing the four stages. Label each stage, then add the following annotations in the correct place:<br><br>
           - Slow sales growth / cash flow pressure<br>
           - Sales rising rapidly / hiring new staff<br>
@@ -552,20 +555,20 @@
       </div>
     </div>
 
-    <div class="day-label">Wednesday &middot; 25 min &middot; Cessation and liquidation — scenario sort</div>
+    <div class="day-label">Wednesday &middot; 25 min &middot; Cessation and liquidation - scenario sort</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="3" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Classify and Explain</span>
         <div class="task-text">
           <strong>Read on screen &middot; Write answers in your revision book</strong><br><br>
-          <strong>Part A — Classify each scenario (book only, 10 min):</strong><br>
+          <strong>Part A - Classify each scenario (book only, 10 min):</strong><br>
           In your book, write whether each scenario is an example of: voluntary cessation / involuntary cessation / voluntary administration / liquidation.<br><br>
           1. After 30 years, Gina decides she wants to retire and sells her florist shop to a new owner who continues trading under a different name.<br>
           2. A construction company cannot pay its creditors. A court appoints a liquidator who sells the company's equipment and property to repay debts. The company then ceases to exist.<br>
           3. A restaurant chain struggles with debt and appoints an independent administrator to assess whether the business can be restructured or must be wound up.<br>
           4. A café owner closes his shop because the landlord has ended the lease and he does not wish to relocate.<br><br>
-          <strong>Part B — Short answer (15 min):</strong><br>
+          <strong>Part B - Short answer (15 min):</strong><br>
           Explain the difference between voluntary and involuntary cessation. In your answer, give one example of each and explain the consequences for the business owner. (4 marks)
         </div>
         <div class="task-time">About 25 min</div>
@@ -581,11 +584,11 @@
         <span class="task-badge">HSC Style</span>
         <div class="task-text">
           <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
-          <strong>Question 1 (4 marks) — Describe</strong><br>
+          <strong>Question 1 (4 marks) - Describe</strong><br>
           Describe TWO challenges a business typically faces during the maturity stage of the business life cycle and outline ONE strategy to address each challenge.<br><br>
-          <strong>Question 2 (4 marks) — Explain</strong><br>
+          <strong>Question 2 (4 marks) - Explain</strong><br>
           Explain why the post-maturity stage is a critical point in a business's life cycle. In your answer, refer to at least TWO possible outcomes.<br><br>
-          <em>Describe = provide features and characteristics. Explain = show cause and effect, why or how. Notice these are different depths — adjust accordingly.</em>
+          <em>Describe = provide features and characteristics. Explain = show cause and effect, why or how. Notice these are different depths - adjust accordingly.</em>
         </div>
         <div class="task-time">About 30 min</div>
         <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
@@ -599,9 +602,9 @@
       <div class="task-content">
         <span class="task-badge">Exam Simulation</span>
         <div class="task-text">
-          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
-          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book.<br><br>
-          <em>PaperTrail Stationery Co. was established in 2008 as a small sole trader business selling handmade notebooks and journals at local markets in Melbourne. By 2012 it had grown rapidly, employing six full-time staff and supplying 40 independent retailers across Victoria and New South Wales. Between 2015 and 2019, sales remained strong but growth had slowed. New competitors — including large online retailers selling similar products at lower prices — began to erode PaperTrail's market share. In 2020, the owner launched a new product line targeting schools and corporate clients, which successfully reversed the sales decline. By 2023, PaperTrail had expanded interstate and was considering restructuring as a private company to attract new investment. However, one of the original suppliers had not been paid for three months and was threatening legal action.</em><br><br>
+          <strong>Exam simulation - set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs - just this page and your revision book. Write all answers in your book.<br><br>
+          <em>PaperTrail Stationery Co. was established in 2008 as a small sole trader business selling handmade notebooks and journals at local markets in Melbourne. By 2012 it had grown rapidly, employing six full-time staff and supplying 40 independent retailers across Victoria and New South Wales. Between 2015 and 2019, sales remained strong but growth had slowed. New competitors - including large online retailers selling similar products at lower prices - began to erode PaperTrail's market share. In 2020, the owner launched a new product line targeting schools and corporate clients, which successfully reversed the sales decline. By 2023, PaperTrail had expanded interstate and was considering restructuring as a private company to attract new investment. However, one of the original suppliers had not been paid for three months and was threatening legal action.</em><br><br>
           (a) Identify the stage of the business life cycle PaperTrail was in during each of the following periods. Justify each answer. (4 marks)<br>
           &nbsp;&nbsp;&nbsp;&nbsp;(i) 2008 to 2012<br>
           &nbsp;&nbsp;&nbsp;&nbsp;(ii) 2015 to 2019<br><br>
@@ -618,7 +621,7 @@
     </div>
 
     <div class="tell-section">
-      <div class="tell-heading">Week 3 — Let Mrs Perkins know</div>
+      <div class="tell-heading">Week 3 - Let Mrs Perkins know</div>
       <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
         <label for="n3">First name:</label>
@@ -645,14 +648,14 @@
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
-      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error - send a quick note and it will be fixed.</div>
       <div class="name-row">
         <label for="note3-name">First name:</label>
         <input type="text" class="name-input" id="note3-name" placeholder="Your first name">
       </div>
       <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
         <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
-        <textarea id="note3-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+        <textarea id="note3-text" rows="2" placeholder="e.g. Monday task - the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
       </div>
       <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(3)">Send note</button>
     </div>
@@ -679,17 +682,17 @@
   <div class="week-body">
 
     <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
-      <strong style="color:var(--text-dark);">This week</strong> — SMEs and their economic contribution, personal qualities, sources of information, and the three establishment options. Where you see a model answer button, write in your book first, then check.
+      <strong style="color:var(--text-dark);">This week</strong> - SMEs and their economic contribution, personal qualities, sources of information, and the three establishment options. Where you see a model answer button, write in your book first, then check.
     </div>
 
-    <div class="day-label">Monday &middot; 15 min &middot; SMEs — flashcard set</div>
+    <div class="day-label">Monday &middot; 15 min &middot; SMEs - flashcard set</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="4" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Recall</span>
         <div class="task-text">
-          <strong>Book only — make a set of flashcards or a glossary page in your revision book.</strong><br><br>
-          Write each term on one side (or in the left column) and your own definition on the right. Do not copy from your notes — write it the way you would explain it to someone who has never studied Business Studies.<br><br>
+          <strong>Book only - make a set of flashcards or a glossary page in your revision book.</strong><br><br>
+          Write each term on one side (or in the left column) and your own definition on the right. Do not copy from your notes - write it the way you would explain it to someone who has never studied Business Studies.<br><br>
           Terms to define: SME &middot; sole trader &middot; franchise &middot; goodwill &middot; competitive advantage &middot; market share &middot; debt finance &middot; equity finance<br><br>
           Once you have written all eight, go back and add one real-world Australian example next to each definition.
         </div>
@@ -699,15 +702,15 @@
       </div>
     </div>
 
-    <div class="day-label">Tuesday &middot; 20 min &middot; SME economic contribution — outline and data</div>
+    <div class="day-label">Tuesday &middot; 20 min &middot; SME economic contribution - outline and data</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="4" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Short Answer</span>
         <div class="task-text">
-          <strong>Book only — two tasks.</strong><br><br>
-          <strong>Part A (10 min):</strong> Without looking at your notes, write a paragraph outlining the economic contribution of SMEs in Australia. Try to include figures for: the proportion of all businesses that are SMEs, how many people they employ, and their contribution to GDP. Write whatever you can recall — then check.<br><br>
-          <strong>Part B (10 min):</strong> Below your paragraph, draw a simple table with two columns: Contribution and Why it matters. Fill in at least four rows — for example: employment, GDP, innovation, competition.
+          <strong>Book only - two tasks.</strong><br><br>
+          <strong>Part A (10 min):</strong> Without looking at your notes, write a paragraph outlining the economic contribution of SMEs in Australia. Try to include figures for: the proportion of all businesses that are SMEs, how many people they employ, and their contribution to GDP. Write whatever you can recall - then check.<br><br>
+          <strong>Part B (10 min):</strong> Below your paragraph, draw a simple table with two columns: Contribution and Why it matters. Fill in at least four rows - for example: employment, GDP, innovation, competition.
         </div>
         <div class="task-time">About 20 min</div>
         <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
@@ -715,15 +718,15 @@
       </div>
     </div>
 
-    <div class="day-label">Wednesday &middot; 25 min &middot; Establishment options — compare and advise</div>
+    <div class="day-label">Wednesday &middot; 25 min &middot; Establishment options - compare and advise</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="4" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Compare and Apply</span>
         <div class="task-text">
-          <strong>Book only — two tasks.</strong><br><br>
-          <strong>Part A (10 min) — Comparison table:</strong> Draw a table with four columns: Establishment Option / One Advantage / One Disadvantage / Best suited to (what type of person or situation). Complete a row for each option: starting a new business, buying an existing business, buying a franchise.<br><br>
-          <strong>Part B (15 min) — Advise:</strong> Read the following and write your recommendation in full sentences.<br><br>
+          <strong>Book only - two tasks.</strong><br><br>
+          <strong>Part A (10 min) - Comparison table:</strong> Draw a table with four columns: Establishment Option / One Advantage / One Disadvantage / Best suited to (what type of person or situation). Complete a row for each option: starting a new business, buying an existing business, buying a franchise.<br><br>
+          <strong>Part B (15 min) - Advise:</strong> Read the following and write your recommendation in full sentences.<br><br>
           <em>Marcus has $120,000 to invest in a business. He has strong management skills but limited knowledge of a specific industry. He wants to minimise risk and start generating income as quickly as possible. He is considering three options: starting a new café from scratch, buying an existing café that has traded for eight years, or buying a franchise in a national coffee chain.</em><br><br>
           Which establishment option would you recommend for Marcus and why? In your answer, refer to at least two factors from the stimulus. (4 marks)
         </div>
@@ -733,16 +736,16 @@
       </div>
     </div>
 
-    <div class="day-label">Thursday &middot; 30 min &middot; Personal qualities and sources of information — HSC style</div>
+    <div class="day-label">Thursday &middot; 30 min &middot; Personal qualities and sources of information - HSC style</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="4" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">HSC Style</span>
         <div class="task-text">
           <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
-          <strong>Question 1 (3 marks) — Outline</strong><br>
+          <strong>Question 1 (3 marks) - Outline</strong><br>
           Outline THREE personal qualities that contribute to the success of a small business owner. For each quality, give one example of how it helps the business.<br><br>
-          <strong>Question 2 (4 marks) — Explain</strong><br>
+          <strong>Question 2 (4 marks) - Explain</strong><br>
           Explain how TWO different sources of information can assist a person planning to establish a small business.<br><br>
           <em>Sources to choose from: accountants, solicitors, government agencies (e.g. ASIC, ATO, Business.gov.au), industry associations, financial institutions, ABS data, mentors.</em>
         </div>
@@ -758,8 +761,8 @@
       <div class="task-content">
         <span class="task-badge">Exam Simulation</span>
         <div class="task-text">
-          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
-          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book.<br><br>
+          <strong>Exam simulation - set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs - just this page and your revision book. Write all answers in your book.<br><br>
           <em>Layla spent seven years working as a manager at a large supermarket chain before deciding to leave and start her own business. She had no specific business idea initially but completed research into local market gaps and identified strong demand for a fresh meal-prep delivery service in her area. She registered her business name with ASIC, sought advice from an accountant and a solicitor, and used $60,000 of her savings combined with a $40,000 bank loan to fund the launch. She considered buying an existing meal-prep business but decided it was overpriced and that the brand had a poor online reputation. She ruled out a franchise because of the high ongoing royalty fees. Layla now employs three casual staff and has 180 regular customers after six months of trading.</em><br><br>
           (a) Identify the establishment option Layla chose and explain why she rejected the other two options. (4 marks)<br><br>
           (b) Identify TWO personal qualities evident in Layla's approach to establishing her business. For each, explain how the stimulus supports your answer. (4 marks)<br><br>
@@ -775,7 +778,7 @@
     </div>
 
     <div class="tell-section">
-      <div class="tell-heading">Week 4 — Let Mrs Perkins know</div>
+      <div class="tell-heading">Week 4 - Let Mrs Perkins know</div>
       <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
         <label for="n4">First name:</label>
@@ -802,14 +805,14 @@
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
-      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error - send a quick note and it will be fixed.</div>
       <div class="name-row">
         <label for="note4-name">First name:</label>
         <input type="text" class="name-input" id="note4-name" placeholder="Your first name">
       </div>
       <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
         <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
-        <textarea id="note4-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+        <textarea id="note4-text" rows="2" placeholder="e.g. Monday task - the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
       </div>
       <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(4)">Send note</button>
     </div>
@@ -830,17 +833,17 @@
   <div class="week-body">
 
     <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
-      <strong style="color:var(--text-dark);">This week</strong> — Market, finance, legal, HR and taxation influences on establishing a business, then the planning process: situational analysis, SWOT, vision, goals and objectives. Where you see a model answer button, write in your book first, then check.
+      <strong style="color:var(--text-dark);">This week</strong> - Market, finance, legal, HR and taxation influences on establishing a business, then the planning process: situational analysis, SWOT, vision, goals and objectives. Where you see a model answer button, write in your book first, then check.
     </div>
 
-    <div class="day-label">Monday &middot; 15 min &middot; Establishment influences — sort and define</div>
+    <div class="day-label">Monday &middot; 15 min &middot; Establishment influences - sort and define</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="5" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Recall and Classify</span>
         <div class="task-text">
-          <strong>Book only — two tasks.</strong><br><br>
-          <strong>Part A (8 min):</strong> In your revision book, draw a table with two columns: Influence on Establishing a Business / Example. Add a row for each of the five influence categories: market, finance, legal, human resources, taxation. Write one specific example for each — make them as realistic as possible.<br><br>
+          <strong>Book only - two tasks.</strong><br><br>
+          <strong>Part A (8 min):</strong> In your revision book, draw a table with two columns: Influence on Establishing a Business / Example. Add a row for each of the five influence categories: market, finance, legal, human resources, taxation. Write one specific example for each - make them as realistic as possible.<br><br>
           <strong>Part B (7 min):</strong> Below the table, write two sentences answering this question: Why do these influences make establishing a new business more complex than simply having a good idea?
         </div>
         <div class="task-time">About 15 min</div>
@@ -849,7 +852,7 @@
       </div>
     </div>
 
-    <div class="day-label">Tuesday &middot; 20 min &middot; SWOT analysis — build your own</div>
+    <div class="day-label">Tuesday &middot; 20 min &middot; SWOT analysis - build your own</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="5" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
@@ -866,16 +869,16 @@
       </div>
     </div>
 
-    <div class="day-label">Wednesday &middot; 25 min &middot; Vision, goals and objectives — write and apply</div>
+    <div class="day-label">Wednesday &middot; 25 min &middot; Vision, goals and objectives - write and apply</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="5" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Short Answer and Apply</span>
         <div class="task-text">
-          <strong>Book only — three tasks.</strong><br><br>
-          <strong>Part A (8 min) — Distinguish:</strong> In your own words, explain the difference between a vision statement, a business goal and a business objective. Use a diagram or table if it helps, but write at least one sentence for each.<br><br>
-          <strong>Part B (10 min) — Create:</strong> Choose an imaginary business of your own. Write: (i) a vision statement for that business, (ii) one long-term goal, and (iii) two short-term objectives that would help the business work towards the goal. Make sure each is specific to your chosen business.<br><br>
-          <strong>Part C (7 min) — Explain:</strong> Why is it important for a business to have clear goals and objectives before it begins operating? Write three to four sentences.
+          <strong>Book only - three tasks.</strong><br><br>
+          <strong>Part A (8 min) - Distinguish:</strong> In your own words, explain the difference between a vision statement, a business goal and a business objective. Use a diagram or table if it helps, but write at least one sentence for each.<br><br>
+          <strong>Part B (10 min) - Create:</strong> Choose an imaginary business of your own. Write: (i) a vision statement for that business, (ii) one long-term goal, and (iii) two short-term objectives that would help the business work towards the goal. Make sure each is specific to your chosen business.<br><br>
+          <strong>Part C (7 min) - Explain:</strong> Why is it important for a business to have clear goals and objectives before it begins operating? Write three to four sentences.
         </div>
         <div class="task-time">About 25 min</div>
         <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
@@ -883,18 +886,18 @@
       </div>
     </div>
 
-    <div class="day-label">Thursday &middot; 30 min &middot; Planning process — HSC-style questions</div>
+    <div class="day-label">Thursday &middot; 30 min &middot; Planning process - HSC-style questions</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="5" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">HSC Style</span>
         <div class="task-text">
           <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
-          <strong>Question 1 (4 marks) — Explain</strong><br>
+          <strong>Question 1 (4 marks) - Explain</strong><br>
           Explain why a situational analysis, including a SWOT analysis, is an important first step in the business planning process.<br><br>
-          <strong>Question 2 (4 marks) — Explain</strong><br>
+          <strong>Question 2 (4 marks) - Explain</strong><br>
           Explain how TWO of the following influences can affect the decision to establish a new business: market conditions, finance availability, legal requirements, human resource costs.<br><br>
-          <em>For each question, aim for at least two distinct points with cause-and-effect links. Check your command verb — both questions ask you to explain, not just list.</em>
+          <em>For each question, aim for at least two distinct points with cause-and-effect links. Check your command verb - both questions ask you to explain, not just list.</em>
         </div>
         <div class="task-time">About 30 min</div>
         <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
@@ -908,8 +911,8 @@
       <div class="task-content">
         <span class="task-badge">Exam Simulation</span>
         <div class="task-text">
-          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
-          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book.<br><br>
+          <strong>Exam simulation - set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs - just this page and your revision book. Write all answers in your book.<br><br>
           <em>James and Priya are planning to establish a boutique homewares store in a growing inner-city suburb of Melbourne. James is a qualified accountant who has run small businesses before. Priya has a background in interior design and strong supplier relationships. They have completed a situational analysis and identified the following: their suburb has a high-income demographic with strong consumer spending (opportunity), no specialist homewares retailer within 3km (opportunity), limited start-up capital of $80,000 (weakness), no experience in retail operations (weakness), a large national homewares chain is rumoured to be opening nearby within 12 months (threat), and growing consumer interest in locally sourced, sustainable homewares (opportunity). They plan to operate as a partnership and will need to register the business name, obtain council approval for the fit-out, and hire two casual staff.</em><br><br>
           (a) Using the information provided, complete a SWOT analysis for James and Priya's business. Include at least two points in each box. (4 marks)<br><br>
           (b) Identify TWO legal requirements James and Priya must address before opening. (2 marks)<br><br>
@@ -925,7 +928,7 @@
     </div>
 
     <div class="tell-section">
-      <div class="tell-heading">Week 5 — Let Mrs Perkins know</div>
+      <div class="tell-heading">Week 5 - Let Mrs Perkins know</div>
       <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
         <label for="n5">First name:</label>
@@ -952,14 +955,14 @@
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
-      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error - send a quick note and it will be fixed.</div>
       <div class="name-row">
         <label for="note5-name">First name:</label>
         <input type="text" class="name-input" id="note5-name" placeholder="Your first name">
       </div>
       <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
         <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
-        <textarea id="note5-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+        <textarea id="note5-text" rows="2" placeholder="e.g. Monday task - the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
       </div>
       <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(5)">Send note</button>
     </div>
@@ -980,17 +983,17 @@
   <div class="week-body">
 
     <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
-      <strong style="color:var(--text-dark);">This week</strong> — Organising resources, forecasting including break-even analysis, monitoring and evaluation, corrective action, and the critical issues in business success and failure. Last week of Topic 2. Where you see a model answer button, write in your book first, then check.
+      <strong style="color:var(--text-dark);">This week</strong> - Organising resources, forecasting including break-even analysis, monitoring and evaluation, corrective action, and the critical issues in business success and failure. Last week of Topic 2. Where you see a model answer button, write in your book first, then check.
     </div>
 
-    <div class="day-label">Monday &middot; 15 min &middot; Organising resources — four functions mind map</div>
+    <div class="day-label">Monday &middot; 15 min &middot; Organising resources - four functions mind map</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="6" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Draw and Recall</span>
         <div class="task-text">
-          <strong>Book only — draw a mind map from memory.</strong><br><br>
-          In the centre write "Organising Resources." Branch out into four arms — one for each key business function: Operations, Marketing, Finance, Human Resources.<br><br>
+          <strong>Book only - draw a mind map from memory.</strong><br><br>
+          In the centre write "Organising Resources." Branch out into four arms - one for each key business function: Operations, Marketing, Finance, Human Resources.<br><br>
           For each arm, add at least three sub-branches showing specific resources or decisions the business must plan for. For example, under Finance you might include: start-up capital, cash flow forecast, break-even analysis.<br><br>
           At the bottom of the page, answer this in one sentence: Why must all four functions be considered together rather than separately when planning a business?
         </div>
@@ -1000,16 +1003,16 @@
       </div>
     </div>
 
-    <div class="day-label">Tuesday &middot; 20 min &middot; Break-even analysis — define, calculate, interpret</div>
+    <div class="day-label">Tuesday &middot; 20 min &middot; Break-even analysis - define, calculate, interpret</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="6" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Calculation and Interpret</span>
         <div class="task-text">
-          <strong>Book only — three tasks.</strong><br><br>
+          <strong>Book only - three tasks.</strong><br><br>
           <strong>Part A (5 min):</strong> Write your own definition of break-even point and the formula used to calculate it. Do not look at your notes.<br><br>
-          <strong>Part B (10 min) — Calculate:</strong> A candle-making business has fixed costs of $9,600 per month. Each candle sells for $40 and has variable costs of $16 to produce. How many candles must the business sell each month to break even? Show all working clearly.<br><br>
-          <strong>Part C (5 min) — Interpret:</strong> In the month of June, the business sold 320 candles. Write two sentences explaining what this means for the business — is it above or below break-even, and what does that tell the owner?
+          <strong>Part B (10 min) - Calculate:</strong> A candle-making business has fixed costs of $9,600 per month. Each candle sells for $40 and has variable costs of $16 to produce. How many candles must the business sell each month to break even? Show all working clearly.<br><br>
+          <strong>Part C (5 min) - Interpret:</strong> In the month of June, the business sold 320 candles. Write two sentences explaining what this means for the business - is it above or below break-even, and what does that tell the owner?
         </div>
         <div class="task-time">About 20 min</div>
         <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
@@ -1035,16 +1038,16 @@
       </div>
     </div>
 
-    <div class="day-label">Thursday &middot; 30 min &middot; Critical issues in success and failure — HSC style</div>
+    <div class="day-label">Thursday &middot; 30 min &middot; Critical issues in success and failure - HSC style</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="6" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">HSC Style</span>
         <div class="task-text">
           <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
-          <strong>Question 1 (4 marks) — Outline</strong><br>
+          <strong>Question 1 (4 marks) - Outline</strong><br>
           Outline FOUR critical issues that can contribute to the failure of a small business. For each issue, write one to two sentences explaining how it leads to failure.<br><br>
-          <strong>Question 2 (4 marks) — Explain</strong><br>
+          <strong>Question 2 (4 marks) - Explain</strong><br>
           Explain how having a well-developed business plan and using technology effectively can contribute to the success of a small business.<br><br>
           <em>Critical issues to choose from: importance of a business plan / management skills and staffing / trend analysis / identifying and sustaining competitive advantage / avoiding over-extension of finance and other resources / using technology / economic conditions.</em>
         </div>
@@ -1060,8 +1063,8 @@
       <div class="task-content">
         <span class="task-badge">Exam Simulation</span>
         <div class="task-text">
-          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
-          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book.<br><br>
+          <strong>Exam simulation - set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs - just this page and your revision book. Write all answers in your book.<br><br>
           <em>Petra established HandCraft Co. two years ago, selling handmade leather goods online and through markets. She set a monthly sales target of $8,000 and a break-even point she calculated at 160 units per month (selling price $50, variable cost $20, fixed costs $4,800). In Year 1, Petra averaged 140 units per month and relied heavily on her personal savings to cover the shortfall. She had no formal business plan and made decisions based on instinct. By Year 2, she hired a business mentor who helped her create a cash flow forecast, set clearer goals, and invest in a professional website and social media advertising. Sales climbed to 200 units per month by the end of Year 2. However, a large competitor recently launched a similar product range at a lower price point, and Petra is concerned about maintaining her market share.</em><br><br>
           (a) Using the information provided, calculate HandCraft Co.'s break-even point and determine whether Petra was above or below break-even in Year 1. Show all working. (3 marks)<br><br>
           (b) Identify TWO critical issues that contributed to HandCraft Co.'s poor performance in Year 1 and explain how each affected the business. (4 marks)<br><br>
@@ -1077,7 +1080,7 @@
     </div>
 
     <div class="tell-section">
-      <div class="tell-heading">Week 6 — Let Mrs Perkins know</div>
+      <div class="tell-heading">Week 6 - Let Mrs Perkins know</div>
       <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
         <label for="n6">First name:</label>
@@ -1104,14 +1107,14 @@
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
-      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error - send a quick note and it will be fixed.</div>
       <div class="name-row">
         <label for="note6-name">First name:</label>
         <input type="text" class="name-input" id="note6-name" placeholder="Your first name">
       </div>
       <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
         <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
-        <textarea id="note6-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+        <textarea id="note6-text" rows="2" placeholder="e.g. Monday task - the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
       </div>
       <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(6)">Send note</button>
     </div>
@@ -1393,8 +1396,8 @@
     if (!name) { nameEl.style.outline = '2px solid #c9a98a'; nameEl.focus(); setTimeout(() => nameEl.style.outline = '', 2000); return; }
     if (!note) { textEl.style.outline = '2px solid #c9a98a'; textEl.focus(); setTimeout(() => textEl.style.outline = '', 2000); return; }
     const to = 'michelle.perkins@spcc.nsw.edu.au';
-    const sub = encodeURIComponent(`Year 11 Revision — Week ${week} problem report — ${name}`);
-    const bod = encodeURIComponent(`Hi Mrs Perkins,\n\nMy name is ${name}.\n\nI found a problem in Week ${week} of the revision programme:\n\n${note}\n\nFrom ${name}`);
+    const sub = encodeURIComponent(`Year 11 Revision - Week ${week} problem report - ${name}`);
+    const bod = encodeURIComponent(`Hi Mrs Perkins,\n\nMy name is ${name}.\n\nI found a problem in Week ${week} of the revision program:\n\n${note}\n\nFrom ${name}`);
     window.location.href = `mailto:${to}?subject=${sub}&body=${bod}`;
   }
 
