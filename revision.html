@@ -1352,11 +1352,14 @@
   function scrollToWeek(id) {
     const el = document.getElementById(id);
     if (!el) return;
-    // Open the week if collapsed
     if (el.classList.contains('collapsed')) {
       el.classList.remove('collapsed');
     }
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Wait for the card to expand, then scroll with offset for sticky bar
+    setTimeout(() => {
+      const top = el.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    }, 50);
   }
     document.getElementById(id).classList.toggle('collapsed');
   }
