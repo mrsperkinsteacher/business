@@ -76,16 +76,16 @@
   .week-chevron { color: var(--text-light); font-size: 0.8rem; transition: transform 0.2s; }
   .week-card.collapsed .week-chevron { transform: rotate(-90deg); }
   .week-card.collapsed .week-body { display: none; }
-  .week-body { padding: 0 1.4rem 1.4rem; border-top: 1px solid rgba(0,0,0,0.05); }
+  .week-body { padding: 0 1.4rem 1.4rem; border-top: 1px solid rgba(0,0,0,0.05); overflow: hidden; }
   .day-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin: 1.25rem 0 0.5rem; padding-bottom: 0.3rem; border-bottom: 1px solid rgba(0,0,0,0.05); display: block; width: 100%; }
-  .task-row { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); width: 100%; }
+  .task-row { display: flex; align-items: flex-start; gap: 0.85rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); width: 100%; min-width: 0; }
   .task-row:last-of-type { border-bottom: none; }
   .task-check { appearance: none; -webkit-appearance: none; width: 19px; height: 19px; min-width: 19px; border: 1.5px solid rgba(155,139,180,0.5); border-radius: 5px; cursor: pointer; margin-top: 3px; background: rgba(255,255,255,0.6); position: relative; transition: all 0.15s; }
   .task-check:checked { background: var(--check-color); border-color: var(--check-color); }
   .task-check:checked::after { content: ''; position: absolute; left: 4px; top: 1px; width: 7px; height: 11px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
-  .task-content { flex: 1; }
+  .task-content { flex: 1; min-width: 0; overflow-wrap: break-word; word-break: break-word; }
   .task-badge { display: inline-block; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.1rem 0.45rem; border-radius: 4px; margin-bottom: 0.2rem; background: rgba(0,0,0,0.05); color: var(--text-light); }
-  .task-text { font-size: 0.88rem; color: var(--text-dark); line-height: 1.55; }
+  .task-text { font-size: 0.88rem; color: var(--text-dark); line-height: 1.55; overflow-wrap: break-word; word-break: break-word; }
   .task-text.struck { text-decoration: line-through; color: var(--text-light); }
   .task-time { font-size: 0.7rem; color: var(--text-light); margin-top: 0.1rem; }
 
