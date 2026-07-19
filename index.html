@@ -1,129 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NH0WN47NP2"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-NH0WN47NP2');
-</script>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mrs Perkins Business Studies</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Studies - Mrs Perkins</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lora:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --navy:#1a3a52;--amber:#f0c060;--yellow:#f5c842;--orange:#e8832a;--teal:#2a9d8f;
-  --lteal:#8ac5cf;--white:#ffffff;--grey:#64748b;
-}
-body{font-family:'Source Sans 3',sans-serif;background:var(--navy);color:var(--white);min-height:100vh;}
+  :root {
+    --grad-start: #e8d5c4;
+    --grad-mid: #ddd0e0;
+    --grad-end: #c9cce8;
+    --text-dark: #2d2535;
+    --text-mid: #5a5268;
+    --text-light: #8a849a;
+    --card-bg: rgba(255,255,255,0.82);
+    --card-border: rgba(255,255,255,0.6);
+    --accent-warm: #c9a98a;
+    --accent-cool: #8f8fc4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-mid) 50%, var(--grad-end) 100%);
+    background-attachment: fixed;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  nav {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+  }
+  nav a { color: var(--text-mid); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.03em; transition: color 0.15s; }
+  nav a:hover { color: var(--text-dark); }
+  nav .sep { color: var(--text-light); font-size: 0.75rem; }
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(26,58,82,0.97);border-bottom:1px solid rgba(255,255,255,0.1);}
-.nav-inner{max-width:1000px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:52px;}
-.nav-brand{font-family:'Playfair Display',Georgia,serif;font-size:15px;font-weight:700;color:var(--amber);text-decoration:none;white-space:nowrap;}
-.nav-links{display:flex;list-style:none;gap:4px;}
-.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:13px;font-weight:600;padding:6px 10px;border-radius:5px;transition:all 0.2s;}
-.nav-links a:hover{color:white;background:rgba(255,255,255,0.1);}
-.nav-accent{height:2px;background:linear-gradient(90deg,var(--yellow),var(--orange),var(--teal));}
-.nav-hamburger{display:none;flex-direction:column;gap:4px;background:none;border:none;cursor:pointer;padding:6px;}
-.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(255,255,255,0.7);border-radius:2px;}
-.nav-mobile{display:none;flex-direction:column;background:rgba(26,58,82,0.99);border-top:1px solid rgba(255,255,255,0.1);padding:12px 1.5rem 20px;}
-.nav-mobile.open{display:flex;}
-.nav-mobile a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:14px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06);}
-.nav-mobile a:last-child{border-bottom:none;}
+  .hero {
+    text-align: center;
+    padding: 4rem 1.5rem 3rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+  }
+  .hero-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--text-light);
+    margin: 0 auto 1.5rem;
+    opacity: 0.5;
+  }
+  .hero p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin: 0 auto;
+  }
 
-.home-hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem 3rem;}
-.home-title{font-family:'Copperplate','Copperplate Gothic Light',serif;font-size:clamp(52px,11vw,130px);font-weight:700;color:var(--amber);line-height:0.95;margin-bottom:16px;letter-spacing:0.02em;}
-.home-sub{font-size:16px;color:rgba(255,255,255,0.88);max-width:560px;margin:0 auto 2rem;line-height:1.65;}
-.home-divider{width:60px;height:3px;background:linear-gradient(90deg,var(--yellow),var(--orange));border-radius:2px;margin:0 auto 3rem;}
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    max-width: 860px;
+    margin: 0 auto 4rem;
+    padding: 0 1.5rem;
+  }
 
-/* Term sections */
-.term-section{width:100%;max-width:820px;margin-bottom:40px;}
-.term-header{display:flex;align-items:center;gap:14px;margin-bottom:16px;}
-.term-badge{background:var(--teal);color:white;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:12px;}
-.term-title{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:white;}
+  .card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 2px 20px rgba(45,37,53,0.06);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 28px rgba(45,37,53,0.10);
+  }
+  .card.disabled {
+    opacity: 0.55;
+    cursor: default;
+    pointer-events: none;
+  }
+  .card-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+  }
+  .card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    line-height: 1.2;
+  }
+  .card p {
+    font-size: 0.85rem;
+    color: var(--text-mid);
+    line-height: 1.55;
+    flex: 1;
+  }
+  .card-link {
+    font-size: 0.8rem;
+    color: var(--accent-cool);
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+  .card.disabled .card-link {
+    color: var(--text-light);
+  }
 
-/* Week cards */
-.week-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-.week-card{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:16px 18px;text-decoration:none;color:white;transition:all 0.2s;text-align:left;}
-.week-card:hover{background:rgba(255,255,255,0.18);border-color:var(--teal);transform:translateY(-2px);}
-.week-card.active{border-color:rgba(240,192,96,0.5);}
-.week-card.soon{opacity:0.4;pointer-events:none;cursor:default;}
-.week-num{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--amber);margin-bottom:6px;}
-.week-name{font-size:13px;font-weight:600;color:white;margin-bottom:4px;}
-.week-desc{font-size:11px;color:rgba(255,255,255,0.6);}
-
-.home-school{margin-top:1rem;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1px;font-style:italic;}
-footer{text-align:center;padding:1.5rem;font-size:11px;color:rgba(255,255,255,0.25);}
-
-@media(max-width:600px){
-  .nav-links{display:none;}
-  .nav-hamburger{display:flex;}
-  .week-grid{grid-template-columns:1fr 1fr;}
-}
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+  footer a { color: var(--text-mid); text-decoration: none; }
+  footer a:hover { color: var(--text-dark); }
 </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-inner">
-    <a class="nav-brand" href="index.html">Mrs Perkins Business Studies</a>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="https://mrsperkinsteacher.github.io/">All Subjects</a></li>
-    </ul>
-    <button class="nav-hamburger" onclick="document.getElementById('mobileNav').classList.toggle('open')" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-  <div class="nav-accent"></div>
-  <div class="nav-mobile" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="https://mrsperkinsteacher.github.io/">All Subjects ↗</a>
-  </div>
+  <a href="https://mrsperkinsteacher.github.io/">Home</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a>
 </nav>
 
-<div class="home-hero">
-
-  <h1 class="home-title">Business<br>Studies</h1>
-  <p class="home-sub">Year 11 Preliminary Business Studies. Find your weekly slides, worksheets and revision resources here.</p>
-  <div class="home-divider"></div>
-
-  <!-- Term 2 -->
-  <div class="term-section">
-    <div class="term-header">
-      <span class="term-badge">Term 2</span>
-      <span class="term-title">Business Management &amp; Business Planning</span>
-    </div>
-    <div class="week-grid">
-
-      <a class="week-card active" href="https://mrsperkinsteacher.github.io/business/week7.html">
-        <div class="week-num">Week 7</div>
-        <div class="week-name">Ch 12 — Business Planning Process</div>
-        <div class="week-desc">Slides + worksheet · Due Thursday</div>
-      </a>
-
-      <div class="week-card soon">
-        <div class="week-num">Week 8</div>
-        <div class="week-name">Coming soon</div>
-        <div class="week-desc"></div>
-      </div>
-
-      <div class="week-card soon">
-        <div class="week-num">Week 9</div>
-        <div class="week-name">Coming soon</div>
-        <div class="week-desc"></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="home-school">Year 11 Preliminary Business Studies · Educational use only</div>
+<div class="hero">
+  <div class="hero-eyebrow">Mrs Perkins</div>
+  <h1>Business Studies</h1>
+  <div class="hero-sub">Preliminary and HSC</div>
+  <div class="hero-rule"></div>
+  <p>Find your year group below for lessons, resources, revision materials and course information.</p>
 </div>
 
-<footer>Mrs Perkins · <a href="https://mrsperkinsteacher.github.io/" style="color:rgba(255,255,255,0.3);">All subjects →</a></footer>
+<div class="cards">
+  <a class="card" href="https://mrsperkinsteacher.github.io/business/year11.html">
+    <div class="card-eyebrow">Stage 6 Preliminary</div>
+    <h2>Year 11</h2>
+    <p>Nature of Business, Business Planning and Business Management. Lessons, worksheets, slides and revision resources.</p>
+    <div class="card-link">Visit Year 11 &rarr;</div>
+  </a>
+
+  <div class="card disabled">
+    <div class="card-eyebrow">Stage 6 HSC</div>
+    <h2>Year 12</h2>
+    <p>Operations, Marketing, Finance and Human Resources. Resources coming in future updates.</p>
+    <div class="card-link">Coming soon</div>
+  </div>
+</div>
+
+<footer>
+  Business Studies &middot; Educational use only<br>
+  <a href="https://mrsperkinsteacher.github.io/">Mrs Perkins</a> &middot; <a href="https://mrsperkinsteacher.github.io/">All subjects</a>
+</footer>
 
 </body>
 </html>

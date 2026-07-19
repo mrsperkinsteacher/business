@@ -20,9 +20,7 @@
     --accent-warm: #c9a98a;
     --accent-cool: #8f8fc4;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     font-family: 'Inter', system-ui, sans-serif;
     min-height: 100vh;
@@ -31,8 +29,6 @@
     color: var(--text-dark);
     line-height: 1.6;
   }
-
-  /* NAV */
   nav {
     padding: 1rem 2rem;
     display: flex;
@@ -42,386 +38,92 @@
     backdrop-filter: blur(8px);
     border-bottom: 1px solid rgba(255,255,255,0.4);
   }
-  nav a {
-    color: var(--text-mid);
-    text-decoration: none;
-    font-size: 0.82rem;
-    letter-spacing: 0.03em;
-    transition: color 0.15s;
-  }
+  nav a { color: var(--text-mid); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.03em; transition: color 0.15s; }
   nav a:hover { color: var(--text-dark); }
   nav .sep { color: var(--text-light); font-size: 0.75rem; }
-
-  /* HERO */
-  .hero {
-    text-align: center;
-    padding: 4rem 1.5rem 3rem;
-  }
-  .hero-eyebrow {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 1rem;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 6vw, 3.8rem);
-    font-weight: 800;
-    color: var(--text-dark);
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-  }
-  .hero-sub {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    color: var(--text-mid);
-    margin-bottom: 1.5rem;
-  }
-  .hero-rule {
-    width: 40px;
-    height: 1px;
-    background: var(--text-light);
-    margin: 0 auto 1.5rem;
-    opacity: 0.5;
-  }
-  .hero p {
-    font-size: 0.95rem;
-    color: var(--text-mid);
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  /* STICKY PROGRESS */
+  .hero { text-align: center; padding: 4rem 1.5rem 3rem; }
+  .hero-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 800; color: var(--text-dark); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.5rem; }
+  .hero-sub { font-family: 'Lora', serif; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.3rem); color: var(--text-mid); margin-bottom: 1.5rem; }
+  .hero-rule { width: 40px; height: 1px; background: var(--text-light); margin: 0 auto 1.5rem; opacity: 0.5; }
+  .hero p { font-size: 0.95rem; color: var(--text-mid); max-width: 520px; margin: 0 auto; }
   .progress-bar-outer {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: rgba(255,255,255,0.7);
-    backdrop-filter: blur(12px);
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.7); backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.5);
-    padding: 0.75rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+    padding: 0.75rem 2rem; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
   }
-  .prog-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-mid);
-    white-space: nowrap;
-  }
-  .prog-track {
-    flex: 1;
-    min-width: 120px;
-    height: 6px;
-    background: rgba(0,0,0,0.08);
-    border-radius: 99px;
-    overflow: hidden;
-  }
-  .prog-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--accent-warm), var(--accent-cool));
-    border-radius: 99px;
-    width: 0%;
-    transition: width 0.4s ease;
-  }
-  .prog-count {
-    font-size: 0.78rem;
-    color: var(--text-light);
-    white-space: nowrap;
-  }
-  .reset-btn {
-    font-size: 0.72rem;
-    color: var(--text-light);
-    background: none;
-    border: 1px solid rgba(0,0,0,0.12);
-    border-radius: 20px;
-    padding: 0.2rem 0.6rem;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
+  .prog-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-mid); white-space: nowrap; }
+  .prog-track { flex: 1; min-width: 120px; height: 6px; background: rgba(0,0,0,0.08); border-radius: 99px; overflow: hidden; }
+  .prog-fill { height: 100%; background: linear-gradient(90deg, var(--accent-warm), var(--accent-cool)); border-radius: 99px; width: 0%; transition: width 0.4s ease; }
+  .prog-count { font-size: 0.78rem; color: var(--text-light); white-space: nowrap; }
+  .reset-btn { font-size: 0.72rem; color: var(--text-light); background: none; border: 1px solid rgba(0,0,0,0.12); border-radius: 20px; padding: 0.2rem 0.6rem; cursor: pointer; transition: all 0.15s; }
   .reset-btn:hover { color: var(--text-mid); border-color: var(--text-light); }
-
-  /* WEEK PILLS NAV */
-  .week-pills {
-    display: flex;
-    gap: 0.4rem;
-    flex-wrap: wrap;
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 1.5rem 1.5rem 0;
-    justify-content: center;
-  }
-  .wpill {
-    background: var(--pill-bg);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(255,255,255,0.6);
-    color: var(--text-mid);
-    border-radius: 99px;
-    padding: 0.28rem 0.85rem;
-    font-size: 0.75rem;
-    font-weight: 500;
-    cursor: pointer;
-    text-decoration: none;
-    transition: all 0.15s;
-  }
-  .wpill:hover {
-    background: rgba(255,255,255,0.7);
-    color: var(--text-dark);
-  }
-  .wpill.done {
-    background: rgba(155,139,180,0.2);
-    border-color: rgba(155,139,180,0.4);
-    color: var(--check-color);
-    font-weight: 600;
-  }
-
-  /* TOPIC LABEL */
-  .topic-section {
-    max-width: 860px;
-    margin: 2.5rem auto 0.75rem;
-    padding: 0 1.5rem;
-  }
-  .topic-eyebrow {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 0.25rem;
-  }
-  .topic-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text-dark);
-  }
-
-  /* WEEK CARD */
-  .week-card {
-    max-width: 860px;
-    margin: 0 auto 1rem;
-    padding: 0 1.5rem;
-  }
-  .week-inner {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 2px 20px rgba(45,37,53,0.06);
-  }
-  .week-header {
-    display: flex;
-    align-items: center;
-    gap: 0.85rem;
-    padding: 1.1rem 1.4rem;
-    cursor: pointer;
-    user-select: none;
-  }
-  .week-chip {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    background: rgba(0,0,0,0.05);
-    border-radius: 6px;
-    padding: 0.2rem 0.55rem;
-    white-space: nowrap;
-  }
-  .week-title-text {
-    flex: 1;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-dark);
-  }
-  .week-mini-prog {
-    font-size: 0.75rem;
-    color: var(--text-light);
-    white-space: nowrap;
-  }
-  .week-chevron {
-    color: var(--text-light);
-    font-size: 0.8rem;
-    transition: transform 0.2s;
-  }
+  .week-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; max-width: 860px; margin: 0 auto; padding: 1.5rem 1.5rem 0; justify-content: center; }
+  .wpill { background: var(--pill-bg); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.6); color: var(--text-mid); border-radius: 99px; padding: 0.28rem 0.85rem; font-size: 0.75rem; font-weight: 500; cursor: pointer; text-decoration: none; transition: all 0.15s; }
+  .wpill:hover { background: rgba(255,255,255,0.7); color: var(--text-dark); }
+  .wpill.done { background: rgba(155,139,180,0.2); border-color: rgba(155,139,180,0.4); color: var(--check-color); font-weight: 600; }
+  .topic-section { max-width: 860px; margin: 2.5rem auto 0.75rem; padding: 0 1.5rem; }
+  .topic-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.25rem; }
+  .topic-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--text-dark); }
+  .week-card { max-width: 860px; margin: 0 auto 1rem; padding: 0 1.5rem; }
+  .week-inner { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 20px rgba(45,37,53,0.06); }
+  .week-header { display: flex; align-items: center; gap: 0.85rem; padding: 1.1rem 1.4rem; cursor: pointer; user-select: none; }
+  .week-chip { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); background: rgba(0,0,0,0.05); border-radius: 6px; padding: 0.2rem 0.55rem; white-space: nowrap; }
+  .week-title-text { flex: 1; font-size: 0.95rem; font-weight: 600; color: var(--text-dark); }
+  .week-mini-prog { font-size: 0.75rem; color: var(--text-light); white-space: nowrap; }
+  .week-chevron { color: var(--text-light); font-size: 0.8rem; transition: transform 0.2s; }
   .week-card.collapsed .week-chevron { transform: rotate(-90deg); }
   .week-card.collapsed .week-body { display: none; }
-
-  .week-body {
-    padding: 0 1.4rem 1.4rem;
-    border-top: 1px solid rgba(0,0,0,0.05);
-  }
-
-  /* DAY LABEL */
-  .day-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin: 1.1rem 0 0.4rem;
-  }
-
-  /* TASK ROW */
-  .task-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.55rem 0;
-    border-bottom: 1px solid rgba(0,0,0,0.04);
-  }
+  .week-body { padding: 0 1.4rem 1.4rem; border-top: 1px solid rgba(0,0,0,0.05); }
+  .day-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin: 1.1rem 0 0.4rem; }
+  .task-row { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.55rem 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
   .task-row:last-of-type { border-bottom: none; }
-
-  .task-check {
-    appearance: none;
-    -webkit-appearance: none;
-    width: 19px;
-    height: 19px;
-    min-width: 19px;
-    border: 1.5px solid rgba(155,139,180,0.5);
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 3px;
-    background: rgba(255,255,255,0.6);
-    position: relative;
-    transition: all 0.15s;
-  }
-  .task-check:checked {
-    background: var(--check-color);
-    border-color: var(--check-color);
-  }
-  .task-check:checked::after {
-    content: '';
-    position: absolute;
-    left: 4px;
-    top: 1px;
-    width: 7px;
-    height: 11px;
-    border: 2px solid white;
-    border-top: none;
-    border-left: none;
-    transform: rotate(45deg);
-  }
-
+  .task-check { appearance: none; -webkit-appearance: none; width: 19px; height: 19px; min-width: 19px; border: 1.5px solid rgba(155,139,180,0.5); border-radius: 5px; cursor: pointer; margin-top: 3px; background: rgba(255,255,255,0.6); position: relative; transition: all 0.15s; }
+  .task-check:checked { background: var(--check-color); border-color: var(--check-color); }
+  .task-check:checked::after { content: ''; position: absolute; left: 4px; top: 1px; width: 7px; height: 11px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
   .task-content { flex: 1; }
-  .task-badge {
-    display: inline-block;
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    padding: 0.1rem 0.45rem;
-    border-radius: 4px;
-    margin-bottom: 0.2rem;
-    background: rgba(0,0,0,0.05);
-    color: var(--text-light);
-  }
-  .task-text {
-    font-size: 0.88rem;
-    color: var(--text-dark);
-    line-height: 1.55;
-  }
-  .task-text.struck {
-    text-decoration: line-through;
-    color: var(--text-light);
-  }
-  .task-time {
-    font-size: 0.7rem;
-    color: var(--text-light);
-    margin-top: 0.1rem;
-  }
+  .task-badge { display: inline-block; font-size: 0.62rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.1rem 0.45rem; border-radius: 4px; margin-bottom: 0.2rem; background: rgba(0,0,0,0.05); color: var(--text-light); }
+  .task-text { font-size: 0.88rem; color: var(--text-dark); line-height: 1.55; }
+  .task-text.struck { text-decoration: line-through; color: var(--text-light); }
+  .task-time { font-size: 0.7rem; color: var(--text-light); margin-top: 0.1rem; }
 
-  /* ACCOUNTABILITY */
-  .tell-section {
-    margin-top: 1.1rem;
-    background: rgba(255,255,255,0.45);
-    border: 1px solid rgba(255,255,255,0.7);
-    border-radius: 10px;
-    padding: 1rem 1.1rem;
-  }
-  .tell-heading {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 0.5rem;
-  }
-  .tell-para {
-    font-size: 0.8rem;
-    color: var(--text-mid);
-    margin-bottom: 0.65rem;
-  }
-  .name-row {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    margin-bottom: 0.7rem;
-    flex-wrap: wrap;
-  }
-  .name-row label {
-    font-size: 0.78rem;
-    color: var(--text-mid);
-    font-weight: 500;
-    white-space: nowrap;
-  }
-  .name-input {
-    border: 1px solid rgba(0,0,0,0.15);
-    border-radius: 7px;
-    padding: 0.32rem 0.65rem;
-    font-size: 0.82rem;
-    color: var(--text-dark);
-    background: rgba(255,255,255,0.7);
-    width: 190px;
-    font-family: inherit;
-  }
-  .name-input:focus {
-    outline: 2px solid rgba(155,139,180,0.4);
-    border-color: transparent;
-  }
-  .tell-btns {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-  }
-  .tell-btn {
-    font-size: 0.78rem;
-    font-weight: 500;
-    padding: 0.42rem 0.9rem;
-    border-radius: 8px;
-    border: 1px solid rgba(0,0,0,0.12);
-    cursor: pointer;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.15s;
-    font-family: inherit;
-    background: rgba(255,255,255,0.7);
-    color: var(--text-dark);
-  }
-  .tell-btn.primary {
-    background: var(--text-dark);
-    color: white;
-    border-color: transparent;
-  }
-  .tell-btn:hover { opacity: 0.8; }
+  /* EXEMPLAR TOGGLE */
+  .exemplar-wrap { margin-top: 0.4rem; }
+  .exemplar-toggle { font-size: 0.72rem; color: var(--accent-cool); cursor: pointer; background: none; border: none; padding: 0; font-family: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .exemplar-toggle:hover { color: var(--text-dark); }
+  .exemplar-box { display: none; margin-top: 0.5rem; background: rgba(255,255,255,0.55); border: 1px solid rgba(155,139,180,0.2); border-radius: 8px; padding: 0.7rem 0.9rem; font-size: 0.8rem; color: var(--text-mid); line-height: 1.6; }
+  .exemplar-box.open { display: block; }
+  .exemplar-box strong { color: var(--text-dark); }
 
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 2.5rem 1rem;
-    font-size: 0.78rem;
-    color: var(--text-light);
-    margin-top: 1rem;
+  /* TELL SECTION */
+  .tell-section { margin-top: 1.1rem; background: rgba(255,255,255,0.45); border: 1px solid rgba(255,255,255,0.7); border-radius: 10px; padding: 1rem 1.1rem; }
+  .tell-heading { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.5rem; }
+  .tell-para { font-size: 0.8rem; color: var(--text-mid); margin-bottom: 0.65rem; }
+  .name-row { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+  .name-row label { font-size: 0.78rem; color: var(--text-mid); font-weight: 500; white-space: nowrap; }
+  .name-input { border: 1px solid rgba(0,0,0,0.15); border-radius: 7px; padding: 0.32rem 0.65rem; font-size: 0.82rem; color: var(--text-dark); background: rgba(255,255,255,0.7); width: 160px; font-family: inherit; }
+  .name-input:focus { outline: 2px solid rgba(155,139,180,0.4); border-color: transparent; }
+
+  /* MULTI-SELECT OPTIONS */
+  .tell-options { display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 0.8rem; }
+  .tell-option { display: flex; align-items: flex-start; gap: 0.6rem; cursor: pointer; }
+  .tell-option input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none;
+    width: 17px; height: 17px; min-width: 17px;
+    border: 1.5px solid rgba(155,139,180,0.5); border-radius: 4px;
+    background: rgba(255,255,255,0.7); cursor: pointer; margin-top: 2px;
+    position: relative; transition: all 0.15s;
   }
+  .tell-option input[type="checkbox"]:checked { background: var(--check-color); border-color: var(--check-color); }
+  .tell-option input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 3px; top: 0px; width: 7px; height: 10px; border: 2px solid white; border-top: none; border-left: none; transform: rotate(45deg); }
+  .tell-option-label { font-size: 0.82rem; color: var(--text-dark); line-height: 1.4; }
+  .tell-option-label .deadline { font-size: 0.73rem; color: var(--text-light); display: block; margin-top: 0.1rem; }
+
+  .send-btn { font-size: 0.78rem; font-weight: 600; padding: 0.45rem 1.1rem; border-radius: 8px; border: none; cursor: pointer; font-family: inherit; background: var(--text-dark); color: white; transition: opacity 0.15s; }
+  .send-btn:hover { opacity: 0.8; }
+
+  footer { text-align: center; padding: 2.5rem 1rem; font-size: 0.78rem; color: var(--text-light); margin-top: 1rem; }
   footer a { color: var(--text-mid); text-decoration: none; }
   footer a:hover { color: var(--text-dark); }
 
@@ -431,16 +133,19 @@
     .week-card { padding: 0 0.75rem; }
     .week-pills { padding: 1rem 0.75rem 0; }
     .topic-section { padding: 0 0.75rem; }
-    .tell-btns { flex-direction: column; }
   }
 </style>
 </head>
 <body>
 
 <nav>
+  <a href="https://mrsperkinsteacher.github.io/">Home</a>
+  <span class="sep">/</span>
   <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a>
   <span class="sep">/</span>
-  <a href="https://mrsperkinsteacher.github.io/">All Subjects</a>
+  <a href="https://mrsperkinsteacher.github.io/business/year11.html">Year 11</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/business/year11.html#term3">Term 3</a>
 </nav>
 
 <div class="hero">
@@ -485,63 +190,155 @@
     <span class="week-chevron">&#9660;</span>
   </div>
   <div class="week-body">
-    <div class="day-label">Monday &middot; approx. 15 min</div>
+
+    <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
+      <strong style="color:var(--text-dark);">How this week works</strong><br>
+      Each task tells you whether to work <strong>on screen</strong> or <strong>in your revision book</strong>. Where you see a model answer button — write your answer in your book first, then check. Opening the model before you write defeats the purpose.
+    </div>
+
+    <div class="day-label">Monday &middot; 15 min &middot; Quick-fire classification</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="1" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Definitions</span>
-        <div class="task-text">Define in your own words: good, service, profit, entrepreneurship, quality of life.</div>
+        <span class="task-badge">Recall and Identify</span>
+        <div class="task-text">
+          <strong>Read on screen &middot; Write answers in your revision book</strong><br><br>
+          For each scenario, write in your book: (i) whether it involves a <strong>good</strong> or a <strong>service</strong>, and (ii) which <strong>role of business</strong> it best shows. Choose from: provides employment / generates profit / encourages innovation / improves quality of life / creates wealth.<br><br>
+          1. Thanh opens a bakery and hires three local school leavers as assistants.<br>
+          2. A tech startup spends two years developing an app that helps people manage their mental health.<br>
+          3. A solar panel manufacturer sells panels at a price above cost and reinvests the surplus into its factory.<br>
+          4. A physio clinic offers rehabilitation sessions to injured athletes.<br>
+          5. A family-run farm sells fresh produce at a local market every Saturday.<br>
+          6. A logistics company pays its drivers above award wages, allowing them to afford a family holiday for the first time.<br><br>
+          <em>Some scenarios could fit more than one role - choose the best fit and briefly say why in your book.</em>
+        </div>
         <div class="task-time">About 15 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Tuesday &middot; approx. 15 min</div>
+
+    <div class="day-label">Tuesday &middot; 20 min &middot; Stimulus and classify</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="1" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Short Answer</span>
-        <div class="task-text">Outline three roles a business plays in society. One clear sentence each.</div>
-        <div class="task-time">About 15 min</div>
+        <span class="task-badge">Application</span>
+        <div class="task-text">
+          <strong>Read on screen &middot; Write answers in your revision book</strong><br><br>
+          Read the two business profiles, then write your answers to (a), (b) and (c) in full sentences in your book.<br><br>
+          <strong>Business A - Koala Crunch Co.</strong><br>
+          Koala Crunch Co. is a snack food manufacturer based in regional Victoria. It employs 12 full-time staff and sells its products to supermarkets across New South Wales and Victoria. Last year it expanded its online store to reach customers in Queensland.<br><br>
+          <strong>Business B - Global Freight Solutions</strong><br>
+          Global Freight Solutions is an Australian-owned logistics company with offices in Sydney, Singapore and Los Angeles. It employs over 600 staff worldwide and is listed on the Australian Securities Exchange.<br><br>
+          (a) Classify each business by <strong>size</strong> using ABS definitions. Justify each answer. (2 marks)<br>
+          (b) Classify each business by <strong>geographical spread</strong>. Justify each answer. (2 marks)<br>
+          (c) Identify one role of business demonstrated by Global Freight Solutions and explain how the stimulus supports your answer. (2 marks)
+        </div>
+        <div class="task-time">About 20 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Wednesday &middot; approx. 15 min</div>
+
+    <div class="day-label">Wednesday &middot; 25 min &middot; Apply and explain</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="1" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Fill the Gap</span>
-        <div class="task-text">Complete: Businesses transform _____ into _____. The reward an owner receives for taking on risk is _____. A business with fewer than 20 employees is classified as a _____ business. A business operating in more than one country is a _____ business.</div>
-        <div class="task-time">About 15 min</div>
+        <span class="task-badge">Explain</span>
+        <div class="task-text">
+          <strong>Read the stimulus on screen &middot; Close the laptop and write both answers in your revision book</strong><br><br>
+          <em>Amara left her job as a nurse to open a mobile health screening van that visits rural communities in outback New South Wales. She invested her own savings, took on a bank loan, and now employs a part-time driver. In its first year, the business ran at a loss - but Amara says the work gives her purpose and the communities she serves now have access to health checks they previously had to drive four hours to receive.</em><br><br>
+          Read the stimulus twice, then close the laptop and write your answers in your book.<br><br>
+          (a) Explain what this scenario tells us about <strong>entrepreneurship and risk</strong>. Use evidence from the stimulus. (3 marks)<br><br>
+          (b) Explain how Amara's business contributes to <strong>quality of life</strong> in the communities it serves. (3 marks)
+        </div>
+        <div class="task-time">About 25 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Thursday &middot; approx. 15 min</div>
+
+    <div class="day-label">Thursday &middot; 30 min &middot; HSC-style short answer</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="1" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">True / False</span>
-        <div class="task-text">True or false - give a reason for each: (1) All businesses aim only to make a profit. (2) A local business operates within one suburb, town or region. (3) Innovation means copying a competitor's product.</div>
-        <div class="task-time">About 15 min</div>
+        <span class="task-badge">HSC Style</span>
+        <div class="task-text">
+          <strong>Book only — read the questions here, then close the laptop and write in your revision book as if it is an exam</strong><br><br>
+          Pay close attention to the command verb before you start writing.<br><br>
+          <strong>Question 1 (3 marks) — Outline</strong><br>
+          Outline the difference between a <strong>local</strong> business and a <strong>national</strong> business. Use one example of each in your answer.<br><br>
+          <strong>Question 2 (3 marks) — Explain</strong><br>
+          Explain how a business can contribute to <strong>wealth creation</strong> in an economy.<br><br>
+          <em>Outline = sketch the main features clearly and concisely. Explain = give reasons and show cause and effect. An outline is shorter and broader; an explain goes deeper into the why and how.</em>
+        </div>
+        <div class="task-time">About 30 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Weekend &middot; approx. 20 min</div>
+
+    <div class="day-label">Weekend &middot; 45 min &middot; Mini case study exam practice</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="1" data-task="5" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Case Study</span>
-        <div class="task-text">Read: Maya runs a mobile coffee van at weekend markets in her town. She employs two casual staff and made a small profit last year. Answer: (a) Is Maya's business small or large? Justify. (b) Classify by geographical spread. (c) Explain one way Maya's business contributes to quality of life.</div>
-        <div class="task-time">About 20 min</div>
+        <span class="task-badge">Exam Practice</span>
+        <div class="task-text">
+          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book. This is as close to your real exam as homework gets.<br><br>
+          <em>Zara worked for ten years as a pastry chef in a large hotel chain before deciding to open her own patisserie in a beachside suburb of Sydney. She invested $80,000 of her savings and took out a $40,000 small business loan. In the first year she employed two casual staff and made a small loss. By year two, her products were being stocked by three local cafes and a small specialty grocer. She now employs five full-time staff and has just launched an online delivery service, sending orders across New South Wales and the ACT. She is considering opening a second store in Melbourne.</em><br><br>
+          (a) Identify the current <strong>size classification</strong> of Zara's business. Justify using ABS criteria. (2 marks)<br><br>
+          (b) Classify Zara's business by <strong>geographical spread</strong> at TWO different points in time — when it first opened, and now. (2 marks)<br><br>
+          (c) Outline the <strong>risks</strong> Zara took when establishing her business. (3 marks)<br><br>
+          (d) Explain how Zara's patisserie contributes to <strong>TWO</strong> different roles of business. Use evidence from the stimulus. (6 marks)<br><br>
+          <em>Suggested split: 5 min reading the stimulus, 5 min on (a) and (b), 8 min on (c), 15 min on (d), 7 min re-reading and improving. Timer starts now.</em>
+        </div>
+        <div class="task-time">About 45 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
+
     <div class="tell-section">
-      <div class="tell-heading">Tell Mrs Perkins - Week 1</div>
-      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="tell-heading">Week 1 — Let Mrs Perkins know</div>
+      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
-        <label for="n1">Your name:</label>
-        <input type="text" class="name-input" id="n1" placeholder="First and last name">
+        <label for="n1">First name:</label>
+        <input type="text" class="name-input" id="n1" placeholder="Your first name">
       </div>
-      <div class="tell-btns">
-        <a class="tell-btn primary" href="#" onclick="sendEmail(1,'show',event)">I can show you my work in class</a>
-        <a class="tell-btn" href="#" onclick="sendEmail(1,'head',event)">I completed this in my head / no written work</a>
+      <div class="tell-options">
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="1" data-opt="show">
+          <span class="tell-option-label">I can show you this work in class
+            <span class="deadline">By Thursday of Week 2</span>
+          </span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="1" data-opt="notime">
+          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="1" data-opt="head">
+          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
+        </label>
       </div>
+      <button class="send-btn" onclick="sendEmail(1)">Send to Mrs Perkins</button>
     </div>
+
+    <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
+      <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="name-row">
+        <label for="note1-name">First name:</label>
+        <input type="text" class="name-input" id="note1-name" placeholder="Your first name">
+      </div>
+      <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
+        <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
+        <textarea id="note1-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+      </div>
+      <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(1)">Send note</button>
+    </div>
+
   </div>
  </div>
 </div>
@@ -556,63 +353,145 @@
     <span class="week-chevron">&#9660;</span>
   </div>
   <div class="week-body">
-    <div class="day-label">Monday &middot; approx. 15 min</div>
+
+    <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
+      <strong style="color:var(--text-dark);">This week</strong> — Industry sectors, legal structures, internal and external influences, and stakeholders. Where you see a model answer button, write in your book first, then check.
+    </div>
+
+    <div class="day-label">Monday &middot; 15 min &middot; Industry sectors — sort and draw</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="2" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Definitions</span>
-        <div class="task-text">Define the five industry sectors and give one example each: primary, secondary, tertiary, quaternary, quinary.</div>
+        <span class="task-badge">Recall and Classify</span>
+        <div class="task-text">
+          <strong>Book only — draw a table in your revision book with five columns, one for each industry sector. Then sort the following businesses into the correct column.</strong><br><br>
+          BHP iron ore mine &middot; Toyota car factory &middot; Woolworths supermarket &middot; Google Australia &middot; A nanny service &middot; A wheat farm &middot; A Netflix subscription &middot; A construction company &middot; A university &middot; A childcare centre<br><br>
+          Under each business, write one sentence explaining why it belongs in that sector. Use the words: <em>extracts, manufactures, provides, processes, knowledge-based, personal care</em> where relevant.<br><br>
+          <em>Sectors: Primary / Secondary / Tertiary / Quaternary / Quinary</em>
+        </div>
         <div class="task-time">About 15 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Tuesday &middot; approx. 20 min</div>
+
+    <div class="day-label">Tuesday &middot; 20 min &middot; Legal structures — comparison table</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="2" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Short Answer</span>
-        <div class="task-text">Distinguish between a sole trader and a private company in terms of ownership and liability. Use business terminology.</div>
+        <span class="task-badge">Organise and Apply</span>
+        <div class="task-text">
+          <strong>Book only — draw a comparison table in your revision book.</strong><br><br>
+          Set up four columns: Legal Structure / Ownership / Liability / One advantage.<br>
+          Complete a row for each of the following: sole trader, partnership, private company (Pty Ltd), public company (Ltd), government enterprise.<br><br>
+          Then answer this question in two sentences below the table:<br>
+          A friend wants to start a small dog-grooming business on their own. Which legal structure would you recommend and why?
+        </div>
         <div class="task-time">About 20 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Wednesday &middot; approx. 15 min</div>
+
+    <div class="day-label">Wednesday &middot; 25 min &middot; Influences — mind map then apply</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="2" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Fill the Gap</span>
-        <div class="task-text">Complete: The three main factors influencing choice of legal structure are _____, _____ and _____. Economic, legal and technological factors are examples of _____ influences. Products, location, resources and business culture are examples of _____ influences.</div>
-        <div class="task-time">About 15 min</div>
+        <span class="task-badge">Mind Map and Short Answer</span>
+        <div class="task-text">
+          <strong>Book only — two tasks.</strong><br><br>
+          <strong>Part A (10 min) — Mind map:</strong> In the centre of a page, write "Influences on Business." Branch outward into two main arms: Internal Influences and External Influences. Under each arm, add at least four sub-branches with specific examples. Try to do this from memory before checking your notes.<br><br>
+          <strong>Part B (15 min) — Apply:</strong> Read the following, then answer the question in full sentences in your book.<br><br>
+          <em>A small café in Sydney's CBD has noticed that fewer customers are coming in since interest rates rose. The owner is also struggling to find experienced baristas. At the same time, the NSW government has introduced new food safety regulations that require additional staff training.</em><br><br>
+          Identify and classify THREE influences on this café — one economic, one legal, and one human resources influence. For each, explain how it affects the business. (6 marks)
+        </div>
+        <div class="task-time">About 25 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Thursday &middot; approx. 20 min</div>
+
+    <div class="day-label">Thursday &middot; 30 min &middot; Stakeholders — HSC-style questions</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="2" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">True / False</span>
-        <div class="task-text">True or false - give a reason: (1) A public company can sell its shares to the general public on the ASX. (2) Stakeholders are only the owners of a business. (3) Technological change is an internal influence on a business.</div>
-        <div class="task-time">About 20 min</div>
+        <span class="task-badge">HSC Style</span>
+        <div class="task-text">
+          <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
+          <strong>Question 1 (3 marks) — Outline</strong><br>
+          Outline the interests of THREE different stakeholders in a large public company such as a supermarket chain.<br><br>
+          <strong>Question 2 (4 marks) — Explain</strong><br>
+          A supermarket chain announces it will close three regional stores to cut costs. Explain how this decision could create a conflict between TWO stakeholders, and suggest how this conflict might be reconciled.<br><br>
+          <em>Stakeholders to choose from: owners/shareholders, employees, customers, suppliers, government, local community, creditors.</em>
+        </div>
+        <div class="task-time">About 30 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Weekend &middot; approx. 25 min</div>
+
+    <div class="day-label">Weekend &middot; 45 min &middot; Extended case study exam practice</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="2" data-task="5" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Case Study</span>
-        <div class="task-text">Read: Nguyen Family Bakery is a partnership run by three siblings. A new supermarket has opened nearby, interest rates have risen, and the council has changed footpath trading rules. Staff morale is high and the shop has a strong local reputation. Answer: (a) Identify two external influences and classify each. (b) Identify one internal influence. (c) Explain how one external influence could affect the bakery's performance.</div>
-        <div class="task-time">About 25 min</div>
+        <span class="task-badge">Exam Practice</span>
+        <div class="task-text">
+          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book. This is as close to your real exam as homework gets.<br><br>
+          <em>SunRise Organics Pty Ltd is a private company that grows and packages organic fruit and vegetables in regional Queensland. It was founded five years ago by two sisters who invested their savings and took on a silent business partner who provided additional capital. The company employs 18 full-time staff and 40 seasonal workers during harvest. Recently, drought conditions have reduced crop yields, supermarket chains have demanded lower wholesale prices, and a new state government regulation requires organic producers to obtain additional certification at significant cost. Despite these pressures, the sisters are committed to maintaining their workplace culture and staff wages.</em><br><br>
+          (a) Identify the legal structure of SunRise Organics and outline TWO features of this structure. (3 marks)<br><br>
+          (b) Classify SunRise Organics by size. Justify your answer. (2 marks)<br><br>
+          (c) Identify THREE external influences affecting SunRise Organics and classify each as economic, legal, social or natural. (3 marks)<br><br>
+          (d) Explain how TWO different stakeholders are affected by the pressures facing SunRise Organics. (4 marks)<br><br>
+          (e) "A business's internal influences are just as important as its external influences." Using the stimulus, discuss this statement. (6 marks)<br><br>
+          <em>Suggested split: 5 min reading the stimulus, 5 min on (a) and (b), 8 min on (c) and (d), 20 min on (e), 7 min re-reading and improving. Timer starts now.</em>
+        </div>
+        <div class="task-time">About 45 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
+
     <div class="tell-section">
-      <div class="tell-heading">Tell Mrs Perkins - Week 2</div>
-      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="tell-heading">Week 2 — Let Mrs Perkins know</div>
+      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
-        <label for="n2">Your name:</label>
-        <input type="text" class="name-input" id="n2" placeholder="First and last name">
+        <label for="n2">First name:</label>
+        <input type="text" class="name-input" id="n2" placeholder="Your first name">
       </div>
-      <div class="tell-btns">
-        <a class="tell-btn primary" href="#" onclick="sendEmail(2,'show',event)">I can show you my work in class</a>
-        <a class="tell-btn" href="#" onclick="sendEmail(2,'head',event)">I completed this in my head / no written work</a>
+      <div class="tell-options">
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="2" data-opt="show">
+          <span class="tell-option-label">I can show you this work in class
+            <span class="deadline">By Thursday of Week 3</span>
+          </span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="2" data-opt="notime">
+          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="2" data-opt="head">
+          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
+        </label>
       </div>
+      <button class="send-btn" onclick="sendEmail(2)">Send to Mrs Perkins</button>
     </div>
+
+    <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
+      <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="name-row">
+        <label for="note2-name">First name:</label>
+        <input type="text" class="name-input" id="note2-name" placeholder="Your first name">
+      </div>
+      <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
+        <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
+        <textarea id="note2-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+      </div>
+      <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(2)">Send note</button>
+    </div>
+
   </div>
  </div>
 </div>
@@ -627,63 +506,157 @@
     <span class="week-chevron">&#9660;</span>
   </div>
   <div class="week-body">
-    <div class="day-label">Monday &middot; approx. 20 min</div>
+
+    <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
+      <strong style="color:var(--text-dark);">This week</strong> — The business life cycle, responses to each stage, and voluntary and involuntary cessation including liquidation. Last week of Topic 1. Where you see a model answer button, write in your book first, then check.
+    </div>
+
+    <div class="day-label">Monday &middot; 15 min &middot; Life cycle — annotated diagram</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="3" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Definitions</span>
-        <div class="task-text">Define each stage of the business life cycle and place them in the correct order: growth, establishment, post-maturity, maturity.</div>
-        <div class="task-time">About 20 min</div>
+        <span class="task-badge">Draw and Annotate</span>
+        <div class="task-text">
+          <strong>Book only — draw the business life cycle diagram from memory.</strong><br><br>
+          Draw a curved line across a full page showing the four stages. Label each stage, then add the following annotations in the correct place:<br><br>
+          - Slow sales growth / cash flow pressure<br>
+          - Sales rising rapidly / hiring new staff<br>
+          - Sales plateau / strong competition<br>
+          - Three possible outcomes: steady state, decline or renewal<br>
+          - High set-up costs / low or no profit<br>
+          - Market saturation / need to differentiate<br><br>
+          At the bottom of the page, write one sentence defining what the business life cycle is.
+        </div>
+        <div class="task-time">About 15 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Tuesday &middot; approx. 20 min</div>
+
+    <div class="day-label">Tuesday &middot; 20 min &middot; Match the stage, then respond</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="3" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Short Answer</span>
-        <div class="task-text">Outline the three possible outcomes at the post-maturity stage of the business life cycle.</div>
+        <span class="task-badge">Classify and Outline</span>
+        <div class="task-text">
+          <strong>Read on screen &middot; Write answers in your revision book</strong><br><br>
+          For each business below, identify the life cycle stage it is most likely in and outline one strategy the business could use to respond to its current challenges.<br><br>
+          <strong>A.</strong> Brew &amp; Co. opened six months ago. The owner is struggling to attract regular customers and is barely covering rent each week.<br><br>
+          <strong>B.</strong> StyleHub is a fashion retailer that dominated its market three years ago. Sales have been flat for 18 months and two new competitors have entered the market.<br><br>
+          <strong>C.</strong> FitApp launched two years ago and has grown from 500 to 85,000 users. The founder has just hired a team of 12 developers to keep up with demand.<br><br>
+          <strong>D.</strong> A 40-year-old family hardware store has seen steady but slow sales for the past five years. The owner is not looking to expand but wants to keep the business running comfortably.
+        </div>
         <div class="task-time">About 20 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Wednesday &middot; approx. 20 min</div>
+
+    <div class="day-label">Wednesday &middot; 25 min &middot; Cessation and liquidation — scenario sort</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="3" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Fill the Gap</span>
-        <div class="task-text">Complete: The four stages of the business life cycle are _____, _____, _____ and _____. When a business voluntarily closes it is _____ cessation. When forced to close by creditors or a court it is _____ cessation. The process of selling a company's assets to pay its debts is called _____.</div>
-        <div class="task-time">About 20 min</div>
+        <span class="task-badge">Classify and Explain</span>
+        <div class="task-text">
+          <strong>Read on screen &middot; Write answers in your revision book</strong><br><br>
+          <strong>Part A — Classify each scenario (book only, 10 min):</strong><br>
+          In your book, write whether each scenario is an example of: voluntary cessation / involuntary cessation / voluntary administration / liquidation.<br><br>
+          1. After 30 years, Gina decides she wants to retire and sells her florist shop to a new owner who continues trading under a different name.<br>
+          2. A construction company cannot pay its creditors. A court appoints a liquidator who sells the company's equipment and property to repay debts. The company then ceases to exist.<br>
+          3. A restaurant chain struggles with debt and appoints an independent administrator to assess whether the business can be restructured or must be wound up.<br>
+          4. A café owner closes his shop because the landlord has ended the lease and he does not wish to relocate.<br><br>
+          <strong>Part B — Short answer (15 min):</strong><br>
+          Explain the difference between voluntary and involuntary cessation. In your answer, give one example of each and explain the consequences for the business owner. (4 marks)
+        </div>
+        <div class="task-time">About 25 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Thursday &middot; approx. 20 min</div>
+
+    <div class="day-label">Thursday &middot; 30 min &middot; HSC-style short answer</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="3" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">True / False</span>
-        <div class="task-text">True or false - give a reason: (1) Decline is always permanent and cannot be reversed. (2) Voluntary cessation may occur when an owner decides to retire. (3) Poor cash flow management can contribute to business decline.</div>
-        <div class="task-time">About 20 min</div>
+        <span class="task-badge">HSC Style</span>
+        <div class="task-text">
+          <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
+          <strong>Question 1 (4 marks) — Describe</strong><br>
+          Describe TWO challenges a business typically faces during the maturity stage of the business life cycle and outline ONE strategy to address each challenge.<br><br>
+          <strong>Question 2 (4 marks) — Explain</strong><br>
+          Explain why the post-maturity stage is a critical point in a business's life cycle. In your answer, refer to at least TWO possible outcomes.<br><br>
+          <em>Describe = provide features and characteristics. Explain = show cause and effect, why or how. Notice these are different depths — adjust accordingly.</em>
+        </div>
+        <div class="task-time">About 30 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Weekend &middot; approx. 25 min</div>
+
+    <div class="day-label">Weekend &middot; 45 min &middot; Exam simulation</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="3" data-task="5" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Exam Style (6 marks)</span>
-        <div class="task-text">Describe the challenges a business faces at the establishment stage and outline one strategy to respond to them. Write in full sentences using business terminology.</div>
-        <div class="task-time">About 25 min</div>
+        <span class="task-badge">Exam Simulation</span>
+        <div class="task-text">
+          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book.<br><br>
+          <em>PaperTrail Stationery Co. was established in 2008 as a small sole trader business selling handmade notebooks and journals at local markets in Melbourne. By 2012 it had grown rapidly, employing six full-time staff and supplying 40 independent retailers across Victoria and New South Wales. Between 2015 and 2019, sales remained strong but growth had slowed. New competitors — including large online retailers selling similar products at lower prices — began to erode PaperTrail's market share. In 2020, the owner launched a new product line targeting schools and corporate clients, which successfully reversed the sales decline. By 2023, PaperTrail had expanded interstate and was considering restructuring as a private company to attract new investment. However, one of the original suppliers had not been paid for three months and was threatening legal action.</em><br><br>
+          (a) Identify the stage of the business life cycle PaperTrail was in during each of the following periods. Justify each answer. (4 marks)<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;(i) 2008 to 2012<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;(ii) 2015 to 2019<br><br>
+          (b) Explain what happened at PaperTrail's post-maturity stage and identify the strategy used to achieve renewal. (3 marks)<br><br>
+          (c) The unpaid supplier is threatening legal action. Outline TWO possible consequences for PaperTrail if it cannot resolve this debt. (2 marks)<br><br>
+          (d) The owner is considering changing the legal structure from a sole trader to a private company. Explain TWO advantages this change would offer PaperTrail at its current stage of development. (4 marks)<br><br>
+          (e) "The maturity stage is the most dangerous stage of the business life cycle." Discuss this statement with reference to the PaperTrail case study. (6 marks)<br><br>
+          <em>Suggested split: 5 min reading, 8 min on (a) and (b), 5 min on (c), 8 min on (d), 15 min on (e), 4 min re-reading. Timer starts now.</em>
+        </div>
+        <div class="task-time">About 45 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
+
     <div class="tell-section">
-      <div class="tell-heading">Tell Mrs Perkins - Week 3</div>
-      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="tell-heading">Week 3 — Let Mrs Perkins know</div>
+      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
-        <label for="n3">Your name:</label>
-        <input type="text" class="name-input" id="n3" placeholder="First and last name">
+        <label for="n3">First name:</label>
+        <input type="text" class="name-input" id="n3" placeholder="Your first name">
       </div>
-      <div class="tell-btns">
-        <a class="tell-btn primary" href="#" onclick="sendEmail(3,'show',event)">I can show you my work in class</a>
-        <a class="tell-btn" href="#" onclick="sendEmail(3,'head',event)">I completed this in my head / no written work</a>
+      <div class="tell-options">
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="3" data-opt="show">
+          <span class="tell-option-label">I can show you this work in class
+            <span class="deadline">By Thursday of Week 4</span>
+          </span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="3" data-opt="notime">
+          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="3" data-opt="head">
+          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
+        </label>
       </div>
+      <button class="send-btn" onclick="sendEmail(3)">Send to Mrs Perkins</button>
     </div>
+
+    <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
+      <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="name-row">
+        <label for="note3-name">First name:</label>
+        <input type="text" class="name-input" id="note3-name" placeholder="Your first name">
+      </div>
+      <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
+        <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
+        <textarea id="note3-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+      </div>
+      <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(3)">Send note</button>
+    </div>
+
   </div>
  </div>
 </div>
@@ -704,63 +677,143 @@
     <span class="week-chevron">&#9660;</span>
   </div>
   <div class="week-body">
-    <div class="day-label">Monday &middot; approx. 20 min</div>
+
+    <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
+      <strong style="color:var(--text-dark);">This week</strong> — SMEs and their economic contribution, personal qualities, sources of information, and the three establishment options. Where you see a model answer button, write in your book first, then check.
+    </div>
+
+    <div class="day-label">Monday &middot; 15 min &middot; SMEs — flashcard set</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="4" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Definitions</span>
-        <div class="task-text">Define: SME, franchise, goodwill, competitive advantage.</div>
-        <div class="task-time">About 20 min</div>
+        <span class="task-badge">Recall</span>
+        <div class="task-text">
+          <strong>Book only — make a set of flashcards or a glossary page in your revision book.</strong><br><br>
+          Write each term on one side (or in the left column) and your own definition on the right. Do not copy from your notes — write it the way you would explain it to someone who has never studied Business Studies.<br><br>
+          Terms to define: SME &middot; sole trader &middot; franchise &middot; goodwill &middot; competitive advantage &middot; market share &middot; debt finance &middot; equity finance<br><br>
+          Once you have written all eight, go back and add one real-world Australian example next to each definition.
+        </div>
+        <div class="task-time">About 15 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Tuesday &middot; approx. 20 min</div>
+
+    <div class="day-label">Tuesday &middot; 20 min &middot; SME economic contribution — outline and data</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="4" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
         <span class="task-badge">Short Answer</span>
-        <div class="task-text">Outline the economic contribution of SMEs in Australia. Include their share of businesses, employment figures and contribution to GDP.</div>
+        <div class="task-text">
+          <strong>Book only — two tasks.</strong><br><br>
+          <strong>Part A (10 min):</strong> Without looking at your notes, write a paragraph outlining the economic contribution of SMEs in Australia. Try to include figures for: the proportion of all businesses that are SMEs, how many people they employ, and their contribution to GDP. Write whatever you can recall — then check.<br><br>
+          <strong>Part B (10 min):</strong> Below your paragraph, draw a simple table with two columns: Contribution and Why it matters. Fill in at least four rows — for example: employment, GDP, innovation, competition.
+        </div>
         <div class="task-time">About 20 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Wednesday &middot; approx. 25 min</div>
+
+    <div class="day-label">Wednesday &middot; 25 min &middot; Establishment options — compare and advise</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="4" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Case Study</span>
-        <div class="task-text">Read: Priya has 12 years experience as a chef and wants to open her own restaurant. She is deciding between starting from scratch, buying an existing restaurant, or joining a franchise. Answer: (a) Identify the three establishment options. (b) Explain one advantage and one disadvantage of buying a franchise. (c) Identify one personal quality that suits Priya to running a business.</div>
+        <span class="task-badge">Compare and Apply</span>
+        <div class="task-text">
+          <strong>Book only — two tasks.</strong><br><br>
+          <strong>Part A (10 min) — Comparison table:</strong> Draw a table with four columns: Establishment Option / One Advantage / One Disadvantage / Best suited to (what type of person or situation). Complete a row for each option: starting a new business, buying an existing business, buying a franchise.<br><br>
+          <strong>Part B (15 min) — Advise:</strong> Read the following and write your recommendation in full sentences.<br><br>
+          <em>Marcus has $120,000 to invest in a business. He has strong management skills but limited knowledge of a specific industry. He wants to minimise risk and start generating income as quickly as possible. He is considering three options: starting a new café from scratch, buying an existing café that has traded for eight years, or buying a franchise in a national coffee chain.</em><br><br>
+          Which establishment option would you recommend for Marcus and why? In your answer, refer to at least two factors from the stimulus. (4 marks)
+        </div>
         <div class="task-time">About 25 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Thursday &middot; approx. 20 min</div>
+
+    <div class="day-label">Thursday &middot; 30 min &middot; Personal qualities and sources of information — HSC style</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="4" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">True / False</span>
-        <div class="task-text">True or false - give a reason: (1) Buying an existing business means you must build a customer base from nothing. (2) Personal qualities such as motivation and entrepreneurship influence the success of a new SME. (3) Professional advisers such as accountants and solicitors are useful sources of information when establishing a business.</div>
-        <div class="task-time">About 20 min</div>
+        <span class="task-badge">HSC Style</span>
+        <div class="task-text">
+          <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
+          <strong>Question 1 (3 marks) — Outline</strong><br>
+          Outline THREE personal qualities that contribute to the success of a small business owner. For each quality, give one example of how it helps the business.<br><br>
+          <strong>Question 2 (4 marks) — Explain</strong><br>
+          Explain how TWO different sources of information can assist a person planning to establish a small business.<br><br>
+          <em>Sources to choose from: accountants, solicitors, government agencies (e.g. ASIC, ATO, Business.gov.au), industry associations, financial institutions, ABS data, mentors.</em>
+        </div>
+        <div class="task-time">About 30 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Weekend &middot; approx. 25 min</div>
+
+    <div class="day-label">Weekend &middot; 45 min &middot; Exam simulation</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="4" data-task="5" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Exam Style (5 marks)</span>
-        <div class="task-text">Explain how personal qualities and sources of information influence the establishment of a small business. Write in full sentences using business terminology.</div>
-        <div class="task-time">About 25 min</div>
+        <span class="task-badge">Exam Simulation</span>
+        <div class="task-text">
+          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book.<br><br>
+          <em>Layla spent seven years working as a manager at a large supermarket chain before deciding to leave and start her own business. She had no specific business idea initially but completed research into local market gaps and identified strong demand for a fresh meal-prep delivery service in her area. She registered her business name with ASIC, sought advice from an accountant and a solicitor, and used $60,000 of her savings combined with a $40,000 bank loan to fund the launch. She considered buying an existing meal-prep business but decided it was overpriced and that the brand had a poor online reputation. She ruled out a franchise because of the high ongoing royalty fees. Layla now employs three casual staff and has 180 regular customers after six months of trading.</em><br><br>
+          (a) Identify the establishment option Layla chose and explain why she rejected the other two options. (4 marks)<br><br>
+          (b) Identify TWO personal qualities evident in Layla's approach to establishing her business. For each, explain how the stimulus supports your answer. (4 marks)<br><br>
+          (c) Identify the sources of finance Layla used and classify each as debt or equity finance. (2 marks)<br><br>
+          (d) Explain how TWO of the sources of information Layla consulted assisted her in establishing the business. (4 marks)<br><br>
+          (e) Layla's business is now six months old with 180 regular customers and three casual staff. Outline the challenges she is most likely facing at this stage of the business life cycle and suggest one strategy to address each. (6 marks)<br><br>
+          <em>Suggested split: 5 min reading, 10 min on (a), 8 min on (b), 4 min on (c), 8 min on (d), 15 min on (e), 5 min re-reading. Timer starts now.</em>
+        </div>
+        <div class="task-time">About 45 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
+
     <div class="tell-section">
-      <div class="tell-heading">Tell Mrs Perkins - Week 4</div>
-      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="tell-heading">Week 4 — Let Mrs Perkins know</div>
+      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
-        <label for="n4">Your name:</label>
-        <input type="text" class="name-input" id="n4" placeholder="First and last name">
+        <label for="n4">First name:</label>
+        <input type="text" class="name-input" id="n4" placeholder="Your first name">
       </div>
-      <div class="tell-btns">
-        <a class="tell-btn primary" href="#" onclick="sendEmail(4,'show',event)">I can show you my work in class</a>
-        <a class="tell-btn" href="#" onclick="sendEmail(4,'head',event)">I completed this in my head / no written work</a>
+      <div class="tell-options">
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="4" data-opt="show">
+          <span class="tell-option-label">I can show you this work in class
+            <span class="deadline">By Thursday of Week 5</span>
+          </span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="4" data-opt="notime">
+          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="4" data-opt="head">
+          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
+        </label>
       </div>
+      <button class="send-btn" onclick="sendEmail(4)">Send to Mrs Perkins</button>
     </div>
+
+    <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
+      <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="name-row">
+        <label for="note4-name">First name:</label>
+        <input type="text" class="name-input" id="note4-name" placeholder="Your first name">
+      </div>
+      <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
+        <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
+        <textarea id="note4-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+      </div>
+      <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(4)">Send note</button>
+    </div>
+
   </div>
  </div>
 </div>
@@ -775,63 +828,142 @@
     <span class="week-chevron">&#9660;</span>
   </div>
   <div class="week-body">
-    <div class="day-label">Monday &middot; approx. 20 min</div>
+
+    <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
+      <strong style="color:var(--text-dark);">This week</strong> — Market, finance, legal, HR and taxation influences on establishing a business, then the planning process: situational analysis, SWOT, vision, goals and objectives. Where you see a model answer button, write in your book first, then check.
+    </div>
+
+    <div class="day-label">Monday &middot; 15 min &middot; Establishment influences — sort and define</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="5" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Definitions</span>
-        <div class="task-text">Define: situational analysis, SWOT analysis, vision, business goal.</div>
-        <div class="task-time">About 20 min</div>
+        <span class="task-badge">Recall and Classify</span>
+        <div class="task-text">
+          <strong>Book only — two tasks.</strong><br><br>
+          <strong>Part A (8 min):</strong> In your revision book, draw a table with two columns: Influence on Establishing a Business / Example. Add a row for each of the five influence categories: market, finance, legal, human resources, taxation. Write one specific example for each — make them as realistic as possible.<br><br>
+          <strong>Part B (7 min):</strong> Below the table, write two sentences answering this question: Why do these influences make establishing a new business more complex than simply having a good idea?
+        </div>
+        <div class="task-time">About 15 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Tuesday &middot; approx. 20 min</div>
+
+    <div class="day-label">Tuesday &middot; 20 min &middot; SWOT analysis — build your own</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="5" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Fill the Gap</span>
-        <div class="task-text">Complete: A SWOT analysis examines internal _____ and _____ and external _____ and _____. Two examples of federal taxes a business may pay are _____ and _____. Wage costs are a _____ cost of employing staff, while superannuation and training are _____ costs.</div>
+        <span class="task-badge">Apply and Analyse</span>
+        <div class="task-text">
+          <strong>Read on screen &middot; Write answers in your revision book</strong><br><br>
+          Read the business profile below, then complete a full SWOT analysis in your book. Draw the four-box SWOT grid and add at least two points in each box. Then answer the question below the grid.<br><br>
+          <em>NourishBox is a new subscription meal-kit delivery service planning to launch in Brisbane. The founders are both qualified nutritionists with ten years of industry experience. They have secured $150,000 in funding from a private investor. However, the meal-kit market is already competitive, with HelloFresh and Marley Spoon holding large market shares. Supply chain costs are high, and the founders have no prior experience running a business. Brisbane has a growing health-conscious population and limited local competition in the premium organic segment. Recent media coverage of healthy eating has increased public interest in meal kits.</em><br><br>
+          After completing your SWOT grid, answer this question in two sentences: Based on your SWOT, what is NourishBox's most significant challenge and why?
+        </div>
         <div class="task-time">About 20 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Wednesday &middot; approx. 25 min</div>
+
+    <div class="day-label">Wednesday &middot; 25 min &middot; Vision, goals and objectives — write and apply</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="5" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Case Study</span>
-        <div class="task-text">Read: Sam plans to open a gym. SWOT: strong local demand (opportunity), limited savings (weakness), new competitor opening soon (threat), fitness qualifications (strength). He must also register a business name, choose a location and meet health and safety regulations. Answer: (a) Categorise each SWOT item. (b) Identify two legal requirements. (c) Outline one source of finance for the fit-out.</div>
+        <span class="task-badge">Short Answer and Apply</span>
+        <div class="task-text">
+          <strong>Book only — three tasks.</strong><br><br>
+          <strong>Part A (8 min) — Distinguish:</strong> In your own words, explain the difference between a vision statement, a business goal and a business objective. Use a diagram or table if it helps, but write at least one sentence for each.<br><br>
+          <strong>Part B (10 min) — Create:</strong> Choose an imaginary business of your own. Write: (i) a vision statement for that business, (ii) one long-term goal, and (iii) two short-term objectives that would help the business work towards the goal. Make sure each is specific to your chosen business.<br><br>
+          <strong>Part C (7 min) — Explain:</strong> Why is it important for a business to have clear goals and objectives before it begins operating? Write three to four sentences.
+        </div>
         <div class="task-time">About 25 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Thursday &middot; approx. 20 min</div>
+
+    <div class="day-label">Thursday &middot; 30 min &middot; Planning process — HSC-style questions</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="5" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Short Answer</span>
-        <div class="task-text">Distinguish between a vision and a business goal. Give an example of each for an imaginary business of your choice.</div>
-        <div class="task-time">About 20 min</div>
+        <span class="task-badge">HSC Style</span>
+        <div class="task-text">
+          <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
+          <strong>Question 1 (4 marks) — Explain</strong><br>
+          Explain why a situational analysis, including a SWOT analysis, is an important first step in the business planning process.<br><br>
+          <strong>Question 2 (4 marks) — Explain</strong><br>
+          Explain how TWO of the following influences can affect the decision to establish a new business: market conditions, finance availability, legal requirements, human resource costs.<br><br>
+          <em>For each question, aim for at least two distinct points with cause-and-effect links. Check your command verb — both questions ask you to explain, not just list.</em>
+        </div>
+        <div class="task-time">About 30 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Weekend &middot; approx. 30 min</div>
+
+    <div class="day-label">Weekend &middot; 45 min &middot; Exam simulation</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="5" data-task="5" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Exam Style (6 marks)</span>
-        <div class="task-text">Explain why a situational analysis, including a SWOT analysis, is an important first step in the business planning process. Write in full sentences using business terminology.</div>
-        <div class="task-time">About 30 min</div>
+        <span class="task-badge">Exam Simulation</span>
+        <div class="task-text">
+          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book.<br><br>
+          <em>James and Priya are planning to establish a boutique homewares store in a growing inner-city suburb of Melbourne. James is a qualified accountant who has run small businesses before. Priya has a background in interior design and strong supplier relationships. They have completed a situational analysis and identified the following: their suburb has a high-income demographic with strong consumer spending (opportunity), no specialist homewares retailer within 3km (opportunity), limited start-up capital of $80,000 (weakness), no experience in retail operations (weakness), a large national homewares chain is rumoured to be opening nearby within 12 months (threat), and growing consumer interest in locally sourced, sustainable homewares (opportunity). They plan to operate as a partnership and will need to register the business name, obtain council approval for the fit-out, and hire two casual staff.</em><br><br>
+          (a) Using the information provided, complete a SWOT analysis for James and Priya's business. Include at least two points in each box. (4 marks)<br><br>
+          (b) Identify TWO legal requirements James and Priya must address before opening. (2 marks)<br><br>
+          (c) Explain how James and Priya's personal qualities and backgrounds reduce the risk of business failure. (4 marks)<br><br>
+          (d) Write a vision statement and TWO specific short-term objectives suitable for this business. (3 marks)<br><br>
+          (e) The threat of a large national competitor opening nearby is a significant external influence. Explain how James and Priya could use their SWOT analysis to develop strategies to address this threat. (6 marks)<br><br>
+          <em>Suggested split: 5 min reading, 8 min on (a) and (b), 8 min on (c), 5 min on (d), 15 min on (e), 4 min re-reading. Timer starts now.</em>
+        </div>
+        <div class="task-time">About 45 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
+
     <div class="tell-section">
-      <div class="tell-heading">Tell Mrs Perkins - Week 5</div>
-      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="tell-heading">Week 5 — Let Mrs Perkins know</div>
+      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
-        <label for="n5">Your name:</label>
-        <input type="text" class="name-input" id="n5" placeholder="First and last name">
+        <label for="n5">First name:</label>
+        <input type="text" class="name-input" id="n5" placeholder="Your first name">
       </div>
-      <div class="tell-btns">
-        <a class="tell-btn primary" href="#" onclick="sendEmail(5,'show',event)">I can show you my work in class</a>
-        <a class="tell-btn" href="#" onclick="sendEmail(5,'head',event)">I completed this in my head / no written work</a>
+      <div class="tell-options">
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="5" data-opt="show">
+          <span class="tell-option-label">I can show you this work in class
+            <span class="deadline">By Thursday of Week 6</span>
+          </span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="5" data-opt="notime">
+          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="5" data-opt="head">
+          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
+        </label>
       </div>
+      <button class="send-btn" onclick="sendEmail(5)">Send to Mrs Perkins</button>
     </div>
+
+    <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
+      <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="name-row">
+        <label for="note5-name">First name:</label>
+        <input type="text" class="name-input" id="note5-name" placeholder="Your first name">
+      </div>
+      <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
+        <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
+        <textarea id="note5-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+      </div>
+      <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(5)">Send note</button>
+    </div>
+
   </div>
  </div>
 </div>
@@ -846,63 +978,144 @@
     <span class="week-chevron">&#9660;</span>
   </div>
   <div class="week-body">
-    <div class="day-label">Monday &middot; approx. 25 min</div>
+
+    <div style="background:rgba(155,139,180,0.1);border:1px solid rgba(155,139,180,0.25);border-radius:8px;padding:0.75rem 1rem;margin:1rem 0 0.5rem;font-size:0.8rem;color:var(--text-mid);line-height:1.5;">
+      <strong style="color:var(--text-dark);">This week</strong> — Organising resources, forecasting including break-even analysis, monitoring and evaluation, corrective action, and the critical issues in business success and failure. Last week of Topic 2. Where you see a model answer button, write in your book first, then check.
+    </div>
+
+    <div class="day-label">Monday &middot; 15 min &middot; Organising resources — four functions mind map</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="6" data-task="1" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Definition and Calculation</span>
-        <div class="task-text">Define break-even point. Then calculate: A business has fixed costs of $12,000, sells its product for $50 and has variable costs of $30 per unit. How many units must it sell to break even? Show your working.</div>
-        <div class="task-time">About 25 min</div>
+        <span class="task-badge">Draw and Recall</span>
+        <div class="task-text">
+          <strong>Book only — draw a mind map from memory.</strong><br><br>
+          In the centre write "Organising Resources." Branch out into four arms — one for each key business function: Operations, Marketing, Finance, Human Resources.<br><br>
+          For each arm, add at least three sub-branches showing specific resources or decisions the business must plan for. For example, under Finance you might include: start-up capital, cash flow forecast, break-even analysis.<br><br>
+          At the bottom of the page, answer this in one sentence: Why must all four functions be considered together rather than separately when planning a business?
+        </div>
+        <div class="task-time">About 15 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Tuesday &middot; approx. 25 min</div>
+
+    <div class="day-label">Tuesday &middot; 20 min &middot; Break-even analysis — define, calculate, interpret</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="6" data-task="2" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Short Answer</span>
-        <div class="task-text">Outline the four types of resources a business must organise when planning. Give one example of each: operations, marketing, finance, human resources.</div>
-        <div class="task-time">About 25 min</div>
+        <span class="task-badge">Calculation and Interpret</span>
+        <div class="task-text">
+          <strong>Book only — three tasks.</strong><br><br>
+          <strong>Part A (5 min):</strong> Write your own definition of break-even point and the formula used to calculate it. Do not look at your notes.<br><br>
+          <strong>Part B (10 min) — Calculate:</strong> A candle-making business has fixed costs of $9,600 per month. Each candle sells for $40 and has variable costs of $16 to produce. How many candles must the business sell each month to break even? Show all working clearly.<br><br>
+          <strong>Part C (5 min) — Interpret:</strong> In the month of June, the business sold 320 candles. Write two sentences explaining what this means for the business — is it above or below break-even, and what does that tell the owner?
+        </div>
+        <div class="task-time">About 20 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Wednesday &middot; approx. 25 min</div>
+
+    <div class="day-label">Wednesday &middot; 25 min &middot; Monitoring, evaluation and corrective action</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="6" data-task="3" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Fill the Gap</span>
-        <div class="task-text">Complete: Forecasting includes estimating total _____ and total _____, and performing a _____ analysis. Monitoring and evaluation checks actual _____, _____ and _____ against the plan. When results are off track, management takes _____ action.</div>
+        <span class="task-badge">Apply and Explain</span>
+        <div class="task-text">
+          <strong>Read on screen &middot; Write answers in your revision book</strong><br><br>
+          <em>GreenGrow is a small plant nursery that set a sales target of $15,000 per month and a gross profit margin of 45% for the year. At the end of Quarter 1, the owner reviews performance: actual monthly sales average $11,200, gross profit margin is 38%, and two casual staff have left and not yet been replaced. The owner had forecast needing 80 bags of premium potting mix per month but has been ordering 120 due to unexpected demand.</em><br><br>
+          (a) Identify THREE performance indicators the owner is monitoring and evaluate whether GreenGrow is meeting its targets for each. (3 marks)<br><br>
+          (b) The owner decides to take corrective action. Suggest TWO specific corrective actions GreenGrow could take and explain how each would help the business move towards its targets. (4 marks)<br><br>
+          (c) Explain why monitoring and evaluation is an essential part of the business planning process rather than an optional extra. (2 marks)
+        </div>
         <div class="task-time">About 25 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Thursday &middot; approx. 25 min</div>
+
+    <div class="day-label">Thursday &middot; 30 min &middot; Critical issues in success and failure — HSC style</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="6" data-task="4" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">True / False</span>
-        <div class="task-text">True or false - give a reason: (1) A business plan is only useful when applying for finance. (2) Over-extending finance and other resources can cause a business to fail. (3) Trend analysis involves looking at data over time to identify patterns.</div>
-        <div class="task-time">About 25 min</div>
+        <span class="task-badge">HSC Style</span>
+        <div class="task-text">
+          <strong>Read on screen, then close the laptop and write both answers in your revision book as if it is an exam.</strong><br><br>
+          <strong>Question 1 (4 marks) — Outline</strong><br>
+          Outline FOUR critical issues that can contribute to the failure of a small business. For each issue, write one to two sentences explaining how it leads to failure.<br><br>
+          <strong>Question 2 (4 marks) — Explain</strong><br>
+          Explain how having a well-developed business plan and using technology effectively can contribute to the success of a small business.<br><br>
+          <em>Critical issues to choose from: importance of a business plan / management skills and staffing / trend analysis / identifying and sustaining competitive advantage / avoiding over-extension of finance and other resources / using technology / economic conditions.</em>
+        </div>
+        <div class="task-time">About 30 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
-    <div class="day-label">Weekend &middot; approx. 30 min</div>
+
+    <div class="day-label">Weekend &middot; 45 min &middot; Exam simulation</div>
     <div class="task-row">
       <input type="checkbox" class="task-check" data-week="6" data-task="5" onchange="handleCheck(this)">
       <div class="task-content">
-        <span class="task-badge">Exam Style (8 marks)</span>
-        <div class="task-text">Discuss the critical issues that contribute to the success or failure of a small business. Include a range of issues and link each clearly to success or failure.</div>
-        <div class="task-time">About 30 min</div>
+        <span class="task-badge">Exam Simulation</span>
+        <div class="task-text">
+          <strong>Exam simulation — set a timer for 45 minutes</strong><br><br>
+          Keep this page open as your exam paper. No notes, no books, no other tabs — just this page and your revision book. Write all answers in your book.<br><br>
+          <em>Petra established HandCraft Co. two years ago, selling handmade leather goods online and through markets. She set a monthly sales target of $8,000 and a break-even point she calculated at 160 units per month (selling price $50, variable cost $20, fixed costs $4,800). In Year 1, Petra averaged 140 units per month and relied heavily on her personal savings to cover the shortfall. She had no formal business plan and made decisions based on instinct. By Year 2, she hired a business mentor who helped her create a cash flow forecast, set clearer goals, and invest in a professional website and social media advertising. Sales climbed to 200 units per month by the end of Year 2. However, a large competitor recently launched a similar product range at a lower price point, and Petra is concerned about maintaining her market share.</em><br><br>
+          (a) Using the information provided, calculate HandCraft Co.'s break-even point and determine whether Petra was above or below break-even in Year 1. Show all working. (3 marks)<br><br>
+          (b) Identify TWO critical issues that contributed to HandCraft Co.'s poor performance in Year 1 and explain how each affected the business. (4 marks)<br><br>
+          (c) Explain how the corrective actions taken in Year 2 contributed to improved performance. Refer to specific actions from the stimulus. (4 marks)<br><br>
+          (d) Petra is now facing a new competitive threat. Using your knowledge of critical success factors, recommend TWO strategies Petra could use to sustain her competitive advantage. Justify each recommendation. (4 marks)<br><br>
+          (e) "A business plan is only useful when starting a business." Discuss this statement with reference to HandCraft Co. (6 marks)<br><br>
+          <em>Suggested split: 5 min reading, 6 min on (a), 8 min on (b), 8 min on (c), 8 min on (d), 15 min on (e), 5 min re-reading. Timer starts now.</em>
+        </div>
+        <div class="task-time">About 45 min</div>
+        <div class="exemplar-wrap"><p style="font-size:0.75rem;color:var(--text-light);margin-top:0.4rem;font-style:italic;">Answers will be sent to you after you submit your weekly email to Mrs Perkins.</p></div>
+      </div>
       </div>
     </div>
+
     <div class="tell-section">
-      <div class="tell-heading">Tell Mrs Perkins - Week 6</div>
-      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="tell-heading">Week 6 — Let Mrs Perkins know</div>
+      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
       <div class="name-row">
-        <label for="n6">Your name:</label>
-        <input type="text" class="name-input" id="n6" placeholder="First and last name">
+        <label for="n6">First name:</label>
+        <input type="text" class="name-input" id="n6" placeholder="Your first name">
       </div>
-      <div class="tell-btns">
-        <a class="tell-btn primary" href="#" onclick="sendEmail(6,'show',event)">I can show you my work in class</a>
-        <a class="tell-btn" href="#" onclick="sendEmail(6,'head',event)">I completed this in my head / no written work</a>
+      <div class="tell-options">
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="6" data-opt="show">
+          <span class="tell-option-label">I can show you this work in class
+            <span class="deadline">By Thursday of Week 7</span>
+          </span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="6" data-opt="notime">
+          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="6" data-opt="head">
+          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
+        </label>
       </div>
+      <button class="send-btn" onclick="sendEmail(6)">Send to Mrs Perkins</button>
     </div>
+
+    <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
+      <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let Mrs Perkins know</div>
+      <div class="tell-para">Tech issue, broken link, question that does not make sense, or a possible error — send a quick note and it will be fixed.</div>
+      <div class="name-row">
+        <label for="note6-name">First name:</label>
+        <input type="text" class="name-input" id="note6-name" placeholder="Your first name">
+      </div>
+      <div class="name-row" style="flex-direction:column;align-items:flex-start;gap:0.3rem;">
+        <label style="font-size:0.78rem;color:var(--text-mid);font-weight:500;">What is the problem?</label>
+        <textarea id="note6-text" rows="2" placeholder="e.g. Monday task — the link does not open / Question 3 does not make sense" style="width:100%;border:1px solid rgba(0,0,0,0.15);border-radius:7px;padding:0.4rem 0.65rem;font-size:0.82rem;font-family:inherit;color:var(--text-dark);background:rgba(255,255,255,0.7);resize:vertical;"></textarea>
+      </div>
+      <button class="send-btn" style="background:var(--accent-warm);margin-top:0.4rem;" onclick="sendNote(6)">Send note</button>
+    </div>
+
   </div>
  </div>
 </div>
@@ -970,15 +1183,28 @@
     </div>
     <div class="tell-section">
       <div class="tell-heading">Tell Mrs Perkins - Week 7</div>
-      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="tell-para">Enter your first name, then tick all that apply and send.</div>
       <div class="name-row">
-        <label for="n7">Your name:</label>
-        <input type="text" class="name-input" id="n7" placeholder="First and last name">
+        <label for="n7">First name:</label>
+        <input type="text" class="name-input" id="n7" placeholder="Your first name">
       </div>
-      <div class="tell-btns">
-        <a class="tell-btn primary" href="#" onclick="sendEmail(7,'show',event)">I can show you my work in class</a>
-        <a class="tell-btn" href="#" onclick="sendEmail(7,'head',event)">I completed this in my head / no written work</a>
+      <div class="tell-options">
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="7" data-opt="show">
+          <span class="tell-option-label">I can show you this work in class
+            <span class="deadline">By Thursday of Week 8</span>
+          </span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="7" data-opt="notime">
+          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="7" data-opt="head">
+          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
+        </label>
       </div>
+      <button class="send-btn" onclick="sendEmail(7)">Send to Mrs Perkins</button>
     </div>
   </div>
  </div>
@@ -1041,15 +1267,28 @@
     </div>
     <div class="tell-section">
       <div class="tell-heading">Tell Mrs Perkins - Week 8</div>
-      <div class="tell-para">Enter your name and let me know how you completed the week.</div>
+      <div class="tell-para">Enter your first name, then tick all that apply and send.</div>
       <div class="name-row">
-        <label for="n8">Your name:</label>
-        <input type="text" class="name-input" id="n8" placeholder="First and last name">
+        <label for="n8">First name:</label>
+        <input type="text" class="name-input" id="n8" placeholder="Your first name">
       </div>
-      <div class="tell-btns">
-        <a class="tell-btn primary" href="#" onclick="sendEmail(8,'show',event)">I can show you my work in class</a>
-        <a class="tell-btn" href="#" onclick="sendEmail(8,'head',event)">I completed this in my head / no written work</a>
+      <div class="tell-options">
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="8" data-opt="show">
+          <span class="tell-option-label">I can show you this work in class
+            <span class="deadline">By Thursday of Week 9</span>
+          </span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="8" data-opt="notime">
+          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
+        </label>
+        <label class="tell-option">
+          <input type="checkbox" class="tell-opt" data-week="8" data-opt="head">
+          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
+        </label>
       </div>
+      <button class="send-btn" onclick="sendEmail(8)">Send to Mrs Perkins</button>
     </div>
   </div>
  </div>
@@ -1057,11 +1296,11 @@
 
 <footer>
   Year 11 Preliminary Business Studies &middot; Educational use only<br>
-  <a href="https://mrsperkinsteacher.github.io/business/">Mrs Perkins Business Studies</a> &middot; <a href="https://mrsperkinsteacher.github.io/">All subjects</a>
+  <a href="https://mrsperkinsteacher.github.io/business/year11.html">Year 11</a> &middot; <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a> &middot; <a href="https://mrsperkinsteacher.github.io/">Home</a>
 </footer>
 
 <script>
-  const STORE = 'yr11biz_v2';
+  const STORE = 'yr11biz_v3';
 
   function getState() {
     try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch(e) { return {}; }
@@ -1088,8 +1327,7 @@
   }
 
   function strikeText(cb, on) {
-    const t = cb.closest('.task-row').querySelector('.task-text');
-    t.classList.toggle('struck', on);
+    cb.closest('.task-row').querySelector('.task-text').classList.toggle('struck', on);
   }
 
   function updateProgress() {
@@ -1103,8 +1341,7 @@
       if (p) p.textContent = `${wd}/5`;
       if (pills[w-1]) pills[w-1].classList.toggle('done', wd === 5);
     }
-    const pct = Math.round(done/total*100);
-    document.getElementById('mainFill').style.width = pct + '%';
+    document.getElementById('mainFill').style.width = Math.round(done/total*100) + '%';
     document.getElementById('mainCount').textContent = `${done} / ${total} tasks`;
   }
 
@@ -1112,8 +1349,13 @@
     document.getElementById(id).classList.toggle('collapsed');
   }
 
-  function sendEmail(week, type, e) {
-    e.preventDefault();
+  function toggleEx(btn) {
+    const box = btn.nextElementSibling;
+    box.classList.toggle('open');
+    btn.textContent = box.classList.contains('open') ? 'Hide example' : 'See an example';
+  }
+
+  function sendEmail(week) {
     const inp = document.getElementById(`n${week}`);
     const name = inp ? inp.value.trim() : '';
     if (!name) {
@@ -1122,11 +1364,37 @@
       setTimeout(() => inp.style.outline = '', 2000);
       return;
     }
+    const opts = document.querySelectorAll(`.tell-opt[data-week="${week}"]`);
+    const selected = [];
+    opts.forEach(o => {
+      if (o.checked) {
+        if (o.dataset.opt === 'show') selected.push('I can show you this work in class (by Thursday of Week ' + (week + 1) + ')');
+        if (o.dataset.opt === 'notime') selected.push('I cannot show this work - I will not have time to complete it');
+        if (o.dataset.opt === 'head') selected.push('I have done all the work but in my head - I cannot show you written work');
+      }
+    });
+    if (selected.length === 0) {
+      alert('Please tick at least one option before sending.');
+      return;
+    }
     const to = 'michelle.perkins@spcc.nsw.edu.au';
     const sub = encodeURIComponent(`Year 11 Revision - Week ${week} - ${name}`);
-    const bod = type === 'show'
-      ? encodeURIComponent(`Hi Mrs Perkins,\n\nI have completed Week ${week} of the revision programme.\n\nI can show you my written work in class.\n\nFrom ${name}`)
-      : encodeURIComponent(`Hi Mrs Perkins,\n\nI have completed Week ${week} of the revision programme.\n\nI did the work in my head and do not have written work to show you.\n\nFrom ${name}`);
+    const bodyLines = [`Hi Mrs Perkins,`, ``, `My name is ${name}.`, ``, `Week ${week} update:`, ``];
+    selected.forEach(s => bodyLines.push('- ' + s));
+    bodyLines.push('', `From ${name}`);
+    window.location.href = `mailto:${to}?subject=${encodeURIComponent(`Year 11 Revision - Week ${week} - ${name}`)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+  }
+
+  function sendNote(week) {
+    const nameEl = document.getElementById(`note${week}-name`);
+    const textEl = document.getElementById(`note${week}-text`);
+    const name = nameEl ? nameEl.value.trim() : '';
+    const note = textEl ? textEl.value.trim() : '';
+    if (!name) { nameEl.style.outline = '2px solid #c9a98a'; nameEl.focus(); setTimeout(() => nameEl.style.outline = '', 2000); return; }
+    if (!note) { textEl.style.outline = '2px solid #c9a98a'; textEl.focus(); setTimeout(() => textEl.style.outline = '', 2000); return; }
+    const to = 'michelle.perkins@spcc.nsw.edu.au';
+    const sub = encodeURIComponent(`Year 11 Revision — Week ${week} problem report — ${name}`);
+    const bod = encodeURIComponent(`Hi Mrs Perkins,\n\nMy name is ${name}.\n\nI found a problem in Week ${week} of the revision programme:\n\n${note}\n\nFrom ${name}`);
     window.location.href = `mailto:${to}?subject=${sub}&body=${bod}`;
   }
 

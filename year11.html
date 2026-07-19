@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 11 Business Studies - Mrs Perkins</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lora:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --grad-start: #e8d5c4;
+    --grad-mid: #ddd0e0;
+    --grad-end: #c9cce8;
+    --text-dark: #2d2535;
+    --text-mid: #5a5268;
+    --text-light: #8a849a;
+    --card-bg: rgba(255,255,255,0.82);
+    --card-border: rgba(255,255,255,0.6);
+    --accent-warm: #c9a98a;
+    --accent-cool: #8f8fc4;
+    --check-color: #9b8bb4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-mid) 50%, var(--grad-end) 100%);
+    background-attachment: fixed;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  nav {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    flex-wrap: wrap;
+  }
+  nav a { color: var(--text-mid); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.03em; transition: color 0.15s; }
+  nav a:hover { color: var(--text-dark); }
+  nav .sep { color: var(--text-light); font-size: 0.75rem; }
+
+  .hero {
+    text-align: center;
+    padding: 4rem 1.5rem 2.5rem;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 6vw, 3.8rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  .hero-sub {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: var(--text-mid);
+    margin-bottom: 1.5rem;
+  }
+  .hero-rule {
+    width: 40px;
+    height: 1px;
+    background: var(--text-light);
+    margin: 0 auto 1.5rem;
+    opacity: 0.5;
+  }
+  .hero p {
+    font-size: 0.95rem;
+    color: var(--text-mid);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* TERM TABS */
+  .tab-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    background: rgba(255,255,255,0.5);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.6);
+    border-radius: 99px;
+    padding: 0.45rem 1.2rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: inherit;
+    color: var(--text-mid);
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .tab-btn:hover {
+    background: rgba(255,255,255,0.75);
+    color: var(--text-dark);
+  }
+  .tab-btn.active {
+    background: var(--text-dark);
+    color: white;
+    border-color: var(--text-dark);
+  }
+
+  /* TAB PANELS */
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* CONTENT AREA */
+  .content {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+  }
+
+  .term-intro {
+    margin-bottom: 1.5rem;
+  }
+  .term-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+  }
+  .term-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.4rem;
+  }
+  .term-desc {
+    font-size: 0.88rem;
+    color: var(--text-mid);
+    max-width: 580px;
+  }
+
+  /* RESOURCE CARDS */
+  .resource-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+  }
+  .resource-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 1.1rem 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(45,37,53,0.06);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .resource-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(45,37,53,0.10);
+  }
+  .resource-card.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: default;
+  }
+  .resource-dot {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    border-radius: 50%;
+    background: var(--check-color);
+  }
+  .resource-card.disabled .resource-dot {
+    background: var(--text-light);
+  }
+  .resource-info { flex: 1; }
+  .resource-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin-bottom: 0.15rem;
+  }
+  .resource-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dark);
+  }
+  .resource-desc {
+    font-size: 0.78rem;
+    color: var(--text-mid);
+    margin-top: 0.1rem;
+  }
+  .resource-arrow {
+    font-size: 0.9rem;
+    color: var(--text-light);
+  }
+
+  /* COMING SOON PLACEHOLDER */
+  .coming-soon {
+    background: rgba(255,255,255,0.4);
+    border: 1px dashed rgba(155,139,180,0.3);
+    border-radius: 12px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+  }
+  .coming-soon p {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    font-style: italic;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    font-size: 0.78rem;
+    color: var(--text-light);
+  }
+  footer a { color: var(--text-mid); text-decoration: none; }
+  footer a:hover { color: var(--text-dark); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0.75rem 1rem; }
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .content { padding: 0 0.75rem 3rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://mrsperkinsteacher.github.io/">Home</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/business/year11.html">Year 11</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Stage 6 Preliminary</div>
+  <h1>Year 11</h1>
+  <div class="hero-sub">Business Studies</div>
+  <div class="hero-rule"></div>
+  <p>Select a term below to find your lessons, worksheets, slides and revision resources.</p>
+</div>
+
+<div class="tab-bar">
+  <button class="tab-btn" onclick="showTab('term1')">Term 1</button>
+  <button class="tab-btn" onclick="showTab('term2')">Term 2</button>
+  <button class="tab-btn active" onclick="showTab('term3')">Term 3</button>
+</div>
+
+<div class="content">
+
+  <!-- TERM 1 -->
+  <div class="tab-panel" id="term1">
+    <div class="term-intro">
+      <div class="term-eyebrow">Term 1</div>
+      <div class="term-title">Nature of Business</div>
+      <p class="term-desc">The role of business, types of business, industry sectors, legal structures, influences on business, stakeholders and the business life cycle.</p>
+    </div>
+    <div class="coming-soon">
+      <p>Term 1 resources are coming soon. Check back later.</p>
+    </div>
+  </div>
+
+  <!-- TERM 2 -->
+  <div class="tab-panel" id="term2">
+    <div class="term-intro">
+      <div class="term-eyebrow">Term 2</div>
+      <div class="term-title">Business Planning</div>
+      <p class="term-desc">SMEs, establishing a business, influences on establishment, situational analysis, SWOT, goals and objectives, organising resources, break-even analysis and the critical issues in success and failure.</p>
+    </div>
+
+    <div class="resource-list">
+
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin:0.5rem 0 0.25rem;">Business Planning</div>
+
+      <a class="resource-card" href="https://mrsperkinsteacher.github.io/business/week7.html">
+        <div class="resource-dot"></div>
+        <div class="resource-info">
+          <div class="resource-label">Week 7 &middot; Slides and Worksheet</div>
+          <div class="resource-title">Ch 12 — Business Planning Process</div>
+          <div class="resource-desc">Due Thursday</div>
+        </div>
+        <div class="resource-arrow">&rarr;</div>
+      </a>
+
+      <div class="resource-card disabled">
+        <div class="resource-dot"></div>
+        <div class="resource-info">
+          <div class="resource-label">Week 8 &middot; Slides and Worksheet</div>
+          <div class="resource-title">Coming soon</div>
+        </div>
+      </div>
+
+      <div class="resource-card disabled">
+        <div class="resource-dot"></div>
+        <div class="resource-info">
+          <div class="resource-label">Week 9 &middot; Slides and Worksheet</div>
+          <div class="resource-title">Coming soon</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TERM 3 -->
+  <div class="tab-panel active" id="term3">
+    <div class="term-intro">
+      <div class="term-eyebrow">Term 3</div>
+      <div class="term-title">Business Management and Exam Preparation</div>
+      <p class="term-desc">Management skills and approaches, business goals, key business functions, financial statements, ethical behaviour, managing change — plus your eight-week revision programme for the Preliminary exam.</p>
+    </div>
+
+    <div class="resource-list">
+
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin:0.5rem 0 0.25rem;">Business Management</div>
+
+      <div class="coming-soon">
+        <p>Business Management lesson resources are coming soon. Check back later.</p>
+      </div>
+
+      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin:1.25rem 0 0.25rem;">Revision and Exam Preparation</div>
+
+      <a class="resource-card" href="https://mrsperkinsteacher.github.io/business/revision.html">
+        <div class="resource-dot"></div>
+        <div class="resource-info">
+          <div class="resource-label">Eight-Week Programme</div>
+          <div class="resource-title">Year 11 Revision Programme</div>
+          <div class="resource-desc">Daily homework tasks across all three topics — Nature of Business, Business Planning and Business Management. Builds to your Preliminary exam in Weeks 9 and 10.</div>
+        </div>
+        <div class="resource-arrow">&rarr;</div>
+      </a>
+
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Year 11 Preliminary Business Studies &middot; Educational use only<br>
+  <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a> &middot; <a href="https://mrsperkinsteacher.github.io/">All subjects</a>
+</footer>
+
+<script>
+  function showTab(id) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.target.classList.add('active');
+  }
+
+  // Open to the correct tab if URL has a hash
+  const hash = window.location.hash.replace('#', '');
+  if (hash && document.getElementById(hash)) showTab(hash);
+</script>
+
+</body>
+</html>
