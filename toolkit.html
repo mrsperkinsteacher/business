@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Question Toolkit - Year 11 Business Studies</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lora:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --grad-start: #e8d5c4;
+    --grad-mid: #ddd0e0;
+    --grad-end: #c9cce8;
+    --text-dark: #2d2535;
+    --text-mid: #5a5268;
+    --text-light: #8a849a;
+    --card-bg: rgba(255,255,255,0.82);
+    --card-border: rgba(255,255,255,0.6);
+    --check-color: #9b8bb4;
+    --accent-warm: #c9a98a;
+    --accent-cool: #8f8fc4;
+    --depth-low: #c9a98a;
+    --depth-mid: #9b8bb4;
+    --depth-high: #6a7ab4;
+    --cat-quickfire: #b4956a;
+    --cat-scenario: #6a9b8f;
+    --cat-verbdrill: #8b6ab4;
+    --cat-fixit: #b46a6a;
+    --cat-challenge: #6a8ab4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { overflow-x: hidden; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-mid) 50%, var(--grad-end) 100%);
+    background-attachment: fixed;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+  }
+  nav a { color: var(--text-mid); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.03em; transition: color 0.15s; }
+  nav a:hover { color: var(--text-dark); }
+  nav .sep { color: var(--text-light); font-size: 0.75rem; }
+
+  /* HERO */
+  .hero { text-align: center; padding: 4rem 1.5rem 3rem; }
+  .hero-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 800; color: var(--text-dark); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.5rem; }
+  .hero-sub { font-family: 'Lora', serif; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.3rem); color: var(--text-mid); margin-bottom: 1.5rem; }
+  .hero-rule { width: 40px; height: 1px; background: var(--text-light); margin: 0 auto 1.5rem; opacity: 0.5; }
+  .hero p { font-size: 0.95rem; color: var(--text-mid); max-width: 520px; margin: 0 auto; }
+
+  /* SECTION HEADERS */
+  .section-wrap { max-width: 900px; margin: 3rem auto 1.25rem; padding: 0 1.5rem; }
+  .section-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.25rem; }
+  .section-name { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.6rem; }
+  .section-desc { font-size: 0.88rem; color: var(--text-mid); max-width: 600px; line-height: 1.6; }
+
+  /* ===== VERB CARDS ===== */
+  .verb-grid { max-width: 900px; margin: 0 auto 1rem; padding: 0 1.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.85rem; }
+
+  .verb-card { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 16px rgba(45,37,53,0.06); }
+  .verb-card-header { display: flex; align-items: center; gap: 0.75rem; padding: 1rem 1.1rem; cursor: pointer; user-select: none; }
+  .verb-name { font-family: 'Playfair Display', serif; font-size: 1.15rem; font-weight: 700; color: var(--text-dark); flex: 1; }
+  .verb-marks { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.18rem 0.5rem; border-radius: 5px; white-space: nowrap; }
+  .depth-low  .verb-marks { background: rgba(201,169,138,0.18); color: var(--depth-low); }
+  .depth-mid  .verb-marks { background: rgba(155,139,180,0.18); color: var(--depth-mid); }
+  .depth-high .verb-marks { background: rgba(106,122,180,0.18); color: var(--depth-high); }
+  .verb-chevron { color: var(--text-light); font-size: 0.8rem; transition: transform 0.2s; }
+  .verb-card.open .verb-chevron { transform: rotate(180deg); }
+  .verb-hint { font-size: 0.75rem; color: var(--text-light); padding: 0 1.1rem 0.85rem; font-style: italic; }
+  .verb-body { display: none; padding: 0 1.1rem 1.1rem; border-top: 1px solid rgba(0,0,0,0.05); }
+  .verb-card.open .verb-body { display: block; }
+  .verb-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-light); margin: 0.85rem 0 0.25rem; }
+  .verb-def { font-size: 0.82rem; color: var(--text-dark); line-height: 1.55; background: rgba(0,0,0,0.03); border-radius: 7px; padding: 0.55rem 0.75rem; font-style: italic; }
+  .verb-tip { font-size: 0.8rem; color: var(--text-mid); line-height: 1.55; }
+  .verb-example { font-size: 0.78rem; color: var(--text-mid); line-height: 1.55; background: rgba(155,139,180,0.08); border: 1px solid rgba(155,139,180,0.15); border-radius: 7px; padding: 0.55rem 0.75rem; }
+
+  /* depth left border */
+  .depth-low  .verb-card-header { border-left: 3px solid var(--depth-low); }
+  .depth-mid  .verb-card-header { border-left: 3px solid var(--depth-mid); }
+  .depth-high .verb-card-header { border-left: 3px solid var(--depth-high); }
+
+  /* depth key */
+  .depth-key { max-width: 900px; margin: 0 auto 0.5rem; padding: 0 1.5rem; display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .depth-key-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.72rem; color: var(--text-light); }
+  .depth-key-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dk-low  { background: var(--depth-low); }
+  .dk-mid  { background: var(--depth-mid); }
+  .dk-high { background: var(--depth-high); }
+
+  /* ===== QUESTION POOL ===== */
+  .filter-row { max-width: 900px; margin: 0 auto 1rem; padding: 0 1.5rem; display: flex; gap: 0.45rem; flex-wrap: wrap; }
+  .flt { font-size: 0.73rem; font-weight: 600; padding: 0.28rem 0.85rem; border-radius: 99px; border: 1.5px solid transparent; cursor: pointer; transition: all 0.15s; background: rgba(255,255,255,0.55); color: var(--text-mid); border-color: rgba(255,255,255,0.7); }
+  .flt:hover { background: rgba(255,255,255,0.75); }
+  .flt.active { background: var(--text-dark); color: white; border-color: var(--text-dark); }
+  .flt[data-cat="quick-fire"].active  { background: var(--cat-quickfire); border-color: var(--cat-quickfire); }
+  .flt[data-cat="scenario"].active    { background: var(--cat-scenario);  border-color: var(--cat-scenario);  }
+  .flt[data-cat="verb-drill"].active  { background: var(--cat-verbdrill); border-color: var(--cat-verbdrill); }
+  .flt[data-cat="fix-it"].active      { background: var(--cat-fixit);     border-color: var(--cat-fixit);     }
+  .flt[data-cat="challenge"].active   { background: var(--cat-challenge);  border-color: var(--cat-challenge);  }
+
+  .q-grid { max-width: 900px; margin: 0 auto 2rem; padding: 0 1.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.85rem; }
+
+  .q-card { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 16px rgba(45,37,53,0.06); cursor: pointer; transition: box-shadow 0.15s; }
+  .q-card:hover { box-shadow: 0 4px 24px rgba(45,37,53,0.1); }
+  .q-card-top { padding: 0.85rem 1.1rem 0.65rem; }
+  .q-badge { display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.12rem 0.5rem; border-radius: 4px; margin-bottom: 0.4rem; }
+  .cat-quick-fire  .q-badge { background: rgba(180,149,106,0.15); color: var(--cat-quickfire); }
+  .cat-scenario    .q-badge { background: rgba(106,155,143,0.15); color: var(--cat-scenario); }
+  .cat-verb-drill  .q-badge { background: rgba(139,106,180,0.15); color: var(--cat-verbdrill); }
+  .cat-fix-it      .q-badge { background: rgba(180,106,106,0.15); color: var(--cat-fixit); }
+  .cat-challenge   .q-badge { background: rgba(106,138,180,0.15); color: var(--cat-challenge); }
+
+  .q-title { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); line-height: 1.4; }
+  .q-expand-hint { font-size: 0.7rem; color: var(--text-light); padding: 0 1.1rem 0.7rem; }
+  .q-body { display: none; padding: 0.75rem 1.1rem 1.1rem; border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.82rem; color: var(--text-mid); line-height: 1.65; }
+  .q-body strong { color: var(--text-dark); }
+  .q-body .weak-answer { background: rgba(180,106,106,0.07); border: 1px solid rgba(180,106,106,0.2); border-radius: 7px; padding: 0.55rem 0.75rem; font-style: italic; margin: 0.5rem 0; }
+  .q-body .task { font-weight: 600; color: var(--text-dark); margin-top: 0.5rem; }
+  .q-card.open .q-body { display: block; }
+  .q-card.open .q-expand-hint { display: none; }
+
+  /* left border per category */
+  .cat-quick-fire  { border-left: 3px solid var(--cat-quickfire); }
+  .cat-scenario    { border-left: 3px solid var(--cat-scenario); }
+  .cat-verb-drill  { border-left: 3px solid var(--cat-verbdrill); }
+  .cat-fix-it      { border-left: 3px solid var(--cat-fixit); }
+  .cat-challenge   { border-left: 3px solid var(--cat-challenge); }
+
+  .nesa-note { max-width: 900px; margin: 0.5rem auto 0; padding: 0 1.5rem; font-size: 0.73rem; color: var(--text-light); font-style: italic; }
+
+  footer { text-align: center; padding: 2.5rem 1rem; font-size: 0.78rem; color: var(--text-light); margin-top: 1rem; }
+  footer a { color: var(--text-mid); text-decoration: none; }
+  footer a:hover { color: var(--text-dark); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0.75rem 1rem; }
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .verb-grid, .q-grid { grid-template-columns: 1fr; padding: 0 0.75rem; }
+    .section-wrap { padding: 0 0.75rem; }
+    .filter-row { padding: 0 0.75rem; }
+    .depth-key { padding: 0 0.75rem; }
+    .nesa-note { padding: 0 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://mrsperkinsteacher.github.io/">Home</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/business/year11.html">Year 11</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/business/revision.html">Revision Program</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Year 11 Preliminary</div>
+  <h1>Question Toolkit</h1>
+  <div class="hero-sub">Verb guide &amp; question sparks</div>
+  <div class="hero-rule"></div>
+  <p>Use the verb guide before you write. Dip into the question sparks whenever you want extra practice or a fresh angle on the content.</p>
+</div>
+
+<!-- ===== SECTION 1: VERB GUIDE ===== -->
+<div class="section-wrap" id="verb-guide">
+  <div class="section-eyebrow">Section 1</div>
+  <div class="section-name">Command Verb Guide</div>
+  <div class="section-desc">These are the verbs NESA uses in exam questions. The verb tells you exactly how much to write and how deep to go. Click any card to see the full definition and what examiners look for.</div>
+</div>
+
+<div class="depth-key">
+  <div class="depth-key-item"><div class="depth-key-dot dk-low"></div>Surface &mdash; name and state</div>
+  <div class="depth-key-item"><div class="depth-key-dot dk-mid"></div>Moderate &mdash; features and structure</div>
+  <div class="depth-key-item"><div class="depth-key-dot dk-high"></div>Deep &mdash; argument and judgement</div>
+  <div class="depth-key-item" style="margin-left:0.5rem;font-style:italic;">Border colour shows depth only &mdash; mark values depend on the specific exam question.</div>
+</div>
+
+<div class="verb-grid">
+
+  <!-- IDENTIFY -->
+  <div class="verb-card depth-low" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Identify</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: you just need to name something.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">Recognise and name.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">One correct term or name. No explanation needed &mdash; adding one doesn&rsquo;t earn extra marks, but it wastes your time. Keep it short.</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">Identify the legal structure of the business described in the stimulus. (1 mark)</div>
+    </div>
+  </div>
+
+  <!-- DEFINE -->
+  <div class="verb-card depth-low" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Define</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: you need to state what something means.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">State meaning and identify essential qualities.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">A complete definition that captures the essential features. Do not pad with examples unless the question asks for them. One clear sentence is usually enough.</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">Define the term &lsquo;goodwill&rsquo;. (1 mark)</div>
+    </div>
+  </div>
+
+  <!-- OUTLINE -->
+  <div class="verb-card depth-mid" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Outline</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: you need to cover the main points without going deep.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">Sketch in general terms; indicate the main features of.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">Broad coverage, not deep explanation. Think &ldquo;wide not tall.&rdquo; Name and briefly state each key feature. You do not need to explain why &mdash; save that for Explain questions.</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">Outline the features of a sole trader as a legal structure. (3 marks)</div>
+    </div>
+  </div>
+
+  <!-- DESCRIBE -->
+  <div class="verb-card depth-mid" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Describe</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: you need to paint a full picture of what something is or looks like.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">Provide characteristics and features.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">More detail per feature than an outline, but still not a full cause-and-effect explanation. Think: what does this look like in practice? What are its characteristics?</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">Describe the challenges a business is likely to face during the maturity stage of the business life cycle. (4 marks)</div>
+    </div>
+  </div>
+
+  <!-- DISTINGUISH -->
+  <div class="verb-card depth-mid" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Distinguish</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: two things need to be directly compared by their differences.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">Note points of difference.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">Direct contrast. Use language like &ldquo;whereas,&rdquo; &ldquo;unlike,&rdquo; and &ldquo;in contrast.&rdquo; Do not define each term separately &mdash; that is not distinguishing. The comparison must be explicit.</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">Distinguish between voluntary and involuntary cessation of a business. (3 marks)</div>
+    </div>
+  </div>
+
+  <!-- EXPLAIN -->
+  <div class="verb-card depth-high" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Explain</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: you need to show why or how something happens.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">Relate cause and effect; make relationships between things evident; provide why and/or how.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">The word &ldquo;because&rdquo; should appear (or be clearly implied). Show the link between a cause and its effect. A common mistake is to describe instead of explain &mdash; always go one step further and say why or how.</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">Explain how an increase in interest rates could affect a small business that has taken out a variable-rate bank loan. (4 marks)</div>
+    </div>
+  </div>
+
+  <!-- JUSTIFY -->
+  <div class="verb-card depth-high" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Justify</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: you need to defend a conclusion with reasons.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">Support an argument or conclusion.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">State your position clearly, then back it up with reasoning or evidence. &ldquo;Because&rdquo; + &ldquo;as a result&rdquo; + &ldquo;therefore&rdquo; are useful connectors. You are not asked to consider the other side &mdash; just support your conclusion.</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">Justify why a business owner with limited industry experience might choose to buy a franchise rather than start a new business. (3 marks)</div>
+    </div>
+  </div>
+
+  <!-- DISCUSS -->
+  <div class="verb-card depth-high" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Discuss</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: you need to explore both sides of an argument.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">Identify issues and provide points for and/or against.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">Both sides of the argument. Acknowledge complexity. Come to a reasoned conclusion. One-sided responses lose marks at the higher mark levels. Do not just list points &mdash; connect them and reach a position.</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">&ldquo;The maturity stage is the most dangerous stage of the business life cycle.&rdquo; Discuss this statement with reference to the stimulus. (6 marks)</div>
+    </div>
+  </div>
+
+  <!-- ASSESS -->
+  <div class="verb-card depth-high" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Assess</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: you need to weigh something up and make a judgement.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">Make a judgement of value, quality, outcomes, results or size.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">Do not just describe &mdash; you must arrive at a judgement. Weigh the evidence and state how significant, effective or important something is. Your conclusion must be supported by the points you have made.</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">Assess the importance of a well-developed business plan to the long-term success of an SME. (6 marks)</div>
+    </div>
+  </div>
+
+  <!-- EVALUATE -->
+  <div class="verb-card depth-high" onclick="toggleVerb(this)">
+    <div class="verb-card-header">
+      <span class="verb-name">Evaluate</span>
+      <span class="verb-chevron">&#9660;</span>
+    </div>
+    <div class="verb-hint">Use when: you need to judge something against clear criteria.</div>
+    <div class="verb-body">
+      <div class="verb-label">NESA definition</div>
+      <div class="verb-def">Make a judgement based on criteria; determine the value of.</div>
+      <div class="verb-label">What examiners look for</div>
+      <div class="verb-tip">Similar to assess, but implies you are measuring against stated criteria. Set up what &ldquo;success&rdquo; or &ldquo;effectiveness&rdquo; looks like, then judge the evidence against it. A strong conclusion is essential &mdash; do not leave the reader uncertain of your position.</div>
+      <div class="verb-label">Example question</div>
+      <div class="verb-example">Evaluate the effectiveness of the corrective actions taken by a business in response to falling sales performance. (6 marks)</div>
+    </div>
+  </div>
+
+</div>
+
+<p class="nesa-note">Verb definitions are taken word-for-word from the NESA HSC examination glossary of key words. Depth labels (Surface / Moderate / Deep) are a general guide only &mdash; they are not official NESA categories. Actual mark values depend on the specific exam question.</p>
+
+
+<!-- ===== SECTION 2: QUESTION SPARKS ===== -->
+<div class="section-wrap" id="question-sparks" style="margin-top:3.5rem;">
+  <div class="section-eyebrow">Section 2</div>
+  <div class="section-name">Question Sparks</div>
+  <div class="section-desc">Click any card to open the full question. Use the filters to find a type that suits you right now. These are extras &mdash; there is no obligation to do all of them.</div>
+</div>
+
+<div class="filter-row">
+  <button class="flt active" data-cat="all" onclick="filterQ(this)">All</button>
+  <button class="flt" data-cat="quick-fire" onclick="filterQ(this)">Quick Fire</button>
+  <button class="flt" data-cat="scenario" onclick="filterQ(this)">Scenario</button>
+  <button class="flt" data-cat="verb-drill" onclick="filterQ(this)">Verb Drill</button>
+  <button class="flt" data-cat="fix-it" onclick="filterQ(this)">Fix It</button>
+  <button class="flt" data-cat="challenge" onclick="filterQ(this)">Challenge</button>
+</div>
+
+<div class="q-grid">
+
+  <!-- QUICK FIRE -->
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">Five industry sectors &mdash; from memory</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      In your revision book, without looking at your notes:<br><br>
+      <strong>List the five industry sectors in order. For each, write one sentence describing what it involves and name one example business.</strong><br><br>
+      Sectors: Primary &middot; Secondary &middot; Tertiary &middot; Quaternary &middot; Quinary<br><br>
+      Check your answers against your notes when you are done.
+    </div>
+  </div>
+
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">ABS size classifications &mdash; exact thresholds</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      Without looking at your notes:<br><br>
+      <strong>Write the four ABS business size categories and the number of employees that defines each one.</strong><br><br>
+      Then write one example of a real business for each category.<br><br>
+      This is a 1&ndash;2 mark recall question in disguise &mdash; if you cannot recall the thresholds, you will lose marks even if your explanation is strong.
+    </div>
+  </div>
+
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">Business life cycle &mdash; four stages and key features</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Name the four stages of the business life cycle. For each stage, write two key features a business is likely to show at that point.</strong><br><br>
+      Then answer this in one sentence: What is the most important thing a business can do at the post-maturity stage, and why does it matter?<br><br>
+      <em>Aim to do this in under 10 minutes.</em>
+    </div>
+  </div>
+
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">SWOT &mdash; internal vs external</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Without looking at your notes: What does each letter of SWOT stand for? Which elements are internal to the business and which are external?</strong><br><br>
+      Then write one example of each for a small bakery in a regional town.<br><br>
+      Common exam mistake: students confuse threats and weaknesses. Can you explain in one sentence what makes them different?
+    </div>
+  </div>
+
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">Debt vs equity finance</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Define debt finance and equity finance. Give two examples of each. Then explain one advantage and one disadvantage of each type.</strong><br><br>
+      Finally, answer: If a new business owner wants to avoid giving up control of the business, which type of finance should they prefer and why?
+    </div>
+  </div>
+
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">Internal and external influences &mdash; sort and classify</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>In your revision book, draw two columns: Internal Influences and External Influences.</strong><br><br>
+      Sort the following into the correct column and write the specific type of influence (economic, legal, social, technological, etc.) next to each:<br><br>
+      Rising interest rates &middot; A change in the owner&rsquo;s vision &middot; New workplace safety legislation &middot; A key staff member resigns &middot; Growing consumer interest in sustainable products &middot; A new competitor opens nearby &middot; The business invests in new software &middot; The owner runs out of personal savings
+    </div>
+  </div>
+
+  <!-- SCENARIO -->
+  <div class="q-card cat-scenario" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Scenario</span>
+      <div class="q-title">Woolworths Group &mdash; size and geographical spread</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      Woolworths Group is listed on the Australian Securities Exchange, employs over 200,000 people across Australia and New Zealand, and operates supermarkets, discount stores and liquor retail chains.<br><br>
+      <strong class="task">(a)</strong> Classify Woolworths Group by <strong>size</strong> using ABS definitions. Justify your answer. (2 marks)<br><br>
+      <strong class="task">(b)</strong> Classify Woolworths Group by <strong>geographical spread</strong>. Justify your answer. (2 marks)<br><br>
+      <strong class="task">(c)</strong> Identify one role of business demonstrated by Woolworths Group. Use the information above to support your answer. (2 marks)
+    </div>
+  </div>
+
+  <div class="q-card cat-scenario" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Scenario</span>
+      <div class="q-title">Sales plateau &mdash; identify the life cycle stage</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      After three years of rapid growth, a Sydney café group&rsquo;s monthly revenue has been flat for eight months. Two larger competitors have opened in three of its key suburbs, and regular customers are beginning to try the new venues.<br><br>
+      <strong class="task">(a)</strong> Identify the most likely stage of the business life cycle. Justify your answer with reference to the information above. (2 marks)<br><br>
+      <strong class="task">(b)</strong> Suggest two strategies the owner could use to respond to this stage. For each strategy, explain how it would help the business. (4 marks)
+    </div>
+  </div>
+
+  <div class="q-card cat-scenario" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Scenario</span>
+      <div class="q-title">Interest rate rise &mdash; impact on a small business</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      The Reserve Bank of Australia raises the official cash rate. A small furniture manufacturer has a $180,000 variable-rate bank loan used to purchase equipment. The owner also relies on consumer spending for sales.<br><br>
+      <strong class="task">Explain</strong> how the interest rate rise could affect this business. In your answer, refer to at least <strong>two different effects</strong>. (4 marks)<br><br>
+      <em>Hint: think beyond just the loan repayment &mdash; consider what the rate rise signals about the broader economy.</em>
+    </div>
+  </div>
+
+  <div class="q-card cat-scenario" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Scenario</span>
+      <div class="q-title">Store closures &mdash; stakeholder conflict</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      A national supermarket chain announces it will close four regional stores and consolidate into larger suburban locations. The decision is driven by falling profitability in those stores.<br><br>
+      <strong class="task">Explain</strong> how this decision creates a conflict between <strong>two different stakeholder groups</strong>. For each stakeholder group, explain what their interest is and how the decision affects them. Suggest one way the business could try to address the conflict. (6 marks)
+    </div>
+  </div>
+
+  <div class="q-card cat-scenario" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Scenario</span>
+      <div class="q-title">Court-appointed liquidator &mdash; cessation type</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      A construction company cannot meet its debt obligations. A court appoints a liquidator who sells the company&rsquo;s assets and property to repay creditors. The business then ceases to exist.<br><br>
+      <strong class="task">(a)</strong> Identify the type of cessation this represents. (1 mark)<br><br>
+      <strong class="task">(b)</strong> Explain the difference between this type of cessation and voluntary cessation. In your answer, refer to the consequences for the business owner in each case. (4 marks)
+    </div>
+  </div>
+
+  <!-- VERB DRILL -->
+  <div class="q-card cat-verb-drill" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Verb Drill</span>
+      <div class="q-title">Break-even point at three verb levels</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      Write three separate responses about break-even point, one at each verb level. Keep each to the right length for its verb.<br><br>
+      <strong class="task">(a) Define</strong> break-even point. (1 mark)<br><br>
+      <strong class="task">(b) Outline</strong> how the break-even point is calculated and what it tells a business owner. (3 marks)<br><br>
+      <strong class="task">(c) Explain</strong> why understanding the break-even point is important during the establishment phase of a business. (4 marks)<br><br>
+      <em>After writing all three, look at them side by side. What had to change as the verb got deeper?</em>
+    </div>
+  </div>
+
+  <div class="q-card cat-verb-drill" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Verb Drill</span>
+      <div class="q-title">Stakeholders &mdash; from identify to discuss</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      Use the topic of stakeholders to practise writing at different depths.<br><br>
+      <strong class="task">(a) Identify</strong> two stakeholders of a large public company. (1 mark)<br><br>
+      <strong class="task">(b) Outline</strong> the interests of three different stakeholders of a large public company. (3 marks)<br><br>
+      <strong class="task">(c) Explain</strong> how the interests of shareholders and employees may conflict when a business decides to cut costs by reducing its workforce. (4 marks)<br><br>
+      <strong class="task">(d) Discuss</strong> whether a business has a responsibility to prioritise its employees over its shareholders. (6 marks)
+    </div>
+  </div>
+
+  <div class="q-card cat-verb-drill" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Verb Drill</span>
+      <div class="q-title">Outline vs Explain &mdash; same topic, different depth</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      Choose ONE of the following topics: legal structures &middot; external influences &middot; business life cycle stages.<br><br>
+      <strong class="task">Step 1:</strong> Write an <strong>outline</strong> response about your chosen topic. (3 marks)<br><br>
+      <strong class="task">Step 2:</strong> Now rewrite it as an <strong>explain</strong> response. (4 marks)<br><br>
+      <strong class="task">Step 3:</strong> Highlight or underline every word or phrase you added in Step 2 that was not in Step 1. What type of language did you add?<br><br>
+      <em>This exercise trains you to switch depth automatically when you read a command verb.</em>
+    </div>
+  </div>
+
+  <div class="q-card cat-verb-drill" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Verb Drill</span>
+      <div class="q-title">Create your own questions</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      Pick any concept from your revision notes. Write four questions about it &mdash; one for each of these verbs:<br><br>
+      <strong>Identify &middot; Outline &middot; Explain &middot; Discuss</strong><br><br>
+      Then swap with a classmate and attempt each other&rsquo;s questions.<br><br>
+      <em>Writing exam questions is one of the best revision strategies there is. If you can write a good question, you understand the content.</em>
+    </div>
+  </div>
+
+  <!-- FIX IT -->
+  <div class="q-card cat-fix-it" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Fix It</span>
+      <div class="q-title">Weak answer: defining stakeholders</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Question:</strong> Outline the interests of THREE different stakeholders of a large supermarket chain. (3 marks)<br><br>
+      <strong>Student answer:</strong>
+      <div class="weak-answer">&ldquo;Stakeholders are people interested in the business, like customers and shareholders. Customers want good products and shareholders want money.&rdquo;</div>
+      This answer scores <strong>1 out of 3</strong>.<br><br>
+      <strong class="task">Your tasks:</strong><br>
+      (a) Identify at least two things that are wrong or missing from this answer.<br>
+      (b) Rewrite the answer to score full marks.
+    </div>
+  </div>
+
+  <div class="q-card cat-fix-it" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Fix It</span>
+      <div class="q-title">Weak answer: maturity stage</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Question:</strong> Describe TWO challenges a business typically faces during the maturity stage of the business life cycle. (4 marks)<br><br>
+      <strong>Student answer:</strong>
+      <div class="weak-answer">&ldquo;In the maturity stage the business stops growing and things are quite stable. There is competition and it can be hard to keep customers.&rdquo;</div>
+      This answer scores <strong>1 out of 4</strong>.<br><br>
+      <strong class="task">Your tasks:</strong><br>
+      (a) Explain why this answer is so weak despite being on the right track.<br>
+      (b) Rewrite the answer to score 4 marks.
+    </div>
+  </div>
+
+  <div class="q-card cat-fix-it" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Fix It</span>
+      <div class="q-title">Weak answer: voluntary vs involuntary cessation</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Question:</strong> Explain the difference between voluntary and involuntary cessation of a business. In your answer, give one example of each. (4 marks)<br><br>
+      <strong>Student answer:</strong>
+      <div class="weak-answer">&ldquo;Voluntary cessation is when a business closes because it wants to. Involuntary cessation is when it has to close. For example a business might retire or go bankrupt.&rdquo;</div>
+      This answer scores <strong>1 out of 4</strong>.<br><br>
+      <strong class="task">Your tasks:</strong><br>
+      (a) List what is missing from this answer.<br>
+      (b) Write a full response that would score 4 marks.
+    </div>
+  </div>
+
+  <div class="q-card cat-fix-it" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Fix It</span>
+      <div class="q-title">Weak answer: recommending a legal structure</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Question:</strong> A sole trader is considering changing the legal structure of their business to a private company. Explain TWO advantages this change would offer. (4 marks)<br><br>
+      <strong>Student answer:</strong>
+      <div class="weak-answer">&ldquo;A private company is better because it gives more options and is more professional. It also lets you get more money from investors which is good for the business.&rdquo;</div>
+      This answer scores <strong>0 out of 4</strong>.<br><br>
+      <strong class="task">Your tasks:</strong><br>
+      (a) Explain why this answer scores zero. Be specific.<br>
+      (b) Write a response that would score 4 marks. Use the word &ldquo;because&rdquo; at least twice.
+    </div>
+  </div>
+
+  <!-- CHALLENGE -->
+  <div class="q-card cat-challenge" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Challenge</span>
+      <div class="q-title">Convince me: the business plan after opening</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      A classmate says: &ldquo;The business plan is only useful when you&rsquo;re starting up. Once you&rsquo;re open, you just react to what happens.&rdquo;<br><br>
+      <strong class="task">Write a two-paragraph response that argues against this view.</strong><br><br>
+      Your response must include at least one specific business function (operations, marketing, finance or HR) and one specific planning tool (SWOT, break-even, cash flow forecast, etc.).<br><br>
+      <em>You have 10 minutes. Write in full sentences as if this is an exam.</em>
+    </div>
+  </div>
+
+  <div class="q-card cat-challenge" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Challenge</span>
+      <div class="q-title">Rank the five sectors: most to least vulnerable</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong class="task">Rank the five industry sectors from most to least vulnerable during an economic downturn.</strong><br><br>
+      Sectors: Primary &middot; Secondary &middot; Tertiary &middot; Quaternary &middot; Quinary<br><br>
+      For each position in your ranking, write one sentence justifying why you placed it there.<br><br>
+      <em>There is no single correct answer &mdash; what matters is that your reasoning is consistent and well-supported. Compare your ranking with a classmate and discuss any differences.</em>
+    </div>
+  </div>
+
+  <div class="q-card cat-challenge" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Challenge</span>
+      <div class="q-title">Pick a real business &mdash; which life cycle stage is it in?</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong class="task">Choose any real Australian business you know.</strong><br><br>
+      Write a short paragraph (4&ndash;6 sentences) that:<br>
+      &bull; Names the business and identifies which life cycle stage you believe it is currently in<br>
+      &bull; Gives at least two pieces of evidence from what you know about the business to support your answer<br>
+      &bull; Suggests one challenge the business is likely facing at this stage<br><br>
+      <em>Ideas: Bunnings, Qantas, Afterpay, a local business you know, a brand that has recently expanded or closed stores.</em>
+    </div>
+  </div>
+
+  <div class="q-card cat-challenge" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Challenge</span>
+      <div class="q-title">Advise a friend: which establishment option?</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      A friend has $90,000 to invest in a business. She has strong communication skills, no specific industry experience, and wants to start generating income within six months. She does not want to take on a lot of personal liability.<br><br>
+      <strong class="task">Recommend an establishment option for her. You may not recommend &ldquo;starting from scratch.&rdquo;</strong><br><br>
+      Write your recommendation in 3&ndash;5 sentences. You must refer to at least two factors from the description above and explain why your recommendation suits her situation better than the other option.
+    </div>
+  </div>
+
+  <div class="q-card cat-challenge" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Challenge</span>
+      <div class="q-title">Is the business life cycle just a theory?</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      A classmate says: &ldquo;The business life cycle is just a theory &mdash; real businesses don&rsquo;t follow it. Some skip stages, some go straight from growth to closure.&rdquo;<br><br>
+      <strong class="task">Write a two-paragraph response. In the first paragraph, acknowledge the strongest point in your classmate&rsquo;s argument. In the second, explain why the life cycle model is still a useful tool for business owners despite its limitations.</strong><br><br>
+      <em>This is a &ldquo;discuss&rdquo; style question in disguise. Notice how presenting both sides before reaching a conclusion is exactly what the discuss verb requires.</em>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Year 11 Preliminary Business Studies &middot; Educational use only<br>
+  <a href="https://mrsperkinsteacher.github.io/business/revision.html">Revision Program</a> &middot;
+  <a href="https://mrsperkinsteacher.github.io/business/year11.html">Year 11</a> &middot;
+  <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a> &middot;
+  <a href="https://mrsperkinsteacher.github.io/">Home</a>
+</footer>
+
+<script>
+  function toggleVerb(card) {
+    card.classList.toggle('open');
+  }
+
+  function toggleQ(card) {
+    card.classList.toggle('open');
+  }
+
+  function filterQ(btn) {
+    // Update active button
+    document.querySelectorAll('.flt').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cat = btn.dataset.cat;
+    document.querySelectorAll('.q-card').forEach(card => {
+      if (cat === 'all' || card.classList.contains('cat-' + cat)) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+        card.classList.remove('open');
+      }
+    });
+  }
+
+  // Auto-filter if URL has ?filter=quick-fire etc.
+  document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const f = params.get('filter');
+    if (f) {
+      const btn = document.querySelector(`.flt[data-cat="${f}"]`);
+      if (btn) { filterQ(btn); }
+    }
+  });
+</script>
+</body>
+</html>
