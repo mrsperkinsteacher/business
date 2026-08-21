@@ -138,6 +138,10 @@
     .topic-section { padding: 0 0.75rem; }
     .tell-section { padding: 0.85rem 0.85rem; }
   }
+  .tell-section-simple { margin-top: 1.1rem; text-align: center; }
+  .send-btn-big { display: block; width: 100%; padding: 1.1rem 1.5rem; font-size: 1.05rem; font-weight: 700; background: var(--accent-warm); color: white; border: none; border-radius: 12px; cursor: pointer; letter-spacing: 0.01em; box-shadow: 0 3px 10px rgba(0,0,0,0.15); transition: transform 0.1s, box-shadow 0.1s; }
+  .send-btn-big:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,0.2); }
+  .send-btn-big:active { transform: translateY(0); }
 </style>
 </head>
 <body>
@@ -325,41 +329,7 @@
       </div>
     </div>
 
-    <div class="tell-section">
-      <div class="tell-heading">Week 1 - Let me know</div>
-      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
-      <div class="name-row">
-        <label for="n1">First name:</label>
-        <input type="text" class="name-input" id="n1" placeholder="Your first name">
-      </div>
-      <div class="tell-options">
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="1" data-opt="show">
-          <span class="tell-option-label">I can show you this work in class
-            <span class="deadline">By Thursday of Week 2</span>
-          </span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="1" data-opt="notime">
-          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="1" data-opt="head">
-          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
-        </label>
-      </div>
-            <div style="margin-top:0.6rem;margin-bottom:0.8rem;">
-        <div class="tell-heading" style="margin-bottom:0.45rem;">Which days did you complete?</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;">
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="1" data-opt="mon"><span class="tell-option-label">Mon</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="1" data-opt="tue"><span class="tell-option-label">Tue</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="1" data-opt="wed"><span class="tell-option-label">Wed</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="1" data-opt="thu"><span class="tell-option-label">Thu</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="1" data-opt="weekend"><span class="tell-option-label">Weekend</span></label>
-        </div>
-      </div>
-      <button class="send-btn" onclick="sendEmail(1)">Send to me</button>
-    </div>
+        <div class="tell-section-simple"><button class="send-btn-big" onclick="window.open('https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pUN1hTSURMQzFXSVJPUVE2Vk9WODJGNkFaWS4u', '_blank')">Press here to tell me what you got up to</button></div>
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let me know</div>
@@ -483,41 +453,7 @@
       </div>
     </div>
 
-    <div class="tell-section">
-      <div class="tell-heading">Week 2 - Let me know</div>
-      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
-      <div class="name-row">
-        <label for="n2">First name:</label>
-        <input type="text" class="name-input" id="n2" placeholder="Your first name">
-      </div>
-      <div class="tell-options">
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="2" data-opt="show">
-          <span class="tell-option-label">I can show you this work in class
-            <span class="deadline">By Thursday of Week 3</span>
-          </span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="2" data-opt="notime">
-          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="2" data-opt="head">
-          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
-        </label>
-      </div>
-            <div style="margin-top:0.6rem;margin-bottom:0.8rem;">
-        <div class="tell-heading" style="margin-bottom:0.45rem;">Which days did you complete?</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;">
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="2" data-opt="mon"><span class="tell-option-label">Mon</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="2" data-opt="tue"><span class="tell-option-label">Tue</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="2" data-opt="wed"><span class="tell-option-label">Wed</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="2" data-opt="thu"><span class="tell-option-label">Thu</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="2" data-opt="weekend"><span class="tell-option-label">Weekend</span></label>
-        </div>
-      </div>
-      <button class="send-btn" onclick="sendEmail(2)">Send to me</button>
-    </div>
+        <div class="tell-section-simple"><button class="send-btn-big" onclick="window.open('https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pUN1hTSURMQzFXSVJPUVE2Vk9WODJGNkFaWS4u', '_blank')">Press here to tell me what you got up to</button></div>
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let me know</div>
@@ -653,41 +589,7 @@
       </div>
     </div>
 
-    <div class="tell-section">
-      <div class="tell-heading">Week 3 - Let me know</div>
-      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
-      <div class="name-row">
-        <label for="n3">First name:</label>
-        <input type="text" class="name-input" id="n3" placeholder="Your first name">
-      </div>
-      <div class="tell-options">
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="3" data-opt="show">
-          <span class="tell-option-label">I can show you this work in class
-            <span class="deadline">By Thursday of Week 4</span>
-          </span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="3" data-opt="notime">
-          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="3" data-opt="head">
-          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
-        </label>
-      </div>
-            <div style="margin-top:0.6rem;margin-bottom:0.8rem;">
-        <div class="tell-heading" style="margin-bottom:0.45rem;">Which days did you complete?</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;">
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="3" data-opt="mon"><span class="tell-option-label">Mon</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="3" data-opt="tue"><span class="tell-option-label">Tue</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="3" data-opt="wed"><span class="tell-option-label">Wed</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="3" data-opt="thu"><span class="tell-option-label">Thu</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="3" data-opt="weekend"><span class="tell-option-label">Weekend</span></label>
-        </div>
-      </div>
-      <button class="send-btn" onclick="sendEmail(3)">Send to me</button>
-    </div>
+        <div class="tell-section-simple"><button class="send-btn-big" onclick="window.open('https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pUN1hTSURMQzFXSVJPUVE2Vk9WODJGNkFaWS4u', '_blank')">Press here to tell me what you got up to</button></div>
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let me know</div>
@@ -815,41 +717,7 @@
       </div>
     </div>
 
-    <div class="tell-section">
-      <div class="tell-heading">Week 4 - Let me know</div>
-      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
-      <div class="name-row">
-        <label for="n4">First name:</label>
-        <input type="text" class="name-input" id="n4" placeholder="Your first name">
-      </div>
-      <div class="tell-options">
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="4" data-opt="show">
-          <span class="tell-option-label">I can show you this work in class
-            <span class="deadline">By Thursday of Week 5</span>
-          </span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="4" data-opt="notime">
-          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="4" data-opt="head">
-          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
-        </label>
-      </div>
-            <div style="margin-top:0.6rem;margin-bottom:0.8rem;">
-        <div class="tell-heading" style="margin-bottom:0.45rem;">Which days did you complete?</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;">
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="4" data-opt="mon"><span class="tell-option-label">Mon</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="4" data-opt="tue"><span class="tell-option-label">Tue</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="4" data-opt="wed"><span class="tell-option-label">Wed</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="4" data-opt="thu"><span class="tell-option-label">Thu</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="4" data-opt="weekend"><span class="tell-option-label">Weekend</span></label>
-        </div>
-      </div>
-      <button class="send-btn" onclick="sendEmail(4)">Send to me</button>
-    </div>
+        <div class="tell-section-simple"><button class="send-btn-big" onclick="window.open('https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pUN1hTSURMQzFXSVJPUVE2Vk9WODJGNkFaWS4u', '_blank')">Press here to tell me what you got up to</button></div>
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let me know</div>
@@ -974,41 +842,7 @@
       </div>
     </div>
 
-    <div class="tell-section">
-      <div class="tell-heading">Week 5 - Let me know</div>
-      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
-      <div class="name-row">
-        <label for="n5">First name:</label>
-        <input type="text" class="name-input" id="n5" placeholder="Your first name">
-      </div>
-      <div class="tell-options">
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="5" data-opt="show">
-          <span class="tell-option-label">I can show you this work in class
-            <span class="deadline">By Thursday of Week 6</span>
-          </span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="5" data-opt="notime">
-          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="5" data-opt="head">
-          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
-        </label>
-      </div>
-            <div style="margin-top:0.6rem;margin-bottom:0.8rem;">
-        <div class="tell-heading" style="margin-bottom:0.45rem;">Which days did you complete?</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;">
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="5" data-opt="mon"><span class="tell-option-label">Mon</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="5" data-opt="tue"><span class="tell-option-label">Tue</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="5" data-opt="wed"><span class="tell-option-label">Wed</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="5" data-opt="thu"><span class="tell-option-label">Thu</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="5" data-opt="weekend"><span class="tell-option-label">Weekend</span></label>
-        </div>
-      </div>
-      <button class="send-btn" onclick="sendEmail(5)">Send to me</button>
-    </div>
+        <div class="tell-section-simple"><button class="send-btn-big" onclick="window.open('https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pUN1hTSURMQzFXSVJPUVE2Vk9WODJGNkFaWS4u', '_blank')">Press here to tell me what you got up to</button></div>
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let me know</div>
@@ -1132,41 +966,7 @@
       </div>
     </div>
 
-    <div class="tell-section">
-      <div class="tell-heading">Week 6 - Let me know</div>
-      <div class="tell-para">Enter your first name, tick all that apply, then send.</div>
-      <div class="name-row">
-        <label for="n6">First name:</label>
-        <input type="text" class="name-input" id="n6" placeholder="Your first name">
-      </div>
-      <div class="tell-options">
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="6" data-opt="show">
-          <span class="tell-option-label">I can show you this work in class
-            <span class="deadline">By Thursday of Week 7</span>
-          </span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="6" data-opt="notime">
-          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="6" data-opt="head">
-          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
-        </label>
-      </div>
-            <div style="margin-top:0.6rem;margin-bottom:0.8rem;">
-        <div class="tell-heading" style="margin-bottom:0.45rem;">Which days did you complete?</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;">
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="6" data-opt="mon"><span class="tell-option-label">Mon</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="6" data-opt="tue"><span class="tell-option-label">Tue</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="6" data-opt="wed"><span class="tell-option-label">Wed</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="6" data-opt="thu"><span class="tell-option-label">Thu</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="6" data-opt="weekend"><span class="tell-option-label">Weekend</span></label>
-        </div>
-      </div>
-      <button class="send-btn" onclick="sendEmail(6)">Send to me</button>
-    </div>
+        <div class="tell-section-simple"><button class="send-btn-big" onclick="window.open('https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pUN1hTSURMQzFXSVJPUVE2Vk9WODJGNkFaWS4u', '_blank')">Press here to tell me what you got up to</button></div>
 
     <div class="tell-section" style="margin-top:0.6rem;background:rgba(201,169,138,0.08);border-color:rgba(201,169,138,0.3);">
       <div class="tell-heading" style="color:var(--accent-warm);">Found a problem? Let me know</div>
@@ -1292,41 +1092,7 @@
       </div>
     </div>
 
-    <div class="tell-section">
-      <div class="tell-heading">Week 7</div>
-      <div class="tell-para">Enter your first name, then tick all that apply and send.</div>
-      <div class="name-row">
-        <label for="n7">First name:</label>
-        <input type="text" class="name-input" id="n7" placeholder="Your first name">
-      </div>
-      <div class="tell-options">
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="7" data-opt="show">
-          <span class="tell-option-label">I can show you this work in class
-            <span class="deadline">By Thursday of Week 8</span>
-          </span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="7" data-opt="notime">
-          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="7" data-opt="head">
-          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
-        </label>
-      </div>
-            <div style="margin-top:0.6rem;margin-bottom:0.8rem;">
-        <div class="tell-heading" style="margin-bottom:0.45rem;">Which days did you complete?</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;">
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="7" data-opt="mon"><span class="tell-option-label">Mon</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="7" data-opt="tue"><span class="tell-option-label">Tue</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="7" data-opt="wed"><span class="tell-option-label">Wed</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="7" data-opt="thu"><span class="tell-option-label">Thu</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="7" data-opt="weekend"><span class="tell-option-label">Weekend</span></label>
-        </div>
-      </div>
-      <button class="send-btn" onclick="sendEmail(7)">Send to me</button>
-    </div>
+        <div class="tell-section-simple"><button class="send-btn-big" onclick="window.open('https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pUN1hTSURMQzFXSVJPUVE2Vk9WODJGNkFaWS4u', '_blank')">Press here to tell me what you got up to</button></div>
   </div>
  </div>
 </div>
@@ -1432,41 +1198,7 @@
       </div>
     </div>
 
-    <div class="tell-section">
-      <div class="tell-heading">Week 8</div>
-      <div class="tell-para">Enter your first name, then tick all that apply and send.</div>
-      <div class="name-row">
-        <label for="n8">First name:</label>
-        <input type="text" class="name-input" id="n8" placeholder="Your first name">
-      </div>
-      <div class="tell-options">
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="8" data-opt="show">
-          <span class="tell-option-label">I can show you this work in class
-            <span class="deadline">By Thursday of Week 9</span>
-          </span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="8" data-opt="notime">
-          <span class="tell-option-label">I cannot show this work - I will not have time to complete it</span>
-        </label>
-        <label class="tell-option">
-          <input type="checkbox" class="tell-opt" data-week="8" data-opt="head">
-          <span class="tell-option-label">I have done all the work but in my head - I cannot show you written work</span>
-        </label>
-      </div>
-            <div style="margin-top:0.6rem;margin-bottom:0.8rem;">
-        <div class="tell-heading" style="margin-bottom:0.45rem;">Which days did you complete?</div>
-        <div style="display:flex;flex-wrap:wrap;gap:0.5rem 1rem;">
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="8" data-opt="mon"><span class="tell-option-label">Mon</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="8" data-opt="tue"><span class="tell-option-label">Tue</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="8" data-opt="wed"><span class="tell-option-label">Wed</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="8" data-opt="thu"><span class="tell-option-label">Thu</span></label>
-          <label class="tell-option"><input type="checkbox" class="tell-opt" data-week="8" data-opt="weekend"><span class="tell-option-label">Weekend</span></label>
-        </div>
-      </div>
-      <button class="send-btn" onclick="sendEmail(8)">Send to me</button>
-    </div>
+        <div class="tell-section-simple"><button class="send-btn-big" onclick="window.open('https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pUN1hTSURMQzFXSVJPUVE2Vk9WODJGNkFaWS4u', '_blank')">Press here to tell me what you got up to</button></div>
   </div>
  </div>
 </div>
