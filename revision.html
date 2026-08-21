@@ -1545,6 +1545,9 @@
     btn.textContent = box.classList.contains('open') ? 'Hide example' : 'See an example';
   }
 
+  const FORM_WEEKLY = 'https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pUN1hTSURMQzFXSVJPUVE2Vk9WODJGNkFaWS4u';
+  const FORM_PROBLEM = 'https://forms.microsoft.com/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pURE03QjdLS1FRT0E3MUZXTTZFTVFTMENLNS4u';
+
   function sendEmail(week) {
     const inp = document.getElementById(`n${week}`);
     const name = inp ? inp.value.trim() : '';
@@ -1554,33 +1557,23 @@
       setTimeout(() => inp.style.outline = '', 2000);
       return;
     }
-    const opts = document.querySelectorAll(`.tell-opt[data-week="${week}"]`);
-    const selected = [];
-    opts.forEach(o => {
-      if (o.checked) {
-        if (o.dataset.opt === 'show') selected.push('I can show you this work in class (by Thursday of Week ' + (week + 1) + ')');
-        if (o.dataset.opt === 'notime') selected.push('I cannot show this work - I will not have time to complete it');
-        if (o.dataset.opt === 'head') selected.push('I have done all the work but in my head - I cannot show you written work');
+    const workReadiness = [];
+    const days = [];
+    document.querySelectorAll(`.tell-opt[data-week="${week}"]`).forEach(cb => {
+      if (cb.checked) {
+        const label = cb.closest('.tell-option').querySelector('.tell-option-label').textContent.trim();
+        if (['show', 'notime', 'head'].includes(cb.dataset.opt)) {
+          workReadiness.push(label.split('\n')[0].trim());
+        } else if (['mon', 'tue', 'wed', 'thu', 'weekend'].includes(cb.dataset.opt)) {
+          days.push(cb.dataset.opt.charAt(0).toUpperCase() + cb.dataset.opt.slice(1));
+        }
       }
     });
-    if (selected.length === 0) {
-      alert('Please tick at least one option before sending.');
-      return;
+    const preview = `Name: ${name}\n\nWork Status:\n${workReadiness.length ? workReadiness.map(w => '• ' + w).join('\n') : '(not selected)'}\n\nDays Completed:\n${days.length ? days.join(', ') : '(not selected)'}\n\nThis will be sent to Mrs Perkins.`;
+    if (confirm(preview + '\n\nOpen the form to submit?')) {
+      const data = encodeURIComponent(JSON.stringify({name, workReadiness, days, week}));
+      window.open(FORM_WEEKLY + '&predata=' + data, '_blank');
     }
-    const to = 'michelle.perkins@spcc.nsw.edu.au';
-    const sub = encodeURIComponent(`Year 11 Revision - Week ${week} - ${name}`);
-    const bodyLines = [`Hi,`, ``, `My name is ${name}.`, ``, `Week ${week} update:`, ``];
-    selected.forEach(s => bodyLines.push('- ' + s));
-    const dayNames = {mon:'Monday',tue:'Tuesday',wed:'Wednesday',thu:'Thursday',weekend:'Weekend'};
-    const dayKeys = ['mon','tue','wed','thu','weekend'];
-    const completedDays = [];
-    dayKeys.forEach(k => {
-      const el = document.querySelector(`.tell-opt[data-week="${week}"][data-opt="${k}"]`);
-      if (el && el.checked) completedDays.push(dayNames[k]);
-    });
-    if (completedDays.length > 0) bodyLines.push('', 'Days completed this week: ' + completedDays.join(', '));
-    bodyLines.push('', `From ${name}`);
-    window.location.href = `mailto:${to}?subject=${encodeURIComponent(`Year 11 Revision - Week ${week} - ${name}`)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
   }
 
   function sendNote(week) {
@@ -1590,13 +1583,14 @@
     const note = textEl ? textEl.value.trim() : '';
     if (!name) { nameEl.style.outline = '2px solid #c9a98a'; nameEl.focus(); setTimeout(() => nameEl.style.outline = '', 2000); return; }
     if (!note) { textEl.style.outline = '2px solid #c9a98a'; textEl.focus(); setTimeout(() => textEl.style.outline = '', 2000); return; }
-    const to = 'michelle.perkins@spcc.nsw.edu.au';
-    const sub = encodeURIComponent(`Year 11 Revision - Week ${week} problem report - ${name}`);
-    const bod = encodeURIComponent(`Hi,\n\nMy name is ${name}.\n\nI found a problem in Week ${week} of the revision program:\n\n${note}\n\nFrom ${name}`);
-    window.location.href = `mailto:${to}?subject=${sub}&body=${bod}`;
+    const preview = `Name: ${name}\n\nProblem Report:\n${note}\n\nThis will be sent to Mrs Perkins.`;
+    if (confirm(preview + '\n\nOpen the form to submit?')) {
+      const data = encodeURIComponent(JSON.stringify({name, note, week}));
+      window.open(FORM_PROBLEM + '&predata=' + data, '_blank');
+    }
   }
 
-  function resetAll() {
+    function resetAll() {
     if (!confirm('Clear all ticked tasks? This cannot be undone.')) return;
     localStorage.removeItem(STORE);
     document.querySelectorAll('.task-check').forEach(cb => { cb.checked = false; strikeText(cb, false); });
