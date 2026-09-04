@@ -1,1 +1,1 @@
-hello world test 12345
+Diagnostic test file from a binary-upload investigation. Safe to delete.
