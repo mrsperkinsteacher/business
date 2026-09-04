@@ -1,1 +1,1 @@
-SGkh
+Diagnostic test file from a binary-upload investigation. Safe to delete.
