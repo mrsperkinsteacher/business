@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scripture &amp; Ways You Could Study - Year 11 Business Studies</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lora:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --grad-start: #e8d5c4;
+    --grad-mid: #ddd0e0;
+    --grad-end: #c9cce8;
+    --text-dark: #2d2535;
+    --text-mid: #5a5268;
+    --text-light: #8a849a;
+    --card-bg: rgba(255,255,255,0.82);
+    --card-border: rgba(255,255,255,0.6);
+    --accent-warm: #c9a98a;
+    --accent-cool: #8f8fc4;
+    --check-color: #9b8bb4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-mid) 50%, var(--grad-end) 100%);
+    background-attachment: fixed;
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  nav {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+    flex-wrap: wrap;
+  }
+  nav a { color: var(--text-mid); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.03em; transition: color 0.15s; }
+  nav a:hover { color: var(--text-dark); }
+  nav .sep { color: var(--text-light); font-size: 0.75rem; }
+
+  .hero { text-align: center; padding: 4rem 1.5rem 3rem; }
+  .hero-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-light); margin-bottom: 1rem; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 6vw, 3.8rem); font-weight: 800; color: var(--text-dark); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 0.5rem; }
+  .hero-sub { font-family: 'Lora', serif; font-style: italic; font-size: clamp(1rem, 2.5vw, 1.3rem); color: var(--text-mid); margin-bottom: 1.5rem; }
+  .hero-rule { width: 40px; height: 1px; background: var(--text-light); margin: 0 auto 1.5rem; opacity: 0.5; }
+  .hero p { font-size: 0.95rem; color: var(--text-mid); max-width: 520px; margin: 0 auto; }
+
+  .content { max-width: 900px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  .enc-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    margin: 2rem 0 0.4rem;
+  }
+  .enc-label:first-child { margin-top: 0; }
+  .enc-note {
+    font-size: 0.82rem;
+    color: var(--text-mid);
+    font-style: italic;
+    margin-bottom: 0.85rem;
+    line-height: 1.55;
+  }
+
+  /* QUOTE CARDS */
+  .quote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 0.75rem;
+  }
+  .quote-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(155,139,180,0.2);
+    border-left: 3px solid var(--check-color);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+  }
+  .quote-text {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 0.45rem;
+  }
+  .quote-ref {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--check-color);
+    text-transform: uppercase;
+  }
+
+  /* STRATEGY CARDS */
+  .strat-list { display: flex; flex-direction: column; gap: 0.65rem; }
+  .strat-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.8);
+    border-radius: 10px;
+    padding: 0.85rem 1rem;
+  }
+  .strat-num {
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    border-radius: 50%;
+    background: var(--text-dark);
+    color: white;
+    font-size: 0.72rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0.1rem;
+  }
+  .strat-title { font-size: 0.88rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.2rem; }
+  .strat-desc { font-size: 0.78rem; color: var(--text-mid); line-height: 1.55; }
+
+  footer { text-align: center; padding: 2.5rem 1rem; font-size: 0.78rem; color: var(--text-light); }
+  footer a { color: var(--text-mid); text-decoration: none; }
+  footer a:hover { color: var(--text-dark); }
+
+  @media (max-width: 600px) {
+    nav { padding: 0.75rem 1rem; }
+    .hero { padding: 2.5rem 1rem 2rem; }
+    .content { padding: 0 0.75rem 3rem; }
+    .quote-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://mrsperkinsteacher.github.io/">Home</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a>
+  <span class="sep">/</span>
+  <a href="https://mrsperkinsteacher.github.io/business/year11.html">Year 11</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-eyebrow">Year 11 Preliminary</div>
+  <h1>Scripture &amp; Ways You Could Study</h1>
+  <div class="hero-sub">Encouragement for the weeks ahead</div>
+  <div class="hero-rule"></div>
+  <p>A few verses to hold on to, and some study methods backed by actual evidence &mdash; not just what feels productive.</p>
+</div>
+
+<div class="content">
+
+  <!-- SCRIPTURE -->
+  <div class="enc-label">From scripture</div>
+
+  <div class="quote-grid">
+
+    <div class="quote-card">
+      <div class="quote-text">&ldquo;I can do all this through him who gives me strength.&rdquo;</div>
+      <div class="quote-ref">Philippians 4:13 (NIV)</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-text">&ldquo;Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.&rdquo;</div>
+      <div class="quote-ref">Joshua 1:9 (NIV)</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-text">&ldquo;For I know the plans I have for you,&rdquo; declares the Lord, &ldquo;plans to prosper you and not to harm you, plans to give you hope and a future.&rdquo;</div>
+      <div class="quote-ref">Jeremiah 29:11 (NIV)</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-text">&ldquo;Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.&rdquo;</div>
+      <div class="quote-ref">Proverbs 3:5&ndash;6 (NIV)</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-text">&ldquo;For God has not given us a spirit of fear, but of power and of love and of a sound mind.&rdquo;</div>
+      <div class="quote-ref">2 Timothy 1:7 (NKJV)</div>
+    </div>
+
+    <div class="quote-card">
+      <div class="quote-text">&ldquo;Come to me, all you who are weary and burdened, and I will give you rest.&rdquo;</div>
+      <div class="quote-ref">Matthew 11:28 (NIV)</div>
+    </div>
+
+  </div>
+
+  <!-- REVISION STRATEGIES -->
+  <div class="enc-label">What actually works when you revise</div>
+  <div class="enc-note">Re-reading your notes feels productive but research consistently shows it is one of the weakest study methods. These work better.</div>
+
+  <div class="strat-list">
+
+    <div class="strat-card">
+      <div class="strat-num">1</div>
+      <div class="strat-body">
+        <div class="strat-title">Close the book and write what you remember</div>
+        <div class="strat-desc">Read a topic. Close your notes. Write down everything you can recall. Check. Fill the gaps. This is called active recall and it is the single most effective revision technique. It feels harder than re-reading &mdash; that is the point. <a href="https://www.learningscientists.org/retrieval-practice" target="_blank" rel="noopener" style="color:var(--check-color);font-weight:600;text-decoration:none;">Read more &rarr;</a></div>
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="strat-num">2</div>
+      <div class="strat-body">
+        <div class="strat-title">Space it out &mdash; do not cram</div>
+        <div class="strat-desc">Studying a topic today and then again in three days and again in a week builds stronger memory than doing all three sessions in one night. The revision program is designed to help you do this across eight weeks. <a href="https://www.learningscientists.org/spaced-practice" target="_blank" rel="noopener" style="color:var(--check-color);font-weight:600;text-decoration:none;">Read more &rarr;</a></div>
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="strat-num">3</div>
+      <div class="strat-body">
+        <div class="strat-title">25 minutes on, 5 minutes off</div>
+        <div class="strat-desc">Set a timer for 25 minutes. Do nothing but study. When it goes off, take a proper 5-minute break &mdash; stand up, move, look away from your screen. Then repeat. This is called the Pomodoro technique and it makes long revision sessions much more manageable. <a href="https://www.pomodorotechnique.com/" target="_blank" rel="noopener" style="color:var(--check-color);font-weight:600;text-decoration:none;">Read more &rarr;</a></div>
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="strat-num">4</div>
+      <div class="strat-body">
+        <div class="strat-title">Explain it to someone else</div>
+        <div class="strat-desc">Try to explain a concept &mdash; the business life cycle, what a stakeholder is &mdash; out loud to a family member, a friend, or even just to yourself. If you cannot explain it simply, you do not fully understand it yet. This is one of the best ways to find the gaps. <a href="https://www.learningscientists.org/elaboration" target="_blank" rel="noopener" style="color:var(--check-color);font-weight:600;text-decoration:none;">Read more &rarr;</a></div>
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="strat-num">5</div>
+      <div class="strat-body">
+        <div class="strat-title">Do the exam practice questions</div>
+        <div class="strat-desc">The Weekend tasks in the revision program are exam simulations for a reason. Writing under timed conditions &mdash; no notes, no phone, just the question and your book &mdash; is the closest thing to the real exam. The more times you do it before the day, the less frightening the day will be.</div>
+      </div>
+    </div>
+
+    <div class="strat-card">
+      <div class="strat-num">6</div>
+      <div class="strat-body">
+        <div class="strat-title">Look after yourself</div>
+        <div class="strat-desc">Sleep, food and movement are not optional extras you sacrifice when exams get close &mdash; they are part of your preparation. A tired brain retains and retrieves information poorly. Revising at 2am the night before rarely helps as much as a full night of sleep. <a href="https://headspace.org.au/" target="_blank" rel="noopener" style="color:var(--check-color);font-weight:600;text-decoration:none;">headspace &rarr;</a></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  Year 11 Preliminary Business Studies &middot; Educational use only<br>
+  <a href="https://mrsperkinsteacher.github.io/business/year11.html">Year 11</a> &middot; <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a> &middot; <a href="https://mrsperkinsteacher.github.io/">Home</a>
+</footer>
+
+</body>
+</html>
