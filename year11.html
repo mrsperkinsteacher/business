@@ -115,6 +115,18 @@
     color: white;
     border-color: var(--text-dark);
   }
+  .tab-sep {
+    width: 1px;
+    align-self: stretch;
+    background: rgba(45,37,53,0.15);
+    margin: 0.3rem 0.3rem;
+  }
+  a.tab-btn {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    border-style: dashed;
+  }
 
   /* TAB PANELS */
   .tab-panel { display: none; }
@@ -211,53 +223,6 @@
   .resource-arrow {
     font-size: 0.9rem;
     color: var(--text-light);
-  }
-
-  /* PDF EMBED */
-  .pdf-embed-wrap {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 2px 12px rgba(45,37,53,0.06);
-  }
-  .pdf-embed-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.1rem 1.4rem;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-  .pdf-embed-label {
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 0.15rem;
-  }
-  .pdf-embed-title {
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--text-dark);
-  }
-  .pdf-open-link {
-    font-size: 0.78rem;
-    font-weight: 600;
-    color: var(--check-color);
-    text-decoration: none;
-    white-space: nowrap;
-  }
-  .pdf-open-link:hover { text-decoration: underline; }
-  .pdf-embed-frame {
-    width: 100%;
-    height: 78vh;
-    min-height: 480px;
-    border: none;
-    display: block;
-    background: #525659;
   }
 
   /* COMING SOON PLACEHOLDER */
@@ -421,6 +386,10 @@
   <button class="tab-btn" onclick="showTab('term1')">Term 1</button>
   <button class="tab-btn" onclick="showTab('term2')">Term 2</button>
   <button class="tab-btn active" onclick="showTab('term3')">Term 3</button>
+  <span class="tab-sep"></span>
+  <a class="tab-btn" href="https://mrsperkinsteacher.github.io/business/revision.html">Year 11 Revision Program</a>
+  <a class="tab-btn" href="https://mrsperkinsteacher.github.io/business/toolkit.html#verb-guide">Command Verb Guide</a>
+  <a class="tab-btn" href="https://mrsperkinsteacher.github.io/business/toolkit.html?filter=quick-fire#question-sparks">Quick Fire Questions</a>
 </div>
 
 <div class="content">
@@ -432,16 +401,8 @@
       <div class="term-title">Nature of Business</div>
       <p class="term-desc">The role of business, types of business, industry sectors, legal structures, influences on business, stakeholders and the business life cycle.</p>
     </div>
-
-    <div class="pdf-embed-wrap">
-      <div class="pdf-embed-header">
-        <div>
-          <div class="pdf-embed-label">Slides</div>
-          <div class="pdf-embed-title">Nature of Business</div>
-        </div>
-        <a class="pdf-open-link" href="https://raw.githubusercontent.com/mrsperkinsteacher/business/main/Nature%20of%20Business%20-%20TEACH%20deck%20for%20iLearn%20-%20Revision.pdf" target="_blank">Open full screen &rarr;</a>
-      </div>
-      <iframe class="pdf-embed-frame" src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2Fmrsperkinsteacher%2Fbusiness%2Fmain%2FNature%20of%20Business%20-%20TEACH%20deck%20for%20iLearn%20-%20Revision.pdf" loading="lazy" title="Nature of Business slides"></iframe>
+    <div class="coming-soon">
+      <p>Term 1 resources are coming soon. Check back later.</p>
     </div>
   </div>
 
@@ -498,52 +459,15 @@
 
       <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin:0.5rem 0 0.25rem;">Business Management</div>
 
-      <div class="pdf-embed-wrap">
-        <div class="pdf-embed-header">
-          <div>
-            <div class="pdf-embed-label">Slides</div>
-            <div class="pdf-embed-title">The Management Process</div>
-          </div>
-          <a class="pdf-open-link" href="https://raw.githubusercontent.com/mrsperkinsteacher/business/main/Business%20Management%20-%20Management%20Process%20-%20TEACH%20deck%20for%20iLearn%20-%20Revision.pdf" target="_blank">Open full screen &rarr;</a>
-        </div>
-        <iframe class="pdf-embed-frame" src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2Fmrsperkinsteacher%2Fbusiness%2Fmain%2FBusiness%20Management%20-%20Management%20Process%20-%20TEACH%20deck%20for%20iLearn%20-%20Revision.pdf" loading="lazy" title="The Management Process slides"></iframe>
+      <div class="coming-soon">
+        <p>Business Management lesson resources are coming soon. Check back later.</p>
       </div>
-
-      <div style="font-size:0.7rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-light);margin:1.25rem 0 0.25rem;">Revision and Exam Preparation</div>
-
-      <a class="resource-card" href="https://mrsperkinsteacher.github.io/business/revision.html">
-        <div class="resource-dot"></div>
-        <div class="resource-info">
-          <div class="resource-label">Eight-Week Program</div>
-          <div class="resource-title">Year 11 Revision Program</div>
-          <div class="resource-desc">Daily homework tasks across all three topics - Nature of Business, Business Planning and Business Management. Builds to your Preliminary exam in Weeks 9 and 10.</div>
-        </div>
-        <div class="resource-arrow">&rarr;</div>
-      </a>
-
-      <a class="resource-card" href="https://mrsperkinsteacher.github.io/business/toolkit.html#verb-guide">
-        <div class="resource-dot"></div>
-        <div class="resource-info">
-          <div class="resource-label">Question Toolkit</div>
-          <div class="resource-title">Command Verb Guide</div>
-          <div class="resource-desc">Not sure what explain or discuss really means? Look up every HSC command verb before you write.</div>
-        </div>
-        <div class="resource-arrow">&rarr;</div>
-      </a>
-
-      <a class="resource-card" href="https://mrsperkinsteacher.github.io/business/toolkit.html?filter=quick-fire#question-sparks">
-        <div class="resource-dot"></div>
-        <div class="resource-info">
-          <div class="resource-label">Question Toolkit</div>
-          <div class="resource-title">Quick Fire Questions</div>
-          <div class="resource-desc">Sharp recall practice for when you have 10 minutes spare - sectors, SWOT, ABS classifications and more.</div>
-        </div>
-        <div class="resource-arrow">&rarr;</div>
-      </a>
 
     </div>
 
-    <!-- ===== ENCOURAGEMENT SECTION ===== -->
+    <!-- ===== ENCOURAGEMENT SECTION =====
+         (Revision Program, Command Verb Guide and Quick Fire Questions now
+          live as pills in the tab bar above, next to Term 1/2/3) -->
     <div class="enc-wrap" id="encWrap">
       <div class="enc-toggle" onclick="toggleEnc()">
         <div>
@@ -634,6 +558,7 @@
             <div class="strat-body">
               <div class="strat-title">Do the exam practice questions</div>
               <div class="strat-desc">The Weekend tasks in the revision program are exam simulations for a reason. Writing under timed conditions &mdash; no notes, no phone, just the question and your book &mdash; is the closest thing to the real exam. The more times you do it before the day, the less frightening the day will be.</div>
+            </div>
           </div>
 
           <div class="strat-card">
