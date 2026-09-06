@@ -19,6 +19,7 @@
     --check-color: #9b8bb4;
     --accent-warm: #c9a98a;
     --accent-cool: #8f8fc4;
+    --cat-quickfire: #b4956a;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { overflow-x: hidden; }
@@ -67,6 +68,19 @@
   .topic-section { max-width: 860px; margin: 2.5rem auto 0.75rem; padding: 0 1.5rem; }
   .topic-eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-light); margin-bottom: 0.25rem; }
   .topic-name { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 700; color: var(--text-dark); }
+  .q-grid { max-width: 900px; margin: 0 auto 2rem; padding: 0 1.5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.85rem; }
+  .q-card { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: 14px; overflow: hidden; box-shadow: 0 2px 16px rgba(45,37,53,0.06); cursor: pointer; transition: box-shadow 0.15s; }
+  .q-card:hover { box-shadow: 0 4px 24px rgba(45,37,53,0.1); }
+  .q-card-top { padding: 0.85rem 1.1rem 0.65rem; }
+  .q-badge { display: inline-block; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.12rem 0.5rem; border-radius: 4px; margin-bottom: 0.4rem; }
+  .cat-quick-fire .q-badge { background: rgba(180,149,106,0.15); color: var(--cat-quickfire); }
+  .q-title { font-size: 0.85rem; font-weight: 600; color: var(--text-dark); line-height: 1.4; }
+  .q-expand-hint { font-size: 0.7rem; color: var(--text-light); padding: 0 1.1rem 0.7rem; }
+  .q-body { display: none; padding: 0.75rem 1.1rem 1.1rem; border-top: 1px solid rgba(0,0,0,0.05); font-size: 0.82rem; color: var(--text-mid); line-height: 1.65; }
+  .q-body strong { color: var(--text-dark); }
+  .q-card.open .q-body { display: block; }
+  .q-card.open .q-expand-hint { display: none; }
+  .cat-quick-fire { border-left: 3px solid var(--cat-quickfire); }
   .week-card { max-width: 860px; margin: 0 auto 1rem; padding: 0 1.5rem; box-sizing: border-box; }
   .week-inner { background: var(--card-bg); backdrop-filter: blur(10px); border: 1px solid var(--card-border); border-radius: 16px; overflow: hidden; box-shadow: 0 2px 20px rgba(45,37,53,0.06); width: 100%; }
   .week-header { display: flex; align-items: center; gap: 0.85rem; padding: 1.1rem 1.4rem; cursor: pointer; user-select: none; }
@@ -136,6 +150,7 @@
     .week-header { padding: 1rem; }
     .week-pills { padding: 1rem 0.75rem 0; }
     .topic-section { padding: 0 0.75rem; }
+    .q-grid { grid-template-columns: 1fr; padding: 0 0.75rem; }
     .tell-section { padding: 0.85rem 0.85rem; }
   }
   .tell-section-simple { margin-top: 1.1rem; text-align: center; }
@@ -182,32 +197,97 @@
   <a class="wpill" href="javascript:void(0)" onclick="scrollToWeek('week8')">Week 8</a>
 </div>
 
-<!-- ===== TOOLKIT LINK BOXES ===== -->
-<div style="max-width:860px;margin:1.5rem auto 0;padding:0 1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;">
+<!-- ===== QUICK FIRE QUESTIONS ===== -->
+<div style="max-width:900px;margin:1.5rem auto 0;padding:0 1.5rem;">
+  <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#b4956a;margin-bottom:0.4rem;">From the Toolkit</div>
+  <h2 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--text-dark);margin-bottom:0.3rem;">Quick Fire Questions</h2>
+  <p style="font-size:0.82rem;color:var(--text-mid);margin-bottom:1rem;">Got 10 minutes spare? Sharp recall practice with no writing required. Tap a card to open it.</p>
+</div>
+<div class="q-grid">
 
-  <a href="toolkit.html#verb-guide" style="text-decoration:none;">
-    <div style="background:rgba(255,255,255,0.75);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.6);border-left:3px solid #8f8fc4;border-radius:14px;padding:1rem 1.1rem;box-shadow:0 2px 16px rgba(45,37,53,0.06);transition:box-shadow 0.15s;cursor:pointer;" onmouseover="this.style.boxShadow='0 4px 24px rgba(45,37,53,0.12)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(45,37,53,0.06)'">
-      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#8f8fc4;margin-bottom:0.3rem;">Toolkit</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#2d2535;margin-bottom:0.3rem;">Command Verb Guide &rarr;</div>
-      <div style="font-size:0.78rem;color:#5a5268;line-height:1.45;">Not sure what <em>explain</em> or <em>discuss</em> really means? Look it up before you write.</div>
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">Five industry sectors &mdash; from memory</div>
     </div>
-  </a>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      In your revision book, without looking at your notes:<br><br>
+      <strong>List the five industry sectors in order. For each, write one sentence describing what it involves and name one example business.</strong><br><br>
+      Sectors: Primary &middot; Secondary &middot; Tertiary &middot; Quaternary &middot; Quinary<br><br>
+      Check your answers against your notes when you are done.
+    </div>
+  </div>
 
-  <a href="toolkit.html?filter=quick-fire#question-sparks" style="text-decoration:none;">
-    <div style="background:rgba(255,255,255,0.75);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.6);border-left:3px solid #c9a98a;border-radius:14px;padding:1rem 1.1rem;box-shadow:0 2px 16px rgba(45,37,53,0.06);transition:box-shadow 0.15s;cursor:pointer;" onmouseover="this.style.boxShadow='0 4px 24px rgba(45,37,53,0.12)'" onmouseout="this.style.boxShadow='0 2px 16px rgba(45,37,53,0.06)'">
-      <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#c9a98a;margin-bottom:0.3rem;">Toolkit</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#2d2535;margin-bottom:0.3rem;">Quick Fire Questions &rarr;</div>
-      <div style="font-size:0.78rem;color:#5a5268;line-height:1.45;">Got 10 minutes spare? Sharp recall practice with no writing required.</div>
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">ABS size classifications &mdash; exact thresholds</div>
     </div>
-  </a>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      Without looking at your notes:<br><br>
+      <strong>Write the four ABS business size categories and the number of employees that defines each one.</strong><br><br>
+      Then write one example of a real business for each category.<br><br>
+      This is a 1&ndash;2 mark recall question in disguise &mdash; if you cannot recall the thresholds, you will lose marks even if your explanation is strong.
+    </div>
+  </div>
+
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">Business life cycle &mdash; four stages and key features</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Name the four stages of the business life cycle. For each stage, write two key features a business is likely to show at that point.</strong><br><br>
+      Then answer this in one sentence: What is the most important thing a business can do at the post-maturity stage, and why does it matter?<br><br>
+      <em>Aim to do this in under 10 minutes.</em>
+    </div>
+  </div>
+
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">SWOT &mdash; internal vs external</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Without looking at your notes: What does each letter of SWOT stand for? Which elements are internal to the business and which are external?</strong><br><br>
+      Then write one example of each for a small bakery in a regional town.<br><br>
+      Common exam mistake: students confuse threats and weaknesses. Can you explain in one sentence what makes them different?
+    </div>
+  </div>
+
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">Debt vs equity finance</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>Define debt finance and equity finance. Give two examples of each. Then explain one advantage and one disadvantage of each type.</strong><br><br>
+      Finally, answer: If a new business owner wants to avoid giving up control of the business, which type of finance should they prefer and why?
+    </div>
+  </div>
+
+  <div class="q-card cat-quick-fire" onclick="toggleQ(this)">
+    <div class="q-card-top">
+      <span class="q-badge">Quick Fire</span>
+      <div class="q-title">Internal and external influences &mdash; sort and classify</div>
+    </div>
+    <div class="q-expand-hint">Tap to open &rarr;</div>
+    <div class="q-body">
+      <strong>In your revision book, draw two columns: Internal Influences and External Influences.</strong><br><br>
+      Sort the following into the correct column and write the specific type of influence (economic, legal, social, technological, etc.) next to each:<br><br>
+      Rising interest rates &middot; A change in the owner&rsquo;s vision &middot; New workplace safety legislation &middot; A key staff member resigns &middot; Growing consumer interest in sustainable products &middot; A new competitor opens nearby &middot; The business invests in new software &middot; The owner runs out of personal savings
+    </div>
+  </div>
 
 </div>
-<style>
-@media (max-width:520px) {
-  .toolkit-boxes { grid-template-columns: 1fr !important; }
-}
-</style>
-
+<div style="max-width:900px;margin:0.5rem auto 0;padding:0 1.5rem;">
+  <a href="toolkit.html?filter=quick-fire#question-sparks" style="font-size:0.8rem;color:var(--text-mid);text-decoration:underline;text-underline-offset:2px;">See the full Question Toolkit &rarr;</a>
+</div>
 
 <!-- ===== TOPIC 1 ===== -->
 <div class="topic-section">
@@ -1321,6 +1401,10 @@
       window.open(FORM_PROBLEM + '&predata=' + data, '_blank');
     }
   }
+
+    function toggleQ(card) {
+      card.classList.toggle('open');
+    }
 
     function resetAll() {
     if (!confirm('Clear all ticked tasks? This cannot be undone.')) return;
