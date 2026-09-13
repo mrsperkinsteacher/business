@@ -430,7 +430,7 @@
     $app.appendChild(el("header", { class: "hero" }, [
       el("div", { class: "eyebrow" }, ["Year 11 · Business Studies"]),
       el("h1", {}, ["Multiple Choice Practice"]),
-      el("p", { class: "sub" }, ["Questions pulled from real Preliminary trial exams and mixed across topics - pick a set to start. Each one marks itself the moment you submit, and your result is emailed straight to Mrs Perkins."])
+      el("p", { class: "sub" }, ["Questions pulled from real Preliminary trial exams and mixed across topics - pick a set to start. Each one marks itself the moment you submit, and your result goes straight to Mrs Perkins in Outlook."])
     ]));
 
     const card = el("div", { class: "card" });
@@ -489,13 +489,22 @@
     setTimeout(() => input.focus(), 0);
   }
 
+  // Opens Outlook's own web compose window, pre-filled, in a new tab.
+  // This works on any device signed into a school Microsoft account -
+  // unlike a mailto: link, it doesn't depend on a default mail app being
+  // set up (most school Chromebooks/iPads don't have one configured).
+  function outlookComposeLink(subject, body) {
+    return "https://outlook.office.com/mail/deeplink/compose?to=" + encodeURIComponent(TEACHER_EMAIL) +
+      "&subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+  }
+
   function buildFlagLink(setTitle, qIndex, q) {
     const subject = "Question flag - " + setTitle + " Q" + (qIndex + 1);
     const body = "Set: " + setTitle + " (originally " + q.originTitle + ")\n" +
       "Question: " + q.q + "\n" +
       "Marked correct answer: " + q.options[q.correct] + "\n\n" +
       "What I think is wrong:\n";
-    return "mailto:" + TEACHER_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    return outlookComposeLink(subject, body);
   }
 
   function buildResultsEmailLink(s, correct, total) {
@@ -527,7 +536,7 @@
       body += "All questions correct.\n";
     }
 
-    return "mailto:" + TEACHER_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+    return outlookComposeLink(subject, body);
   }
 
   function renderQuestionBody(block, q) {
@@ -632,8 +641,8 @@
     const resultsEmailLink = buildResultsEmailLink(s, correct, total);
 
     const sendNote = el("div", { class: "sample-flag" }, []);
-    sendNote.appendChild(document.createTextNode("An email with your result should have just opened in your mail app - press Send in there so Mrs Perkins gets it. "));
-    const resendLink = el("a", { href: resultsEmailLink }, ["Didn't open? Click here to send it →"]);
+    sendNote.appendChild(document.createTextNode("An Outlook tab should have just opened with your result ready to go - press Send in there so Mrs Perkins gets it. "));
+    const resendLink = el("a", { href: resultsEmailLink, target: "_blank", rel: "noopener" }, ["Didn't open? Click here to send it →"]);
     sendNote.appendChild(resendLink);
     card.appendChild(sendNote);
 
@@ -659,7 +668,7 @@
         optList.appendChild(label);
       });
       block.appendChild(optList);
-      const flagLink = el("a", { class: "flag-link", href: buildFlagLink(s.title, qi, q) }, ["Think this is wrong? Email me →"]);
+      const flagLink = el("a", { class: "flag-link", href: buildFlagLink(s.title, qi, q), target: "_blank", rel: "noopener" }, ["Think this is wrong? Email me →"]);
       block.appendChild(el("div", { class: "q-footer" }, [
         el("span", {}, ["From " + q.originTitle]),
         flagLink
@@ -679,10 +688,11 @@
     card.appendChild(el("div", { class: "actions" }, [backBtn, retryBtn]));
     $app.appendChild(card);
 
-    // Auto-open the results email. This runs inside the same click handler
-    // chain as the Submit button, so browsers treat it as a genuine
-    // user-initiated action rather than blocking it as a popup.
-    window.location.href = resultsEmailLink;
+    // Auto-open Outlook compose in a new tab with the result ready to send.
+    // This runs inside the same click handler chain as the Submit button,
+    // so browsers treat it as a genuine user-initiated action rather than
+    // blocking it as a popup.
+    window.open(resultsEmailLink, "_blank", "noopener");
   }
 
   function render() {
