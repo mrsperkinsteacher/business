@@ -387,7 +387,7 @@
   // Google Apps Script Web App URL for the leaderboard (Mrs Perkins' own
   // Google Sheet - students never see or touch this). Leaderboard features
   // quietly disable themselves until this is set to a real /exec URL.
-  const LEADERBOARD_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+  const LEADERBOARD_URL = "https://script.google.com/macros/s/AKfycbxhKsEq6DNogsGSVQCvvGSid5QTdDBdDHUUPb0eH64c1pUAiPzXOfAznsMRIte0LKOt/exec";
   const leaderboardEnabled = () => LEADERBOARD_URL.indexOf("PASTE_YOUR") !== 0;
 
   const QUIZ_SETS = JSON.parse(document.getElementById("quiz-data").textContent);
