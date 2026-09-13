@@ -384,6 +384,12 @@
   // Where flagged questions and finished-quiz results get emailed.
   const TEACHER_EMAIL = "michelle.perkins@spcc.nsw.edu.au";
 
+  // Google Apps Script Web App URL for the leaderboard (Mrs Perkins' own
+  // Google Sheet - students never see or touch this). Leaderboard features
+  // quietly disable themselves until this is set to a real /exec URL.
+  const LEADERBOARD_URL = "PASTE_YOUR_APPS_SCRIPT_WEB_APP_URL_HERE";
+  const leaderboardEnabled = () => LEADERBOARD_URL.indexOf("PASTE_YOUR") !== 0;
+
   const QUIZ_SETS = JSON.parse(document.getElementById("quiz-data").textContent);
 
   const $app = document.getElementById("app");
@@ -451,6 +457,70 @@
     });
     card.appendChild(grid);
     $app.appendChild(card);
+
+    if (leaderboardEnabled()) {
+      const lbRow = el("div", { class: "actions" });
+      const lbBtn = el("button", { class: "btn btn-ghost" }, ["🏆 View leaderboard"]);
+      lbBtn.addEventListener("click", () => { state.view = "leaderboard"; render(); });
+      lbRow.appendChild(lbBtn);
+      $app.appendChild(lbRow);
+    }
+  }
+
+  function renderLeaderboard() {
+    $app.innerHTML = "";
+    $app.appendChild(el("header", { class: "hero" }, [
+      el("div", { class: "eyebrow" }, ["Best score per student"]),
+      el("h1", {}, ["Leaderboard"]),
+      el("p", { class: "sub" }, ["Shown by initials only - each student's best attempt across every set."])
+    ]));
+
+    const card = el("div", { class: "card" });
+    card.appendChild(el("p", { class: "hint" }, ["Loading..."]));
+    $app.appendChild(card);
+
+    const backBtn = el("button", { class: "btn btn-ghost" }, ["← All sets"]);
+    backBtn.addEventListener("click", () => { state.view = "picker"; render(); });
+
+    if (!leaderboardEnabled()) {
+      card.innerHTML = "";
+      card.appendChild(el("p", { class: "hint" }, ["The leaderboard isn't switched on yet."]));
+      card.appendChild(el("div", { class: "actions" }, [backBtn]));
+      return;
+    }
+
+    fetch(LEADERBOARD_URL)
+      .then(r => r.json())
+      .then(rows => {
+        card.innerHTML = "";
+        if (!rows.length) {
+          card.appendChild(el("p", { class: "hint" }, ["No results yet - be the first!"]));
+        } else {
+          const table = el("table", { class: "results-table" });
+          table.appendChild(el("thead", {}, [el("tr", {}, [
+            el("th", {}, ["Rank"]), el("th", {}, ["Initials"]), el("th", {}, ["Best score"]), el("th", {}, ["Set"])
+          ])]));
+          const tbody = el("tbody");
+          rows.forEach((r, i) => {
+            const pct = Math.round((r.score / r.total) * 100);
+            tbody.appendChild(el("tr", {}, [
+              el("td", {}, [String(i + 1)]),
+              el("td", {}, [r.initials]),
+              el("td", {}, [r.score + "/" + r.total + " (" + pct + "%)"]),
+              el("td", {}, [r.setTitle])
+            ]));
+          });
+          table.appendChild(tbody);
+          const scroll = el("div", { class: "table-scroll" }, [table]);
+          card.appendChild(scroll);
+        }
+        card.appendChild(el("div", { class: "actions" }, [backBtn]));
+      })
+      .catch(() => {
+        card.innerHTML = "";
+        card.appendChild(el("p", { class: "hint" }, ["Couldn't load the leaderboard just now - try again shortly."]));
+        card.appendChild(el("div", { class: "actions" }, [backBtn]));
+      });
   }
 
   function renderInitialsGate() {
@@ -537,6 +607,21 @@
     }
 
     return outlookComposeLink(subject, body);
+  }
+
+  // Fire-and-forget write to the leaderboard sheet. Uses text/plain as the
+  // content type and mode:"no-cors" so the browser treats this as a simple
+  // request - Apps Script doesn't handle CORS preflight requests, so this
+  // is the reliable way to post to it from another origin. We can't read
+  // a response back this way, which is fine since we don't need one.
+  function postToLeaderboard(initials, setTitle, score, total) {
+    if (!leaderboardEnabled()) return;
+    fetch(LEADERBOARD_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify({ initials: initials, setTitle: setTitle, score: score, total: total })
+    }).catch(() => {});
   }
 
   function renderQuestionBody(block, q) {
@@ -693,6 +778,8 @@
     // so browsers treat it as a genuine user-initiated action rather than
     // blocking it as a popup.
     window.open(resultsEmailLink, "_blank", "noopener");
+
+    postToLeaderboard(state.initials, s.title, correct, total);
   }
 
   function render() {
@@ -701,6 +788,7 @@
     else if (state.view === "initials") renderInitialsGate();
     else if (state.view === "quiz") renderQuiz();
     else if (state.view === "results") renderResults();
+    else if (state.view === "leaderboard") renderLeaderboard();
   }
 
   render();
