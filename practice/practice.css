@@ -32,4 +32,6 @@ ul{padding-left:22px;margin:6px 0}li{margin:3px 0}
 .tile:hover{border-color:var(--gold2)}.tile b{color:var(--ops)}
 .tile span{display:block;font-size:14px;color:var(--muted);margin-top:4px}
 h3.sub{font-family:var(--display);font-weight:400;color:var(--navy);font-size:22px;margin:24px 0 10px}
+.top a.il{margin-left:auto;color:var(--gold);opacity:1;font-weight:700}
+.foot{text-align:center;font-size:14px;line-height:2;padding:10px 16px 0;color:var(--muted)}
 footer{color:var(--muted);font-size:13px;padding:20px 0 40px;text-align:center}
