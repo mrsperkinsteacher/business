@@ -67,6 +67,7 @@
       <p class="mz-rule">To master a set: pick one set, then tap Got it on every card in one go. If you tap Still learning, start the set again.</p>
       <p class="mz-warn"><strong>Be honest:</strong> only tap Got it if you really know the answer. If you send in a code, Mrs Perkins will test you on that set in class :)</p>
       <div class="mz-nick"><label for="mz-nick">My nickname</label><input id="mz-nick" maxlength="12" placeholder="e.g. JD or Rocket" autocomplete="off"><button type="button" class="mz-small" id="mz-nick-save">Save</button><span id="mz-nick-msg"></span></div>
+      <p class="mz-warn"><strong>Keep it appropriate:</strong> your nickname goes up on the class leaderboard. Mrs Perkins checks every nickname first, and anything inappropriate will not go up :)</p>
       <details id="mz-codes-wrap"><summary>My codes</summary>
         <ul class="mz-codes" id="mz-codes"></ul>
         <button type="button" class="mz-small" id="mz-copyall">Copy all my codes</button>
@@ -155,7 +156,7 @@
   document.getElementById('mz-ov-close').onclick=function(){ ov.classList.remove('show'); };
   window.y12Mastered=function(k){
     var nick=cleanNick(get(NK,'')||nickIn.value);
-    while(nick.length<2){ var a=window.prompt('Well done! Enter your nickname for the leaderboard (2 to 12 letters or numbers):',''); if(a===null){ return; } nick=cleanNick(a); }
+    while(nick.length<2){ var a=window.prompt('Well done! Enter your nickname for the leaderboard (2 to 12 letters or numbers). Keep it appropriate - Mrs Perkins checks every one.',''); if(a===null){ return; } nick=cleanNick(a); }
     put(NK,nick); nickIn.value=nick;
     data[k]={code:makeCode(k,nick,new Date()),date:new Date().toISOString().slice(0,10)}; put(K,data); draw(); show(k);
   };
