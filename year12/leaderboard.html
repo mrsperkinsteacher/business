@@ -30,9 +30,12 @@
 .bar{height:12px;background:var(--cream);border-radius:999px;overflow:hidden;min-width:90px}
 .bar i{display:block;height:100%;background:var(--ops);border-radius:999px}
 .num{font-weight:700;white-space:nowrap}
-.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;width:100%;max-width:440px;min-width:0}
-.dots span{aspect-ratio:1;border-radius:5px;background:var(--cream);color:#9aa8ae;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;width:100%;max-width:560px;min-width:0}
+.dots span{position:relative;aspect-ratio:1;border-radius:6px;background:var(--cream);color:#9aa8ae;font-size:14px;font-weight:700;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05}
+.dots span small{font-size:9px;font-weight:600;opacity:.9;margin-top:2px}
 .dots span.on{background:var(--ops);color:#fff}
+.dots span.ok{background:var(--gold);color:var(--navy)}
+.dots span.ok::after{content:"";position:absolute;top:3px;right:4px;width:5px;height:9px;border:solid var(--navy);border-width:0 2px 2px 0;transform:rotate(45deg)}
 .setcell{display:flex;gap:12px;align-items:center}
 .lb-key{font-size:13px;color:var(--muted);margin:12px 0 0}
 .lb-key b{display:inline-block;width:14px;height:14px;border-radius:4px;background:var(--ops);vertical-align:-2px;margin-right:4px}
@@ -47,7 +50,7 @@ body.embed{background:transparent}
 body.embed .topbar,body.embed .topic-hero,body.embed .how,body.embed .pagenav,body.embed footer{display:none}
 body.embed main{padding:0!important;max-width:none}
 body.embed .lb{box-shadow:none;padding:14px}
-@media (max-width:560px){.podium{grid-template-columns:1fr}.p1{order:-1}.lb td.when,.lb th.when{display:none}.lb{padding:16px}.lb td,.lb th{padding:8px 6px}.lb td.rank{width:34px;font-size:20px}.setcell{flex-direction:column;align-items:flex-start;gap:4px}.dots{gap:3px}.dots span{font-size:10px;border-radius:4px}}
+@media (max-width:560px){.podium{grid-template-columns:1fr}.p1{order:-1}.lb td.when,.lb th.when{display:none}.lb{padding:16px}.lb td,.lb th{padding:8px 6px}.lb td.rank{width:34px;font-size:20px}.setcell{flex-direction:column;align-items:flex-start;gap:4px}.dots{gap:4px;grid-template-columns:repeat(5,1fr)}.dots span{font-size:12px;border-radius:5px}.dots span small{font-size:8px}.dots span.ok::after{top:2px;right:2px;width:3px;height:6px;border-width:0 1.5px 1.5px 0}}
 </style>
 </head>
 <body>
@@ -82,7 +85,7 @@ body.embed .lb{box-shadow:none;padding:14px}
   </div>
   <div class="pagenav"><a href="flashcards.html">Flashcards</a><a href="../year12.html">Back to Year 12</a></div>
 </main>
-<footer class="site">Mrs Perkins - Page updated 30 Oct 2026, 10:03 AM</footer>
+<footer class="site">Mrs Perkins - Page updated 30 Oct 2026, 10:31 AM</footer>
 <script>
 (function(){
   if(/[?&]embed=1/.test(location.search)) document.body.classList.add('embed');
@@ -105,11 +108,12 @@ body.embed .lb{box-shadow:none;padding:14px}
     html+='<table><thead><tr><th>Rank</th><th>Nickname</th><th>Sets mastered</th><th class="when">Last set</th></tr></thead><tbody>';
     rows.forEach(function(p){
       var pct=Math.round(100*p.sets/total);
-      var have={}; (p.list||[]).forEach(function(n){have[n]=1});
-      var dots=''; for(var n=1;n<=total;n++) dots+='<span class="'+(have[n]?'on':'')+'" title="Set '+n+(have[n]?' mastered':'')+'">'+n+'</span>';
+      var have={}; (p.detail||(p.list||[]).map(function(n){return{n:n}})).forEach(function(x){have[x.n]=x});
+      var dots=''; for(var n=1;n<=total;n++){var h=have[n];
+        dots+='<span class="'+(h?(h.ok?'ok':'on'):'')+'" title="Set '+n+(h?(' mastered'+(h.d?' '+h.d:'')+(h.ok?', checked by Mrs Perkins':'')):'')+'">'+n+(h&&h.d?'<small>'+h.d+'</small>':'')+'</span>';}
       html+='<tr><td class="rank">'+p.rank+'</td><td class="nick">'+esc(p.nick)+'</td><td><div class="setcell"><div class="dots" aria-label="Sets mastered: '+((p.list||[]).join(', ')||'none')+'">'+dots+'</div><span class="num">'+p.sets+' / '+total+'</span></div></td><td class="when">'+esc(p.last||'')+'</td></tr>';
     });
-    body.innerHTML=html+'</tbody></table><p class="lb-key"><b></b>Filled square = set mastered.</p>';
+    body.innerHTML=html+'</tbody></table><p class="lb-key"><b></b>Green = set mastered, with the date. <b style="background:var(--gold)"></b>Gold with a tick = checked by Mrs Perkins in class.</p>';
   }
   fetch('leaderboard.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(render)
     .catch(function(){body.innerHTML='<div class="empty">The leaderboard could not load. Try again soon.</div>'});
