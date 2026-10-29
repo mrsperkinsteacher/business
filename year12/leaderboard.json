@@ -1,5 +1,12 @@
 {
  "totalSets": 20,
  "updated": "30 Oct 2026",
- "players": []
+ "players": [
+  {
+   "rank": 1,
+   "nick": "PERKO",
+   "sets": 1,
+   "last": "30 Oct"
+  }
+ ]
 }
