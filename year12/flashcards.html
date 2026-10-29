@@ -32,6 +32,7 @@
 .mz-box h3{font-family:'DM Serif Display',serif;font-weight:400;color:#003146;font-size:28px;margin:6px 0}
 .mz-big{display:block;font:800 22px ui-monospace,Menlo,monospace;letter-spacing:.06em;color:#003146;background:#fff;border:2px dashed #003146;border-radius:12px;padding:12px;margin:12px 0;word-break:break-all}
 .mz-box p{color:#3c4a55;font-size:14px;margin:6px 0}
+.mz-warn{background:#fff6d6;border-left:4px solid #ffc20e;border-radius:8px;padding:8px 12px;color:#003146!important;font-size:14px;margin:8px 0!important;text-align:left}
 </style>
 </head>
 <body>
@@ -64,6 +65,7 @@
       <p class="mz-total" id="mz-total"></p>
       <div class="mz-sets" id="mz-sets"></div>
       <p class="mz-rule">To master a set: pick one set, then tap Got it on every card in one go. If you tap Still learning, start the set again.</p>
+      <p class="mz-warn"><strong>Be honest:</strong> only tap Got it if you really know the answer. If you send in a code, Mrs Perkins will test you on that set in class :)</p>
       <div class="mz-nick"><label for="mz-nick">My nickname</label><input id="mz-nick" maxlength="12" placeholder="e.g. JD or Rocket" autocomplete="off"><button type="button" class="mz-small" id="mz-nick-save">Save</button><span id="mz-nick-msg"></span></div>
       <details id="mz-codes-wrap"><summary>My codes</summary>
         <ul class="mz-codes" id="mz-codes"></ul>
@@ -81,6 +83,7 @@
     <p id="mz-ov-set"></p>
     <span class="mz-big" id="mz-ov-code"></span>
     <p>Copy this code and send it to Mrs Perkins on Teams or email. It is also saved under My codes.</p>
+    <p class="mz-warn"><strong>Remember:</strong> send this code only if you really know this set. You will be tested on it in class :)</p>
     <p style="margin-top:14px"><button type="button" class="fc-btn ok" id="mz-ov-copy">Copy code</button> <button type="button" class="fc-btn" id="mz-ov-close">Close</button></p>
   </div>
 </div>
