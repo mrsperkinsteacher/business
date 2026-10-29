@@ -30,6 +30,12 @@
 .bar{height:12px;background:var(--cream);border-radius:999px;overflow:hidden;min-width:90px}
 .bar i{display:block;height:100%;background:var(--ops);border-radius:999px}
 .num{font-weight:700;white-space:nowrap}
+.dots{display:grid;grid-template-columns:repeat(10,1fr);gap:5px;width:100%;max-width:440px;min-width:0}
+.dots span{aspect-ratio:1;border-radius:5px;background:var(--cream);color:#9aa8ae;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.dots span.on{background:var(--ops);color:#fff}
+.setcell{display:flex;gap:12px;align-items:center}
+.lb-key{font-size:13px;color:var(--muted);margin:12px 0 0}
+.lb-key b{display:inline-block;width:14px;height:14px;border-radius:4px;background:var(--ops);vertical-align:-2px;margin-right:4px}
 .empty{text-align:center;padding:30px 10px;color:var(--muted)}
 .empty strong{display:block;font-family:var(--display);font-weight:400;font-size:28px;color:var(--navy);margin-bottom:6px}
 .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:20px}
@@ -41,7 +47,7 @@ body.embed{background:transparent}
 body.embed .topbar,body.embed .topic-hero,body.embed .how,body.embed .pagenav,body.embed footer{display:none}
 body.embed main{padding:0!important;max-width:none}
 body.embed .lb{box-shadow:none;padding:14px}
-@media (max-width:560px){.podium{grid-template-columns:1fr}.p1{order:-1}.lb td.when,.lb th.when{display:none}}
+@media (max-width:560px){.podium{grid-template-columns:1fr}.p1{order:-1}.lb td.when,.lb th.when{display:none}.lb{padding:16px}.lb td,.lb th{padding:8px 6px}.lb td.rank{width:34px;font-size:20px}.setcell{flex-direction:column;align-items:flex-start;gap:4px}.dots{gap:3px}.dots span{font-size:10px;border-radius:4px}}
 </style>
 </head>
 <body>
@@ -76,7 +82,7 @@ body.embed .lb{box-shadow:none;padding:14px}
   </div>
   <div class="pagenav"><a href="flashcards.html">Flashcards</a><a href="../year12.html">Back to Year 12</a></div>
 </main>
-<footer class="site">Mrs Perkins - Page updated 30 Oct 2026, 1:51 AM</footer>
+<footer class="site">Mrs Perkins - Page updated 30 Oct 2026, 10:03 AM</footer>
 <script>
 (function(){
   if(/[?&]embed=1/.test(location.search)) document.body.classList.add('embed');
@@ -99,9 +105,11 @@ body.embed .lb{box-shadow:none;padding:14px}
     html+='<table><thead><tr><th>Rank</th><th>Nickname</th><th>Sets mastered</th><th class="when">Last set</th></tr></thead><tbody>';
     rows.forEach(function(p){
       var pct=Math.round(100*p.sets/total);
-      html+='<tr><td class="rank">'+p.rank+'</td><td class="nick">'+esc(p.nick)+'</td><td><div style="display:flex;gap:10px;align-items:center"><div class="bar" style="flex:1"><i style="width:'+pct+'%"></i></div><span class="num">'+p.sets+' / '+total+'</span></div></td><td class="when">'+esc(p.last||'')+'</td></tr>';
+      var have={}; (p.list||[]).forEach(function(n){have[n]=1});
+      var dots=''; for(var n=1;n<=total;n++) dots+='<span class="'+(have[n]?'on':'')+'" title="Set '+n+(have[n]?' mastered':'')+'">'+n+'</span>';
+      html+='<tr><td class="rank">'+p.rank+'</td><td class="nick">'+esc(p.nick)+'</td><td><div class="setcell"><div class="dots" aria-label="Sets mastered: '+((p.list||[]).join(', ')||'none')+'">'+dots+'</div><span class="num">'+p.sets+' / '+total+'</span></div></td><td class="when">'+esc(p.last||'')+'</td></tr>';
     });
-    body.innerHTML=html+'</tbody></table>';
+    body.innerHTML=html+'</tbody></table><p class="lb-key"><b></b>Filled square = set mastered.</p>';
   }
   fetch('leaderboard.json?t='+Date.now(),{cache:'no-store'}).then(function(r){return r.json()}).then(render)
     .catch(function(){body.innerHTML='<div class="empty">The leaderboard could not load. Try again soon.</div>'});
