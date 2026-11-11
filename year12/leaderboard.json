@@ -1,9 +1,32 @@
 {
  "totalSets": 20,
- "updated": "30 Oct 2026",
+ "updated": "12 Nov 2026",
  "players": [
   {
    "rank": 1,
+   "nick": "LOGAN",
+   "sets": 2,
+   "last": "12 Nov",
+   "list": [
+    4,
+    6
+   ],
+   "detail": [
+    {
+     "n": 4,
+     "d": "12/11",
+     "ok": false
+    },
+    {
+     "n": 6,
+     "d": "12/11",
+     "ok": false
+    }
+   ],
+   "ticked": 0
+  },
+  {
+   "rank": 2,
    "nick": "PERKO",
    "sets": 1,
    "last": "30 Oct",
