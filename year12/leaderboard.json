@@ -30,23 +30,6 @@
     }
    ],
    "ticked": 0
-  },
-  {
-   "rank": 2,
-   "nick": "PERKO",
-   "sets": 1,
-   "last": "30 Oct",
-   "list": [
-    1
-   ],
-   "detail": [
-    {
-     "n": 1,
-     "d": "30/10",
-     "ok": false
-    }
-   ],
-   "ticked": 0
   }
  ]
 }
