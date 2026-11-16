@@ -1,195 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Business Studies - Mrs Perkins</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Lora:ital@1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Mrs Perkins' Business Studies - Year 11 and Year 12 lessons, revision and study tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;600;800&family=Caveat:wght@700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --grad-start: #e8d5c4;
-    --grad-mid: #ddd0e0;
-    --grad-end: #c9cce8;
-    --text-dark: #2d2535;
-    --text-mid: #5a5268;
-    --text-light: #8a849a;
-    --card-bg: rgba(255,255,255,0.82);
-    --card-border: rgba(255,255,255,0.6);
-    --accent-warm: #c9a98a;
-    --accent-cool: #8f8fc4;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body {
-    font-family: 'Inter', system-ui, sans-serif;
-    min-height: 100vh;
-    background: linear-gradient(135deg, var(--grad-start) 0%, var(--grad-mid) 50%, var(--grad-end) 100%);
-    background-attachment: fixed;
-    color: var(--text-dark);
-    line-height: 1.6;
-  }
-  nav {
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(255,255,255,0.4);
-  }
-  nav a { color: var(--text-mid); text-decoration: none; font-size: 0.82rem; letter-spacing: 0.03em; transition: color 0.15s; }
-  nav a:hover { color: var(--text-dark); }
-  nav .sep { color: var(--text-light); font-size: 0.75rem; }
-
-  .hero {
-    text-align: center;
-    padding: 4rem 1.5rem 3rem;
-  }
-  .hero-eyebrow {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--text-light);
-    margin-bottom: 1rem;
-  }
-  .hero h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 6vw, 3.8rem);
-    font-weight: 800;
-    color: var(--text-dark);
-    letter-spacing: -0.02em;
-    line-height: 1.1;
-    margin-bottom: 0.5rem;
-  }
-  .hero-sub {
-    font-family: 'Lora', serif;
-    font-style: italic;
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
-    color: var(--text-mid);
-    margin-bottom: 1.5rem;
-  }
-  .hero-rule {
-    width: 40px;
-    height: 1px;
-    background: var(--text-light);
-    margin: 0 auto 1.5rem;
-    opacity: 0.5;
-  }
-  .hero p {
-    font-size: 0.95rem;
-    color: var(--text-mid);
-    max-width: 520px;
-    margin: 0 auto;
-  }
-
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.25rem;
-    max-width: 860px;
-    margin: 0 auto 4rem;
-    padding: 0 1.5rem;
-  }
-
-  .card {
-    background: var(--card-bg);
-    backdrop-filter: blur(10px);
-    border: 1px solid var(--card-border);
-    border-radius: 16px;
-    padding: 1.75rem 1.5rem;
-    box-shadow: 0 2px 20px rgba(45,37,53,0.06);
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 28px rgba(45,37,53,0.10);
-  }
-  .card.disabled {
-    opacity: 0.55;
-    cursor: default;
-    pointer-events: none;
-  }
-  .card-eyebrow {
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-light);
-  }
-  .card h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    line-height: 1.2;
-  }
-  .card p {
-    font-size: 0.85rem;
-    color: var(--text-mid);
-    line-height: 1.55;
-    flex: 1;
-  }
-  .card-link {
-    font-size: 0.8rem;
-    color: var(--accent-cool);
-    font-weight: 500;
-    margin-top: 0.5rem;
-  }
-  .card.disabled .card-link {
-    color: var(--text-light);
-  }
-
-  footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    font-size: 0.78rem;
-    color: var(--text-light);
-  }
-  footer a { color: var(--text-mid); text-decoration: none; }
-  footer a:hover { color: var(--text-dark); }
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.55 Inter,system-ui,sans-serif;color:#1f2a30;background:#fbf8ec;background-image:linear-gradient(rgba(107,100,32,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(107,100,32,.06) 1px,transparent 1px);background-size:28px 28px}
+a{color:inherit;text-decoration:none} h1,h2{text-wrap:balance}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.trail{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:14px 0 6px;color:#5b6b73}
+.trail a:hover{text-decoration:underline} .trail i{margin:0 .45em;font-style:normal}
+.trail .ilearn{font-weight:700;background:#003146;color:#ffc20e;padding:5px 12px;border-radius:20px}
+.top{text-align:center;padding:26px 0 22px}
+.top small{font-weight:800;letter-spacing:.24em;font-size:12px;color:#6b6420}
+.top h1{margin:6px 0 4px;font:400 clamp(48px,7vw,84px)/1 "DM Serif Display",serif;color:#003146}
+.top p{margin:0;font:700 28px Caveat,cursive;color:#c8692a}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.door{position:relative;border-radius:26px;overflow:hidden;min-height:420px;padding:34px 36px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:0 18px 40px rgba(0,49,70,.18);transition:transform .25s,box-shadow .25s}
+.door:hover{transform:translateY(-6px);box-shadow:0 26px 50px rgba(0,49,70,.26)}
+.door>*:not(svg):not(img){position:relative;z-index:2}
+.door .k{font-weight:800;letter-spacing:.2em;font-size:12px}
+.door h2{margin:6px 0 4px;font:400 64px/1 "DM Serif Display",serif}
+.door .tag{font:700 28px Caveat,cursive}
+.door p{margin:8px 0 0;max-width:24em}
+.door .go{margin-top:18px;align-self:flex-start;font-weight:800;border-radius:30px;padding:10px 20px}
+.y11{background:#fffdf5;border:2px solid #efe3b8;color:#003146}
+.y11 .k{color:#6b6420} .y11 .tag{color:#c8692a} .y11 .tag span{background:linear-gradient(transparent 55%,#ffd75e 55%)}
+.y11 .go{background:#003146;color:#ffc20e}
+.y11 svg{position:absolute;right:18px;top:22px;width:62%;height:150px;opacity:.95}
+.y11::before{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:#fff3b0}
+.y12::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(200deg,rgba(0,40,50,0) 30%,rgba(0,40,50,.9) 62%)}
+.y12{color:#fff;background:linear-gradient(180deg,rgba(0,49,70,.0) 20%,rgba(0,40,50,.92) 72%),url(year12/assets/tsp/ts24.webp) center/cover,#0f3b3d}
+.y12 .k{color:#ffc20e} .y12 .tag{color:#8ac5cf}
+.y12 .air{position:absolute;right:-24px;top:-28px;width:56%;filter:drop-shadow(0 12px 20px rgba(0,0,0,.4))}
+.y12 .gear{z-index:2;position:absolute;left:24px;top:24px;width:90px;opacity:.85;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.y12 .gear{animation:none}}
+.y12 .go{background:#ffc20e;color:#003146}
+.sh{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin:46px 0 16px}
+.sh h2{margin:0;font:400 clamp(32px,4vw,44px)/1 "DM Serif Display",serif;color:#003146}
+.sh p{margin:0 0 4px;font:700 24px Caveat,cursive;color:#c8692a}
+.shelf{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;padding-bottom:18px;border-bottom:14px solid #b8864b;box-shadow:0 10px 0 -4px #8f6434;border-radius:0 0 4px 4px}
+.book{background:#fff;border-radius:14px;border-top:8px solid var(--c);padding:16px 14px 18px;text-align:center;box-shadow:0 8px 18px rgba(0,0,0,.08);display:flex;flex-direction:column;align-items:center;gap:4px;transition:transform .2s}
+.book:hover{transform:translateY(-5px) rotate(-1deg)}
+.book img{height:96px;object-fit:contain;margin-bottom:6px}
+.book b{font:400 21px/1.1 "DM Serif Display",serif;color:#003146}
+.book small{font-size:12.5px;color:#5b6b73;line-height:1.35}
+footer{text-align:center;padding:40px 20px 44px;font-size:12.5px;color:#5b6b73} footer a{text-decoration:underline}
+@media(max-width:900px){.doors{grid-template-columns:1fr}.shelf{grid-template-columns:1fr 1fr}.door h2{font-size:52px}}
 </style>
 </head>
 <body>
-
-<nav>
-  <a href="https://mrsperkinsteacher.github.io/">Home</a>
-  <span class="sep">/</span>
-  <a href="https://mrsperkinsteacher.github.io/business/">Business Studies</a>
-  <a href="https://ilearn.gosford.spcc.nsw.edu.au/" style="margin-left:auto;font-weight:600">Back to School</a>
-</nav>
-
-<div class="hero">
-  <div class="hero-eyebrow">Mrs Perkins</div>
-  <h1>Business Studies</h1>
-  <div class="hero-sub">Preliminary and HSC</div>
-  <div class="hero-rule"></div>
-  <p>Find your year group below for lessons, resources, revision materials and course information.</p>
+<div class="wrap">
+<nav class="trail" aria-label="Breadcrumb"><span><a href="https://mrsperkinsteacher.github.io/">Home</a><i>/</i><span>Business Studies</span></span><a class="ilearn" href="https://ilearn.gosford.spcc.nsw.edu.au/">Back to School</a></nav>
+<header class="top"><small>MRS PERKINS &middot; STAGE 6</small><h1>Business Studies</h1><p>Every great business started as someone's idea.</p></header>
+<div class="doors">
+ <a class="door y11" href="https://mrsperkinsteacher.github.io/business/year11.html">
+  <svg viewBox="0 0 400 220" aria-hidden="true"><g stroke="#e8e1c8" stroke-width="1"><line x1="0" x2="400" y1="20" y2="20"/><line x1="0" x2="400" y1="50" y2="50"/><line x1="0" x2="400" y1="80" y2="80"/><line x1="0" x2="400" y1="110" y2="110"/><line x1="0" x2="400" y1="140" y2="140"/><line x1="0" x2="400" y1="170" y2="170"/><line x1="0" x2="400" y1="200" y2="200"/></g><path d="M10 190 C80 170 130 160 170 140 S260 100 300 80 360 40 385 30 L385 220 L10 220Z" fill="#ffd75e" opacity=".35"/><path d="M10 190 C80 170 130 160 170 140 S260 100 300 80 360 40 385 30" fill="none" stroke="#003146" stroke-width="5" stroke-linecap="round"/><circle cx="90" cy="172" r="11" fill="#c8692a"/><circle cx="200" cy="128" r="11" fill="#6b6420"/><circle cx="300" cy="80" r="11" fill="#003146"/><circle cx="385" cy="30" r="12" fill="#892338"/><path d="M385 30 V0 L410 8 L385 16" fill="#892338"/></svg>
+  <div class="k">STAGE 6 PRELIMINARY</div><h2>Year 11</h2><div class="tag"><span>Your start-up year</span></div>
+  <p>Nature of Business, Business Planning and Business Management. Lessons, slides, worksheets and revision.</p>
+  <span class="go">Open Year 11</span></a>
+ <a class="door y12" href="https://mrsperkinsteacher.github.io/business/year12.html">
+  <img class="gear" src="year12/assets/tsp/ts133.webp" alt=""><img class="air" src="year12/assets/tsp/ts30.webp" alt="">
+  <div class="k">STAGE 6 HSC 2027</div><h2>Year 12</h2><div class="tag">Your HSC year</div>
+  <p>Operations, Marketing, Finance and Human Resources. Lessons, flashcards, videos and HSC tools.</p>
+  <span class="go">Open Year 12</span></a>
 </div>
-
-<div class="cards">
-  <a class="card" href="https://mrsperkinsteacher.github.io/business/year11.html">
-    <div class="card-eyebrow">Stage 6 Preliminary</div>
-    <h2>Year 11</h2>
-    <p>Nature of Business, Business Planning and Business Management. Lessons, worksheets, slides and revision resources.</p>
-    <div class="card-link">Visit Year 11 &rarr;</div>
-  </a>
-
-  <a class="card" href="https://mrsperkinsteacher.github.io/business/year12.html">
-    <div class="card-eyebrow">Stage 6 HSC</div>
-    <h2>Year 12</h2>
-    <p>Operations, Marketing, Finance and Human Resources. Term 4 2026 lessons will be added week by week.</p>
-    <div class="card-link">Visit Year 12 &rarr;</div>
-  </a>
+<div class="sh"><h2>The study shelf</h2><p>for Year 11 and Year 12</p></div>
+<div class="shelf"><a class="book" href="https://mrsperkinsteacher.github.io/business/toolkit.html" style="--c:#003146"><img src="year12/assets/tsp/ts173.webp" alt=""><b>Business Verb Lab</b><small>What each exam verb wants, plus a question decoder</small></a><a class="book" href="https://mrsperkinsteacher.github.io/business/sparks.html" style="--c:#c8692a"><img src="year12/assets/tsp/ts200.webp" alt=""><b>Question Sparks</b><small>24 quick practice questions with a tick-off tracker</small></a><a class="book" href="https://mrsperkinsteacher.github.io/business/revision.html" style="--c:#6b6420"><img src="year12/assets/tsp/ts75.webp" alt=""><b>Year 11 Revision Program</b><small>Week by week, all three topics</small></a><a class="book" href="https://mrsperkinsteacher.github.io/business/year12/student-of-the-week.html" style="--c:#892338"><img src="year12/assets/tsp/ts139.webp" alt=""><b>Student of the Week</b><small>Who earned it this Friday?</small></a><a class="book" href="https://mrsperkinsteacher.github.io/faith-and-study/" style="--c:#00645f"><img src="year12/assets/tsp/ts47.webp" alt=""><b>Faith and Study</b><small>Scripture and encouragement for busy weeks</small></a></div>
 </div>
-
-<footer>
-  Business Studies &middot; Educational use only<br>
-  <a href="https://mrsperkinsteacher.github.io/">Mrs Perkins</a> &middot; <a href="https://mrsperkinsteacher.github.io/">All subjects</a>
-</footer>
-
+<footer>Business Studies &middot; Educational use only &middot; <a href="https://mrsperkinsteacher.github.io/">All subjects</a><br>Artwork: Turquoise Steampunk by WondersArtist.</footer>
 </body>
 </html>

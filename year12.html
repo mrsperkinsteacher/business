@@ -60,7 +60,7 @@ footer.site small{display:block;margin-top:6px}
       <h2 id="now-title">This week: Operations</h2>
       <p id="now-text">Lessons, notes and practice for this week are on the Operations page.</p>
     </div>
-    <div class="count" id="count"><b id="count-num">-</b><span id="count-label">WEEKS TO TASK 1</span></div>
+    <div class="count" id="count"><b id="count-num">-</b><span id="count-label">DAYS TO TASK 1</span></div>
   </div>
 </div>
 
@@ -127,7 +127,7 @@ footer.site small{display:block;margin-top:6px}
 <div class="band">
   <div class="wrap">
     <img src="year12/assets/tsp/ts244.webp" alt="">
-    <div><h3>Task 1: Operations</h3><p>Term 4, Week 7. In-class multiple choice and a business report. Check your notification on iLearn for the full details.</p></div>
+    <div><h3>Task 1: Operations</h3><p>Friday 27 November (Term 4, Week 7). In-class multiple choice and a business report. Check your notification on iLearn for the full details.</p></div>
     <a class="btn" href="year12/operations.html">Go to Operations</a>
   </div>
 </div>
@@ -146,11 +146,11 @@ footer.site small{display:block;margin-top:6px}
   var label = document.getElementById('count-label');
   if (week >= 1 && week <= 8) {
     title.textContent = 'This week: Operations, Term 4 Week ' + week;
-    var task = new Date(2026, 10, 23); // Monday 23 November 2026, Term 4 Week 7
-    var days = Math.ceil((task - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / (24*60*60*1000));
-    if (days > 1) { num.textContent = days; label.textContent = 'DAYS TO TASK 1 WEEK'; }
-    else if (days === 1) { num.textContent = '1'; label.textContent = 'DAY TO TASK 1 WEEK'; }
-    else if (week === 7) { num.textContent = 'Now'; label.textContent = 'TASK 1 THIS WEEK'; }
+    var task = new Date(2026, 10, 27); // Friday 27 November 2026, Task 1 day (Term 4 Week 7)
+    var days = Math.round((task - new Date(now.getFullYear(), now.getMonth(), now.getDate())) / (24*60*60*1000));
+    if (days > 1) { num.textContent = days; label.textContent = 'DAYS TO TASK 1'; }
+    else if (days === 1) { num.textContent = '1'; label.textContent = 'DAY TO TASK 1'; }
+    else if (days === 0) { num.textContent = 'Today'; label.textContent = 'TASK 1 IS TODAY'; }
     else { num.textContent = 'Done'; label.textContent = 'TASK 1 COMPLETE'; }
   } else if (week > 8) {
     title.textContent = 'Summer break';
