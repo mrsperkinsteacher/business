@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Year 11 Business Studies - Mrs Perkins</title>
+<meta name="description" content="Year 11 Preliminary Business Studies - lessons, slides, worksheets and revision for Nature of Business, Business Planning and Business Management.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;600;800&family=Caveat:wght@600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.55 Inter,system-ui,sans-serif;color:#1f2a30;background:#fbf8ec;background-image:linear-gradient(rgba(107,100,32,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(107,100,32,.07) 1px,transparent 1px);background-size:28px 28px}
+a{color:inherit} h1,h2,h3{text-wrap:balance} p,li{text-wrap:pretty}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+.trail{display:flex;justify-content:space-between;align-items:center;font-size:12px;padding:14px 0 10px;color:#5b6b73}
+.trail a{text-decoration:none} .trail a:hover{text-decoration:underline} .trail i{margin:0 .45em;font-style:normal}
+.trail .ilearn{font-weight:700;background:#003146;color:#ffc20e;padding:5px 12px;border-radius:20px}
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:20px;align-items:center;background:#fffdf5;border-radius:24px;padding:34px 36px 26px;box-shadow:0 18px 40px rgba(0,49,70,.12);border:2px solid #efe6c2;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:#f9f2a2;opacity:.6;z-index:0}
+.hero > *{position:relative;z-index:1}
+.kick{margin:0;font-size:12px;font-weight:800;letter-spacing:.24em;color:#6b6420}
+.hero h1{margin:10px 0 6px;font:400 clamp(44px,6vw,76px)/.98 "DM Serif Display",serif;color:#003146}
+.mk{display:inline-block;font:400 clamp(26px,3.2vw,38px)/1.1 "Permanent Marker",Caveat,cursive;color:#c8692a;transform:rotate(-2deg);margin:6px 0 14px;position:relative}
+.mk::after{content:"";position:absolute;left:-2%;right:-2%;bottom:8%;height:38%;background:rgba(255,194,14,.5);z-index:-1;border-radius:4px}
+.hero p.sub{margin:0;font-size:17px;color:#3c4a52;max-width:520px}
+.chart{width:100%;height:auto;display:block}
+.chart .line{stroke-dasharray:1200;stroke-dashoffset:1200;animation:draw 2.2s ease-out forwards .3s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){.chart .line{animation:none;stroke-dashoffset:0}}
+.chart .mn{font:800 14px Inter,sans-serif;fill:#fff} .chart .ml{font:800 13px Inter,sans-serif;fill:#003146;letter-spacing:.06em} .chart .mt{font:700 18px Caveat,cursive;fill:#6b6420}
+.chart .ms circle{transition:r .2s} .chart .ms:hover circle{r:19}
+/* ticker */
+.ticker{margin:22px 0 0;background:#003146;color:#f9f2a2;border-radius:12px;overflow:hidden;white-space:nowrap;box-shadow:0 8px 18px rgba(0,49,70,.2)}
+.ticker .run{display:inline-block;padding:10px 0;animation:tick 150s linear infinite}
+.ticker span{display:inline-block;margin:0 22px;font:800 13px Inter,sans-serif;letter-spacing:.14em}
+.ticker b{color:#7ee0a1;font-weight:600;letter-spacing:.04em;text-transform:none;margin-left:6px}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker .run{animation:none}}
+/* toolkit */
+.sh{display:flex;align-items:end;gap:14px;flex-wrap:wrap;margin:44px 0 16px}
+.sh h2{margin:0;font:400 clamp(32px,4vw,46px)/1 "DM Serif Display",serif;color:#003146}
+.sh p{margin:0 0 4px;font:700 24px Caveat,cursive;color:#c8692a}
+.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.bcard{position:relative;display:flex;flex-direction:column;text-decoration:none;background:#fffdf7;border-radius:8px;padding:16px 16px 18px;min-height:150px;box-shadow:0 10px 20px rgba(0,0,0,.12);border-top:8px solid var(--c);transform:rotate(var(--r));transition:transform .25s}
+.bcard:hover{transform:rotate(0) translateY(-6px)}
+.bcard small{font-size:9px;font-weight:800;letter-spacing:.24em;color:#9a8f6a}
+.bcard b{margin:6px 0 6px;font:400 22px/1.1 "DM Serif Display",serif;color:#003146}
+.bcard span{font-size:13.5px;color:#4a5a63;margin-top:auto}
+/* folders */
+.folders{margin-top:10px}
+.ftabs{display:flex;gap:8px;align-items:end;padding-left:16px}
+.ftab{font:inherit;cursor:pointer;border:0;background:color-mix(in srgb,var(--c) 22%,#f3e7c4);color:#1f2a30;border-radius:14px 14px 0 0;padding:10px 22px 12px;font-weight:700;font-size:15px;display:flex;flex-direction:column;align-items:flex-start;transition:padding .2s}
+.ftab small{font-size:10px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--c)}
+.ftab.on{background:#f3e7c4;padding-top:16px;box-shadow:0 -4px 10px rgba(0,0,0,.06)}
+.ftab:hover{padding-top:16px}
+.panel{display:none;grid-template-columns:.9fr 1.3fr;gap:30px;background:#f3e7c4;border-radius:0 18px 18px 18px;padding:30px;box-shadow:0 18px 36px rgba(60,45,10,.18);position:relative}
+.panel.on{display:grid}
+.panel::before{content:"";position:absolute;inset:14px;border:2px dashed rgba(107,100,32,.25);border-radius:12px;pointer-events:none}
+.brief{position:relative;background:#fffdf7;border-radius:6px;padding:22px 24px;box-shadow:0 8px 16px rgba(0,0,0,.08);background-image:repeating-linear-gradient(#fffdf7 0 27px,#dce8ef 27px 28px);align-self:start}
+.stamp{display:inline-block;margin:0 0 6px;font:800 11px Inter,sans-serif;letter-spacing:.2em;color:var(--c);border:2px solid var(--c);border-radius:4px;padding:2px 8px;transform:rotate(-2deg)}
+.brief h2{margin:4px 0 8px;font:400 34px/1.05 "DM Serif Display",serif;color:#003146}
+.brief > p{margin:0 0 12px;font-size:14.5px;color:#3c4a52}
+.brief h3{margin:10px 0 6px;font:700 24px Caveat,cursive;color:var(--c)}
+.checks{list-style:none;margin:0;padding:0}
+.checks li{position:relative;padding:3px 0 3px 30px;font-size:14.5px;font-weight:600;line-height:22px}
+.checks li::before{content:"";position:absolute;left:0;top:4px;width:18px;height:18px;border:2px solid var(--c);border-radius:4px;background:#fff}
+.checks li::after{content:"";position:absolute;left:6px;top:6px;width:6px;height:11px;border:solid var(--c);border-width:0 3px 3px 0;transform:rotate(45deg)}
+.exam{display:block;margin-top:18px;text-decoration:none;background:#892338;color:#fff;border-radius:12px;padding:14px 18px;box-shadow:0 8px 16px rgba(137,35,56,.3);transition:transform .2s}
+.exam:hover{transform:translateY(-3px)}
+.exam b{display:block;font:400 24px "DM Serif Display",serif} .exam span{display:block;font-size:13.5px;opacity:.9} .exam i{display:inline-block;margin-top:8px;font-style:normal;font-weight:800;font-size:13px;background:#ffc20e;color:#3a0b11;padding:5px 12px;border-radius:20px}
+.laptop{margin:0 auto}
+.screen{background:#1b232a;border-radius:16px 16px 4px 4px;padding:14px 14px 18px;box-shadow:0 14px 30px rgba(0,0,0,.25)}
+.screen iframe{display:block;width:100%;aspect-ratio:16/10;border:0;border-radius:4px;background:#fff}
+.base{height:16px;margin:0 -4%;background:linear-gradient(#cfd5da,#9aa3ab);border-radius:0 0 18px 18px;position:relative}
+.base::before{content:"";position:absolute;left:50%;top:0;width:90px;height:6px;margin-left:-45px;background:#8a939b;border-radius:0 0 8px 8px}
+.cap{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:14px;font-size:14px}
+.cap b{display:inline-block;font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;background:var(--c);color:#fff;border-radius:20px;padding:2px 10px;margin-right:6px}
+.cap a{text-decoration:none;font-weight:800;color:#003146;border-bottom:2px solid #ffc20e}
+.weeks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}
+.wk{display:block;text-decoration:none;background:#fff59a;padding:14px 14px 12px;box-shadow:0 8px 14px rgba(0,0,0,.15);transform:rotate(-1.5deg);transition:transform .2s}
+.wk:nth-child(2){transform:rotate(1.5deg);background:#c9ecf1} .wk:nth-child(3){transform:rotate(-.8deg);background:#ffd3dc}
+a.wk:hover{transform:rotate(0) scale(1.04)}
+.wk small{display:block;font-size:10.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#5b4a1a}
+.wk b{display:block;margin:4px 0;font:400 19px/1.15 "DM Serif Display",serif;color:#003146}
+.wk i{font-style:normal;font:700 18px Caveat,cursive;color:#892338}
+.wk.soon{opacity:.75} .wk.soon b{font-family:Caveat,cursive;font-weight:700;font-size:22px;color:#6b6420}
+/* motivate */
+.mot{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;margin:46px 0 0;background:#003146;color:#fff;border-radius:22px;padding:28px 34px;box-shadow:0 14px 30px rgba(0,49,70,.25)}
+.mot p{margin:0;font:400 clamp(24px,3vw,34px)/1.2 "DM Serif Display",serif}
+.mot p em{color:#ffc20e;font-style:normal}
+.enc{font:700 26px Caveat,cursive;color:#f9f2a2;margin:8px 0 0!important;min-height:1.2em}
+.mot a{text-decoration:none;font-weight:800;background:#ffc20e;color:#003146;border-radius:30px;padding:12px 20px;white-space:nowrap}
+footer{text-align:center;padding:30px 20px 40px;font-size:12.5px;color:#5b6b73} footer a{color:#5b6b73}
+@media(max-width:980px){.hero{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}.panel.on{grid-template-columns:1fr}.mot{grid-template-columns:1fr}}
+@media(max-width:600px){.cards{grid-template-columns:1fr}.weeks{grid-template-columns:1fr}.ftab{padding:8px 12px 10px;font-size:13px}.hero{padding:24px 20px}.panel{padding:18px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="trail" aria-label="Breadcrumb"><span><a href="https://middleandbeyond.com.au/">Home</a><i>/</i><a href="https://middleandbeyond.com.au/business/">Business Studies</a><i>/</i><span>Year 11</span></span><a class="ilearn" href="https://ilearn.gosford.spcc.nsw.edu.au/">Back to School</a></nav>
+
+<header class="hero">
+ <div>
+  <p class="kick">STAGE 6 PRELIMINARY &middot; BUSINESS STUDIES</p>
+  <h1>Year 11 Business Studies</h1>
+  <span class="mk">Your start-up year</span>
+  <p class="sub">Every business grows from an idea, to a plan, to a team that runs it. Your Year 11 follows the same path. Pick a term to find your lessons, slides, worksheets and revision.</p>
+ </div>
+ <svg viewBox="0 0 660 320" class="chart" role="img" aria-label="A rising growth chart from Term 1 to the Preliminary exam">
+ <defs><linearGradient id="fillg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffc20e" stop-opacity=".45"/><stop offset="1" stop-color="#ffc20e" stop-opacity="0"/></linearGradient></defs>
+ <line x1="20" x2="640" y1="40" y2="40" stroke="#003146" stroke-opacity=".08"/><line x1="20" x2="640" y1="80" y2="80" stroke="#003146" stroke-opacity=".08"/><line x1="20" x2="640" y1="120" y2="120" stroke="#003146" stroke-opacity=".08"/><line x1="20" x2="640" y1="160" y2="160" stroke="#003146" stroke-opacity=".08"/><line x1="20" x2="640" y1="200" y2="200" stroke="#003146" stroke-opacity=".08"/><line x1="20" x2="640" y1="240" y2="240" stroke="#003146" stroke-opacity=".08"/><line x1="20" x2="640" y1="280" y2="280" stroke="#003146" stroke-opacity=".08"/>
+ <path d="M20 280 C 60 270, 60 250, 70 250 S 200 215, 250 190 S 380 150, 430 120 S 560 70, 590 50 L 590 300 L 20 300 Z" fill="url(#fillg)"/>
+ <path class="line" d="M20 280 C 60 270, 60 250, 70 250 S 200 215, 250 190 S 380 150, 430 120 S 560 70, 590 50" fill="none" stroke="#003146" stroke-width="6" stroke-linecap="round"/>
+ <a href="#term1" class="ms"><circle cx="70" cy="250" r="15" fill="#c8692a" stroke="#fff" stroke-width="4"/><text x="70" y="255" text-anchor="middle" class="mn">1</text><text x="70" y="290" text-anchor="middle" class="ml">Term 1</text><text x="70" y="308" text-anchor="middle" class="mt">The idea</text></a><a href="#term2" class="ms"><circle cx="250" cy="190" r="15" fill="#6b6420" stroke="#fff" stroke-width="4"/><text x="250" y="195" text-anchor="middle" class="mn">2</text><text x="250" y="230" text-anchor="middle" class="ml">Term 2</text><text x="250" y="248" text-anchor="middle" class="mt">The plan</text></a><a href="#term3" class="ms"><circle cx="430" cy="120" r="15" fill="#003146" stroke="#fff" stroke-width="4"/><text x="430" y="125" text-anchor="middle" class="mn">3</text><text x="430" y="160" text-anchor="middle" class="ml">Term 3</text><text x="430" y="178" text-anchor="middle" class="mt">Run the show</text></a><a href="#term3" class="ms"><circle cx="590" cy="50" r="15" fill="#892338" stroke="#fff" stroke-width="4"/><text x="590" y="55" text-anchor="middle" class="mn">!</text><text x="564" y="26" text-anchor="end" class="ml">Prelim</text><text x="564" y="44" text-anchor="end" class="mt">Exam ready</text></a>
+ <path d="M590 50 L590 0 L630 12 L590 24" fill="#892338" stroke="#892338" stroke-width="2"/>
+</svg>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="run"><span>STAKEHOLDERS <b>owners, staff, customers, community - everyone has a stake</b></span><span>SWOT <b>strengths and weaknesses are inside, opportunities and threats are outside</b></span><span>BREAK-EVEN <b>no profit, no loss - total revenue equals total costs</b></span><span>SMEs <b>small to medium enterprises - fewer than 200 employees</b></span><span>LIFE CYCLE <b>establishment, growth, maturity, post-maturity</b></span><span>LEGAL STRUCTURES <b>sole trader, partnership or company - who carries the risk?</b></span><span>INDUSTRY SECTORS <b>primary grows it, secondary makes it, tertiary sells it, quaternary knows it, quinary cares for you</b></span><span>GOALS <b>profit, growth, market share - and keeping shareholders happy</b></span><span>MANAGEMENT <b>classical, behavioural, political, contingency - four ways to run the show</b></span><span>ETHICS <b>legal is the minimum, ethical goes further</b></span><span>MANAGING CHANGE <b>driving forces push, restraining forces push back</b></span><span>PROFIT <b>revenue minus expenses - simple to say, harder to earn</b></span><span>STAKEHOLDERS <b>owners, staff, customers, community - everyone has a stake</b></span><span>SWOT <b>strengths and weaknesses are inside, opportunities and threats are outside</b></span><span>BREAK-EVEN <b>no profit, no loss - total revenue equals total costs</b></span><span>SMEs <b>small to medium enterprises - fewer than 200 employees</b></span><span>LIFE CYCLE <b>establishment, growth, maturity, post-maturity</b></span><span>LEGAL STRUCTURES <b>sole trader, partnership or company - who carries the risk?</b></span><span>INDUSTRY SECTORS <b>primary grows it, secondary makes it, tertiary sells it, quaternary knows it, quinary cares for you</b></span><span>GOALS <b>profit, growth, market share - and keeping shareholders happy</b></span><span>MANAGEMENT <b>classical, behavioural, political, contingency - four ways to run the show</b></span><span>ETHICS <b>legal is the minimum, ethical goes further</b></span><span>MANAGING CHANGE <b>driving forces push, restraining forces push back</b></span><span>PROFIT <b>revenue minus expenses - simple to say, harder to earn</b></span></div></div>
+
+<div class="sh"><h2>Your business toolkit</h2><p>use these all year</p></div>
+<div class="cards"><a class="bcard" href="https://middleandbeyond.com.au/business/multiple-choice.html" style="--c:#c8692a;--r:-3deg"><small>MRS PERKINS &amp; CO.</small><b>Multiple Choice</b><span>Practise and check your answers</span></a><a class="bcard" href="https://middleandbeyond.com.au/business/revision.html" style="--c:#6b6420;--r:2deg"><small>MRS PERKINS &amp; CO.</small><b>Year 11 Revision Program</b><span>Eight weeks to the Prelim exam</span></a><a class="bcard" href="https://middleandbeyond.com.au/business/toolkit.html#verb-guide" style="--c:#003146;--r:-1.5deg"><small>MRS PERKINS &amp; CO.</small><b>Command Verb Guide</b><span>What each verb is asking for</span></a><a class="bcard" href="https://middleandbeyond.com.au/business/toolkit.html?filter=quick-fire#question-sparks" style="--c:#892338;--r:2.5deg"><small>MRS PERKINS &amp; CO.</small><b>Quick Fire Questions</b><span>Fast recall on any topic</span></a><a class="bcard" href="https://middleandbeyond.com.au/faith-and-study/" style="--c:#00645f;--r:-2deg"><small>MRS PERKINS &amp; CO.</small><b>Faith and Study</b><span>Verses to hold on to and study tips that work</span></a></div>
+
+<div class="sh" id="terms"><h2>The three terms</h2><p>open a folder</p></div>
+<div class="folders">
+ <div class="ftabs" role="tablist"><button class="ftab" data-t="term1" style="--c:#c8692a" type="button"><small>Term 1</small>Nature of Business</button><button class="ftab" data-t="term2" style="--c:#6b6420" type="button"><small>Term 2</small>Business Planning</button><button class="ftab" data-t="term3" style="--c:#003146" type="button"><small>Term 3</small>Business Management</button></div>
+ 
+<section class="panel" id="term1" style="--c:#c8692a">
+ <div class="brief">
+  <p class="stamp">TERM 1 &middot; THE IDEA</p>
+  <h2>Nature of Business</h2>
+  <p>The role of business, types of business, industry sectors, legal structures, influences on business, stakeholders and the business life cycle.</p>
+  <h3>In this term</h3>
+  <ul class="checks"><li>The role of business</li><li>Types of business</li><li>Industry sectors</li><li>Legal structures</li><li>Influences on business</li><li>Stakeholders</li><li>The business life cycle</li></ul>
+  
+ </div>
+ <div class="show">
+  <div class="laptop"><div class="screen"><iframe src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2Fmrsperkinsteacher%2Fbusiness%2Fmain%2FNature%2520of%2520Business%2520-%2520TEACH%2520deck%2520for%2520iLearn%2520-%2520Revision.pdf" title="Nature of Business slides" loading="lazy"></iframe></div><div class="base"></div></div>
+  <div class="cap"><span><b>Slides</b> Nature of Business - Nature of Business</span><a href="https://raw.githubusercontent.com/mrsperkinsteacher/business/main/Nature%20of%20Business%20-%20TEACH%20deck%20for%20iLearn%20-%20Revision.pdf" target="_blank" rel="noopener">Open full screen &rarr;</a></div>
+  
+ </div>
+</section>
+<section class="panel" id="term2" style="--c:#6b6420">
+ <div class="brief">
+  <p class="stamp">TERM 2 &middot; THE PLAN</p>
+  <h2>Business Planning</h2>
+  <p>SMEs, establishing a business, influences on establishment, situational analysis, SWOT, goals and objectives, organising resources, break-even analysis and the critical issues in success and failure.</p>
+  <h3>In this term</h3>
+  <ul class="checks"><li>Small to medium enterprises (SMEs)</li><li>Establishing a business</li><li>Influences on establishment</li><li>Situational analysis and SWOT</li><li>Goals and objectives</li><li>Organising resources</li><li>Break-even analysis</li><li>Critical issues in success and failure</li></ul>
+  
+ </div>
+ <div class="show">
+  <div class="laptop"><div class="screen"><iframe src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2Fmrsperkinsteacher%2Fbusiness%2Fmain%2FBusiness%2520Planning%2520-%2520Establishing%2520an%2520SME%2520-%2520TEACH%2520deck%2520for%2520iLearn%2520-%2520Revision.pdf" title="Business Planning slides" loading="lazy"></iframe></div><div class="base"></div></div>
+  <div class="cap"><span><b>Slides</b> Business Planning - Establishing an SME</span><a href="https://raw.githubusercontent.com/mrsperkinsteacher/business/main/Business%20Planning%20-%20Establishing%20an%20SME%20-%20TEACH%20deck%20for%20iLearn%20-%20Revision.pdf" target="_blank" rel="noopener">Open full screen &rarr;</a></div>
+  <div class="weeks"><a class="wk" href="https://middleandbeyond.com.au/business/week7.html"><small>Week 7 &middot; Slides and Worksheet</small><b>Ch 12 - Business Planning Process</b><i>Due Thursday</i></a><div class="wk soon"><small>Week 8 &middot; Slides and Worksheet</small><b>Coming soon</b></div><div class="wk soon"><small>Week 9 &middot; Slides and Worksheet</small><b>Coming soon</b></div></div>
+ </div>
+</section>
+<section class="panel" id="term3" style="--c:#003146">
+ <div class="brief">
+  <p class="stamp">TERM 3 &middot; RUN THE SHOW</p>
+  <h2>Business Management and Exam Preparation</h2>
+  <p>Management skills and approaches, business goals, key business functions, financial statements, ethical behaviour, managing change - plus your eight-week revision program for the Preliminary exam.</p>
+  <h3>In this term</h3>
+  <ul class="checks"><li>Management skills and approaches</li><li>Business goals</li><li>Key business functions</li><li>Financial statements</li><li>Ethical behaviour</li><li>Managing change</li></ul>
+  <a class="exam" href="https://middleandbeyond.com.au/business/revision.html"><b>Prelim exam coming?</b><span>Your eight-week Year 11 Revision Program</span><i>Start revising &rarr;</i></a>
+ </div>
+ <div class="show">
+  <div class="laptop"><div class="screen"><iframe src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https%3A%2F%2Fraw.githubusercontent.com%2Fmrsperkinsteacher%2Fbusiness%2Fmain%2FBusiness%2520Management%2520-%2520Management%2520Process%2520-%2520TEACH%2520deck%2520for%2520iLearn%2520-%2520Revision.pdf" title="Business Management slides" loading="lazy"></iframe></div><div class="base"></div></div>
+  <div class="cap"><span><b>Slides</b> Business Management - The Management Process</span><a href="https://raw.githubusercontent.com/mrsperkinsteacher/business/main/Business%20Management%20-%20Management%20Process%20-%20TEACH%20deck%20for%20iLearn%20-%20Revision.pdf" target="_blank" rel="noopener">Open full screen &rarr;</a></div>
+  
+ </div>
+</section>
+</div>
+
+<div class="mot"><div><p>"Every great business started as someone's idea - <em>yours could be next.</em>"</p><p class="enc" id="enc"></p></div><a href="https://middleandbeyond.com.au/faith-and-study/">Faith and Study &rarr;</a></div>
+</div>
+<footer><p>Year 11 Preliminary Business Studies &middot; For educational purposes only. If in doubt, ask your teacher first. &middot; <a href="https://middleandbeyond.com.au/business/">Business Studies</a> &middot; <a href="https://middleandbeyond.com.au/">All subjects</a></p></footer>
+<script>
+(function(){
+ var tabs=document.querySelectorAll('.ftab'),panels=document.querySelectorAll('.panel');
+ function show(id,scroll){tabs.forEach(function(t){t.classList.toggle('on',t.dataset.t===id)});panels.forEach(function(p){p.classList.toggle('on',p.id===id)});if(scroll)document.getElementById('terms').scrollIntoView({behavior:'smooth'});}
+ tabs.forEach(function(t){t.addEventListener('click',function(){show(t.dataset.t);history.replaceState(null,'','#'+t.dataset.t);})});
+ document.querySelectorAll('.chart a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var id=a.getAttribute('href').slice(1);show(id,true);history.replaceState(null,'','#'+id);})});
+ var h=location.hash.slice(1);show(document.getElementById(h)&&/^term/.test(h)?h:'term3',!!h);
+})();
+(function(){var L=["Small steps every lesson add up to big understanding.", "Curious minds make great geographers.", "You do not have to be perfect - just keep going.", "Ask the question. Someone else is wondering too.", "Every map started as a blank page.", "Your effort today is tomorrow's confidence.", "Look closer. Geography is everywhere you go.", "Be kind, work hard, and enjoy the journey.", "Mistakes are proof you are trying.", "Every expert was once a beginner.", "Big questions lead to big discoveries.", "Keep asking why - that is where the learning lives.", "Progress, not perfection.", "You are capable of more than you think.", "Take a breath, then take the next step.", "The world is your classroom.", "Hard work grows strong minds.", "Help someone else understand - you will learn it twice.", "Read the map, then make your own path.", "Today is a great day to learn something new.", "And we know that in all things God works for the good of those who love him. - Romans 8:28", "If you are faithful in little things, you will be faithful in large ones. - Luke 16:10", "Keep on asking, and you will receive what you ask for. Keep on seeking, and you will find. - Matthew 7:7", "For I know the plans I have for you, declares the Lord... plans to give you hope and a future. - Jeremiah 29:11", "Whatever you do, work at it with all your heart. - Colossians 3:23", "The earth is the Lord's, and everything in it. - Psalm 24:1"];var e=document.getElementById("enc");if(e)e.textContent=L[Math.floor(Math.random()*L.length)];})();
+</script>
+</body>
+</html>
