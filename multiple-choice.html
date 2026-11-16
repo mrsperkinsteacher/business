@@ -395,11 +395,26 @@ gtag('config', 'G-NH0WN47NP2');
   // Where flagged questions and finished-quiz results get emailed.
   const TEACHER_EMAIL = ["michelle.perkins","spcc.nsw.edu.au"].join("@");
 
-  // Google Apps Script Web App URL for the leaderboard (Mrs Perkins' own
-  // Google Sheet - students never see or touch this). Leaderboard features
-  // quietly disable themselves until this is set to a real /exec URL.
-  const LEADERBOARD_URL = "https://script.google.com/macros/s/AKfycbxhKsEq6DNogsGSVQCvvGSid5QTdDBdDHUUPb0eH64c1pUAiPzXOfAznsMRIte0LKOt/exec";
-  const leaderboardEnabled = () => LEADERBOARD_URL.indexOf("PASTE_YOUR") !== 0;
+  // Leaderboard (from Nov 2026): students tap "Add my score", which opens
+  // Mrs Perkins' school Microsoft Form "Business Quiz Scores" with their
+  // initials, set and score filled in. Mrs Perkins checks the responses and
+  // the board below is updated from them (mc-leaderboard.json) - nicknames only.
+  const FORM_BASE = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=xZRuPd0wXkCFdkUXStihkEYkGuPeffBAm0ld9g02_-pURjRKOTJQSE9HMElFREQ2S0dVRU1HTzJMTy4u";
+  const FORM_FIELDS = { nick: "r4907e7f09ca740ec90ae62375525bb2e", quiz: "rd0d5c036e8b44923bdd5625999c87281", score: "r3ef201e680a64a7bbef6134c5a532995", code: "r51418d8e69514fa48c83b7b0d14eac83" };
+  const BOARD_JSON = "mc-leaderboard.json";
+  const leaderboardEnabled = () => true;
+  // Check code: a short fingerprint of initials + set + score, so a score
+  // typed in by hand in the Form will not match.
+  function checkCode(initials, setTitle, score, total) {
+    const s = [initials.trim().toUpperCase(), setTitle, score + "/" + total, "MBQ-2026"].join("|");
+    let h = 2166136261 >>> 0;
+    for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619) >>> 0; }
+    return h.toString(36).toUpperCase().padStart(7, "0").slice(-6);
+  }
+  function scoreFormLink(initials, setTitle, score, total) {
+    const q = (k, v) => "&" + FORM_FIELDS[k] + "=" + encodeURIComponent(v);
+    return FORM_BASE + q("nick", initials) + q("quiz", setTitle) + q("score", score + "/" + total) + q("code", checkCode(initials, setTitle, score, total));
+  }
 
   const QUIZ_SETS = JSON.parse(document.getElementById("quiz-data").textContent);
 
@@ -483,7 +498,7 @@ gtag('config', 'G-NH0WN47NP2');
     $app.appendChild(el("header", { class: "hero" }, [
       el("div", { class: "eyebrow" }, ["Best score per student"]),
       el("h1", {}, ["Leaderboard"]),
-      el("p", { class: "sub" }, ["Shown by initials only - each student's best attempt across every set."])
+      el("p", { class: "sub" }, ["Shown by initials only - each student's best attempt across every set. Mrs Perkins updates it each week."])
     ]));
 
     const card = el("div", { class: "card" });
@@ -500,7 +515,7 @@ gtag('config', 'G-NH0WN47NP2');
       return;
     }
 
-    fetch(LEADERBOARD_URL)
+    fetch(BOARD_JSON + "?t=" + Date.now())
       .then(r => r.json())
       .then(rows => {
         card.innerHTML = "";
@@ -620,21 +635,6 @@ gtag('config', 'G-NH0WN47NP2');
     return outlookComposeLink(subject, body);
   }
 
-  // Fire-and-forget write to the leaderboard sheet. Uses text/plain as the
-  // content type and mode:"no-cors" so the browser treats this as a simple
-  // request - Apps Script doesn't handle CORS preflight requests, so this
-  // is the reliable way to post to it from another origin. We can't read
-  // a response back this way, which is fine since we don't need one.
-  function postToLeaderboard(initials, setTitle, score, total) {
-    if (!leaderboardEnabled()) return;
-    fetch(LEADERBOARD_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
-      body: JSON.stringify({ initials: initials, setTitle: setTitle, score: score, total: total })
-    }).catch(() => {});
-  }
-
   function renderQuestionBody(block, q) {
     if (q.context) block.appendChild(el("div", { class: "q-context" }, [q.context]));
     if (q.images && q.images.length) {
@@ -742,6 +742,11 @@ gtag('config', 'G-NH0WN47NP2');
     sendNote.appendChild(resendLink);
     card.appendChild(sendNote);
 
+    const boardBox = el("div", { class: "sample-flag", style: "margin-top:12px" }, []);
+    boardBox.appendChild(el("p", { style: "margin:0 0 8px" }, ["Want to be on the leaderboard? Tap the button, then press Submit in the form that opens. You may need to sign in with your school account."]));
+    boardBox.appendChild(el("a", { class: "btn btn-primary", href: scoreFormLink(state.initials, s.title, correct, total), target: "_blank", rel: "noopener" }, ["Add my score"]));
+    card.appendChild(boardBox);
+
     s.questions.forEach((q, qi) => {
       const chosen = state.answers[qi];
       const isRight = chosen === q.correct;
@@ -790,7 +795,6 @@ gtag('config', 'G-NH0WN47NP2');
     // blocking it as a popup.
     window.open(resultsEmailLink, "_blank", "noopener");
 
-    postToLeaderboard(state.initials, s.title, correct, total);
   }
 
   function render() {
