@@ -77,7 +77,7 @@ gtag('config', 'G-NH0WN47NP2');
     <div>
       <span class="kicker">OPERATIONS FLASHCARDS</span>
       <h1>Flashcard Leaderboard</h1>
-      <p>Master a set, send your code to Mrs Perkins, and climb the board. There are 20 sets to master.</p>
+      <p>Master a set, send your code to Mrs Perkins, and climb the board. There are 17 sets to master.</p>
     </div>
     <img src="assets/award.webp" alt="">
   </div>
@@ -102,7 +102,7 @@ gtag('config', 'G-NH0WN47NP2');
   var body=document.getElementById('lb-body'), upd=document.getElementById('lb-updated');
   function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
   function render(d){
-    var rows=d.players||[], total=d.totalSets||20;
+    var rows=d.players||[], total=d.totalSets||17;
     if(d.updated) upd.textContent='Updated '+d.updated;
     if(!rows.length){
       body.innerHTML='<div class="empty"><strong>The board is empty</strong>Master a set and send your code to be first up here.</div>';
