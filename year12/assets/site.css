@@ -166,7 +166,7 @@ a.chip{background:var(--navy);color:#fff}
 .fc-back{background:var(--navy);color:#fff;border-top:10px solid var(--teal);transform:rotateY(180deg)}
 .fc-label{font-size:13px;font-weight:800;letter-spacing:.16em;color:var(--orange)}
 .fc-back .fc-label{color:var(--gold)}
-.fc-text{max-width:34em}
+.fc-text{max-width:34em;width:100%;text-align:left}
 .fc-front .fc-text{font-family:var(--display);font-size:clamp(26px,3.6vw,42px);line-height:1.15;color:var(--navy)}
 .fc-back .fc-text{font-size:clamp(17px,2vw,23px);line-height:1.5}
 .fc-hint{font-size:12px;color:var(--muted)}
